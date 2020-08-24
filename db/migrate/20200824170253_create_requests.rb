@@ -8,9 +8,8 @@ class CreateRequests < ActiveRecord::Migration[6.0]
       t.integer :size
       t.string :style
       t.text :description
-      t.references :client, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
-      t.boolean :is_accepted
+      t.boolean :accepted, default: false
       t.integer :price
 
       t.timestamps
