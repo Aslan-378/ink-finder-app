@@ -1,7 +1,3 @@
 class UsersController < ApplicationController
-    def show
-        @user = User.find(params[:id])
-        @requests = Request.all
-        @bookings = Booking.all
-    end
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
 end
