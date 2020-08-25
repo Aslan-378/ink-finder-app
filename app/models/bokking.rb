@@ -1,0 +1,2 @@
+class Bokking < ApplicationRecord
+end
