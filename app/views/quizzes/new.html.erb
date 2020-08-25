@@ -1,0 +1,11 @@
+<%= form_for(@quiz) do |f| %>
+  <%= f.label :style %>
+  <%= f.text_field :style %>
+  <%= f.label :meaning %>
+  <%= f.text_field :meaning %>
+  <%= f.label :category %>
+  <%= f.number_field :category %>
+  <%= f.label :representation %>
+  <%= f.number_field :representation %>
+  <%= f.submit %>
+<% end %>
