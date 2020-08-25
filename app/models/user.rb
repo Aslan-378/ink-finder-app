@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :requests
 
   def self.artist
-    @user.sort_by { |u| u.artist }
+    User.select { |u| u.artist }
   end
 end

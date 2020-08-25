@@ -1,9 +1,9 @@
 <h1>Artists index</h1>
 
-<% if @user.nil? %>
+<% if @users.nil? %>
   <p>No User found</p>
 <% else %>
-  <% @user.artist.each do |artist| %>
-   <p> artist.first_name </p>
+  <% @users.artist.each do |artist| %>
+   <p> <%= artist.first_name %> </p>
   <% end %>
 <% end %>
