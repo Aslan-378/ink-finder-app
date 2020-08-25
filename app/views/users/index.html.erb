@@ -1,15 +1,10 @@
 <h1>Artists index</h1>
 
+<div class="container">
 <% if @users.nil? %>
   <p>No User found</p>
 <% else %>
   <% @users.artist.each do |artist| %>
-   <p> <%= artist.first_name %> </p>
-  <% end %>
-<% end %>
-
-
-<div class="container">
   <div class="card-trip">
     <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
     <div class="card-trip-infos">
@@ -21,4 +16,7 @@
       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
     </div>
   </div>
+ <% end %>
+<% end %>
+
 </div>
