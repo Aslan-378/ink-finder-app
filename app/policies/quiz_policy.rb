@@ -1,12 +1,11 @@
-class QuizPolicy < A
-  pplicationPolicy
+class QuizPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
-    def new?
+  def new?
       true
     end
 end

@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :requests
   has_many_attached :photos
+
   def self.artist
     User.select { |u| u.artist }
   end
