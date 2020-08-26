@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   resources :quizzes
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.htm
-  resources :users, only: [:index ]
+  resources :users, only: [:index ] do
+    resources :requests, only: [:show, :index, :new, :create]
+
+  end
+   resources :quizzes, only: [:index, :new, :create]
 end

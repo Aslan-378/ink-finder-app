@@ -6,8 +6,7 @@ class QuizPolicy < A
     end
   end
 
-  def new?
-    true
-  end
-
+    def new?
+      true
+    end
 end
