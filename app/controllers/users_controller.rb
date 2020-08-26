@@ -5,3 +5,4 @@ class UsersController < ApplicationController
     @users = policy_scope(User)
   end
 end
+
