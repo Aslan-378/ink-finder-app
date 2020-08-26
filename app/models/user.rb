@@ -10,4 +10,8 @@ class User < ApplicationRecord
   def self.artist
     User.select { |u| u.artist }
   end
+
+  def self.client
+    User.select { |u| !u.artist }
+  end
 end
