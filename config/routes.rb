@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index ] do
     resources :requests, only: [:show, :index, :new, :create]
     resources :bookings, only: [:show, :new, :create, :index]
+    resources :reviews, only: [:create, :new]
   end
    resources :quizzes, only: [:index, :new, :create]
 end

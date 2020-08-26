@@ -13,10 +13,10 @@
     <% end %>
 
   </div>
-<h4><%= @booking.request.artist %></h4>
+<h4><%= @booking.request.user %></h4>
   <div id="reviews">
     <% if @request.reviews.blank? %>
-      Be the first to leave a review for <%= @request.artist %>!
+      Be the first to leave a review for <%= @request.user %>!
     <% else %>
       <% @request.reviews.each do |review| %>
         <p><%= review.content %></p>
