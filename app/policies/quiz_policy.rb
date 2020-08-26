@@ -17,5 +17,4 @@ class QuizPolicy < ApplicationPolicy
   def show?
     true
   end
-
 end
