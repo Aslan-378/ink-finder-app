@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :requests
-
+  has_many_attatched :photos
   def self.artist
     User.select { |u| u.artist }
   end
