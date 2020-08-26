@@ -1,4 +1,5 @@
 class QuizzesController < ApplicationController
+
   skip_before_action :authenticate_user!, only: [:new, :create, :show]
 
   def new
@@ -26,5 +27,7 @@ class QuizzesController < ApplicationController
 
   def quiz_params
     params.require(:quiz).permit(:style, :meaning, :category, :representation)
+
   end
 end
+
