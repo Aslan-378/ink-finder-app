@@ -1,5 +1,4 @@
-class QuizPolicy < A
-  pplicationPolicy
+class QuizPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -7,6 +6,14 @@ class QuizPolicy < A
   end
 
   def new?
+    true
+  end
+
+  def create?
+    true
+  end
+
+  def show?
     true
   end
 
