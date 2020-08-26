@@ -4,6 +4,6 @@ class Request < ApplicationRecord
 
   validates :user, presence: true
 
-  has_many_attatched :photos
+  has_many_attached :photos
 
 end
