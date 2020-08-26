@@ -18,9 +18,9 @@
           <%= link_to "Messages", "#", class: "nav-link" %>
         </li> 
         <% if current_user.artist %>
-              <%= link_to 'Dashboard', artist_dashboard_path %>
+              <%= link_to 'Dashboard', dashboard_artist_path %>
         <% else %>
-              <%= link_to 'Dashboard', client_dashboard_path %>
+              <%= link_to 'Dashboard', dashboard_path %>
         <% end %>
         
         <li class="nav-item dropdown">
