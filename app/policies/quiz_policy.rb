@@ -5,7 +5,16 @@ class QuizPolicy < ApplicationPolicy
     end
   end
 
+
   def new?
-      true
-    end
+    true
+  end
+
+  def create?
+    true
+  end
+
+  def show?
+    true
+  end
 end
