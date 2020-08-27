@@ -4,6 +4,6 @@ class Booking < ApplicationRecord
   belongs_to :client, class_name: 'User'
 
 
-  validates :date, :price, :location, presence: true
+  validates :date, :price, :address, presence: true
 
 end

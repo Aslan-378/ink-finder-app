@@ -23,10 +23,24 @@
     <% end %>
   </div>
   <div class="col-6">
-    <div id="map"
-       style="width: 100%; height: 600px;"
-       data-markers="<%= @markers.to_json %>"
-       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    <div class="search-map">
+      <div class="search-map__container">
+        <form class="search-map__form">
+          <input class="search-map__input" type="text" placeholder="Search.." name="search">
+          <button class="search-map__submit" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <div class="search-map__filters">
+          <span class="search-map__filter">Location</span>
+          <span class="search-map__filter">Style</span>
+          <span class="search-map__filter">Name</span>
+          <span class="search-map__filter">Location</span>
+        </div>
+      </div>
+      <div id="map"
+        style="width: 100%; height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      </div>
     </div>
   </div>
 </div>
