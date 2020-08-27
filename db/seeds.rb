@@ -13,11 +13,11 @@ User.destroy_all
 
 
 puts "Creating users"
-user1 = User.create!(email: 'm@me.com', password: '123456', first_name: 'Martin', last_name: 'Darras', artist: true, style: 'Gothic', price: 100, location: 'SE17 2TE, London', bio: "I am good at tattooing", instagram: 'Aslan4Days')
+user1 = User.create!(email: 'm@me.com', password: '123456', first_name: 'Martin', last_name: 'Darras', artist: true, style: 'Gothic', price: 100, address: 'SE17 2TE, London', bio: "I am good at tattooing", instagram: 'Aslan4Days', nickname: "Mystix")
 user2 = User.create!(email: 'd@me.com', password: '123456', first_name: 'Declan', last_name: 'Dec', artist: false)
-user3 = User.create!(email: 'f@me.com', password: '123456', first_name: 'Fabrice', last_name: 'Aslan', artist: true, style: 'Angelic', price: 80, location: 'SE17 1RL, London', bio: "I am bad at tattooing", instagram: 'JoeyIsANipz')
-user4 = User.create!(email: 'g@me.com', password: '123456', first_name: 'Michel', last_name: 'Leroy', artist: true, style: 'Minimalist', price: 70, location: 'SE17 2NA, London', bio: "Minimalist style for great render", instagram: '4Frodo')
-user5 = User.create!(email: 'h@me.com', password: '123456', first_name: 'Joe', last_name: 'Exotic', artist: true, style: 'Japanese', price: 70, location: 'SE17 1JL, London', bio: "Really good japanese style", instagram: 'YouShallNotPass!')
+user3 = User.create!(email: 'f@me.com', password: '123456', first_name: 'Fabrice', last_name: 'Aslan', artist: true, style: 'Angelic', price: 80, address: 'SE17 1RL, London', bio: "I am bad at tattooing", instagram: 'JoeyIsANipz', nickname: "Classio")
+user4 = User.create!(email: 'g@me.com', password: '123456', first_name: 'Michel', last_name: 'Leroy', artist: true, style: 'Minimalist', price: 70, address: 'SE17 2NA, London', bio: "Minimalist style for great render", instagram: '4Frodo', nickname: "Mowgli")
+user5 = User.create!(email: 'h@me.com', password: '123456', first_name: 'Joe', last_name: 'Exotic', artist: true, style: 'Japanese', price: 70, address: 'SE17 1JL, London', bio: "Really good japanese style", instagram: 'YouShallNotPass!', nickname: "Kingz")
 
 puts "creating requests"
 Request.create!(name: 'Jeff', location: 'france, Paris', body_part: 'arm', size: '10 inches', style: 'japanese', description: 'i would like it to b epic', user: user1, client: user2)

@@ -27,7 +27,5 @@ class QuizzesController < ApplicationController
 
   def quiz_params
     params.require(:quiz).permit(:style, :meaning, :category, :representation)
-
   end
 end
-
