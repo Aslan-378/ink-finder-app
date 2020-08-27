@@ -1,3 +1,15 @@
 <h1>Artist Dashboard</h1>
-<%= render 'dashboard-template', requests: current_user.request %>
-
+<div class="request-container">
+    <% current_user.requests.each do |r| %>
+        <div class="request-card">
+            <%= r.name %>
+        </div>
+    <% end%>
+</div>
+<div class="booking-container">
+    <% current_user.bookings.each do |b| %>
+        <div class="booking-card">
+            <%= b.date %>
+        </div>
+    <% end %>
+</div>
