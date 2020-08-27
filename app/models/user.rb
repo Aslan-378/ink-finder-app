@@ -22,5 +22,3 @@ class User < ApplicationRecord
     User.where(artist: false)
   end
 end
-
-
