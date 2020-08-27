@@ -1,0 +1,36 @@
+.user-container {
+    padding: 0 32px;
+}
+
+.user-tab {
+    $this: &;
+
+    &__links {
+        background-color: inherit;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 8px 16px 8px 16px;
+        transition: .3s;
+        // border-radius: 8px 8px 0px 0px;
+        margin: 0px;
+
+        /* Create an active/current tablink class */
+        &.active {
+           
+        }
+
+        &:hover {
+            background-color: darken(#1680fb, 10%);
+            color: #fff;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+  .tabcontent {
+    display: none;
+  }
