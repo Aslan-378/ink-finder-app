@@ -5,6 +5,7 @@
             <li class="user-nav__link"><%= link_to 'Bookings', user_bookings_path(current_user) %></li>
             <li class="user-nav__link"><%= link_to 'Portfolio', user_path(current_user) %></li>
             <li class="user-nav__link">Messages</li>
+            <li class="user-nav__link"><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
         </ul>
     </div>
 </div>

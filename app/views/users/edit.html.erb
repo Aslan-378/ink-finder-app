@@ -1,0 +1,27 @@
+<div class="page-container"> 
+  <div class="user-form">
+    <h1 class="user-form__title">Edit Profile</h1>
+      <%= simple_form_for @user, :html=> { class: "user-form__form" } do |f| %>
+          <%= f.input :avatar, as: :file, :wrapper_html=> { class: "user-form__input-container" }, input_html: { class: "user-form__input" }, :label_html=> { class: "user-form__label"} %>
+          <%= f.input :instagram, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
+          <%= f.input :first_name, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
+          <%= f.input :last_name, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
+          <%= f.input :phone_number, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
+          <%= f.input :address, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
+          <%= f.input :price, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
+          <%= f.input :bio, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
+          <%= f.input :experience, label: 'Experience(years)' ,:wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
+          <%= f.input :inspiration, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
+          <%= f.input :hobbies, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
+          <%= f.input :facebook, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
+          <%= f.input :shop, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
+          <%= f.input :website, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
+          <%= f.input :nickname, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
+          <%= f.input :photos, as: :file, :wrapper_html=> { class: "user-form__input-container" }, input_html: { multiple: true, class: "user-form__input" }, :label_html=> { class: "user-form__label"} %>
+          <%= f.button :submit, class: "user-form__button user-form__button--submit" %>
+      <% end %>
+    </div>
+  <div class="dashboard">
+    <%= link_to "Dashboard", dashboard_artist_path, class: "user-form__button" %>
+  </div>
+</div>

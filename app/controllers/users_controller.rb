@@ -19,4 +19,35 @@ class UsersController < ApplicationController
       }
     end
   end
+
+  def edit
+    user
+    authorize @user
+  end
+  
+  def update
+    user
+    authorize @user
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      if @user.artist
+        redirect_to dashboard_artist_path
+      else
+        redirect_to dashboard_path
+      end
+    else
+      render 'edit'
+    end
+  end
+  
+  private
+  
+  def user
+    @user = User.friendly.find(params[:id])
+  end
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :phone_number, :style, :price, :address, :bio, :experience, :inspiration, :hobbies, :facebook, :shop, :website, :instagram, :nickname, :avatar, photos: [])
+  end
+
 end

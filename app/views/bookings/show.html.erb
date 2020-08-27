@@ -15,7 +15,7 @@
   </div>
 <h4><%= @booking.request.user %></h4>
   <div id="reviews">
-    <% if @request.reviews.blank? %>
+    <% if User.find.friendly(params[:user_id]).reviews.blank? %>
       Be the first to leave a review for <%= @request.user %>!
     <% else %>
       <% @request.reviews.each do |review| %>
