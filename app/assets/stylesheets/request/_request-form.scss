@@ -1,0 +1,60 @@
+.request-form {
+    $this: &;
+    max-width: 960px;
+    box-shadow: 0 0 7px 0 rgba(0,0,0,.5);
+    margin: 32px auto;
+    padding: 32px;
+    
+
+    &__title {
+
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__input-container {
+        
+    }
+
+    &__label {
+        color: white;
+    }
+
+    &__input {
+
+    }
+
+    &__button {
+        display: block;
+        width: fit-content;
+        padding: 10px;
+        // margin-top: 30px;
+        background-color: rgb(22, 128, 251);
+        color: white;
+        text-align: center;
+        margin-bottom: 10px;
+        text-decoration: none!important;
+
+        &:hover {
+            color: black;
+        }
+
+        &--submit {
+            background: white;
+            margin: 0 auto;
+            color: black;
+            
+
+            &:hover {
+                color: white;
+                background: darkgrey;
+            }
+        }
+    }
+}
+
+    

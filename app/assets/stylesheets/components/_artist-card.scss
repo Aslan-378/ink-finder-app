@@ -1,3 +1,28 @@
+.search-map {
+    $this: &;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    border-radius: 5px;
+
+
+    &__container {
+      height: 145px;
+      width: 100%;
+      padding-top: 20px;
+    }
+
+    &__filters {
+      margin-top: 15px;
+
+    }
+
+    &__filter {
+      padding: 10px;
+
+    }
+}
+
 body {
   background-color: #040F0F;
   font-family: 'Montserrat', sans-serif;
@@ -21,7 +46,7 @@ h1 {
   grid-template-columns: 1fr 1fr;
   column-gap: 16px;
   row-gap: 24px;
-  margin: 10px;
+  margin: 0px;
 }
 
 .card-trip {
@@ -53,6 +78,7 @@ h1 {
 
 .card-trip-infos {
   height: 70px;
+  color: black;
 }
 
 .card-trip .card-trip-infos {

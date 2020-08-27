@@ -13,21 +13,25 @@ User.destroy_all
 
 
 puts "Creating users"
-user1 = User.create!(email: 'm@me.com', password: '123456', first_name: 'Martin', last_name: 'Darras', artist: true, style: 'Gothic', price: 100, location: 'SE17 2TE, London', bio: "I am good at tattooing", instagram: 'Aslan4Days')
+user1 = User.create!(email: 'm@me.com', password: '123456', first_name: 'Martin', last_name: 'Darras', artist: true, style: 'Gothic', price: 100, address: '10 Downing Street, London', bio: "I am good at tattooing", instagram: 'Aslan4Days', nickname: "Mystix")
 user2 = User.create!(email: 'd@me.com', password: '123456', first_name: 'Declan', last_name: 'Dec', artist: false)
-user3 = User.create!(email: 'f@me.com', password: '123456', first_name: 'Fabrice', last_name: 'Aslan', artist: true, style: 'Angelic', price: 80, location: 'SE17 1RL, London', bio: "I am bad at tattooing", instagram: 'JoeyIsANipz')
-user4 = User.create!(email: 'g@me.com', password: '123456', first_name: 'Michel', last_name: 'Leroy', artist: true, style: 'Minimalist', price: 70, location: 'SE17 2NA, London', bio: "Minimalist style for great render", instagram: '4Frodo')
-user5 = User.create!(email: 'h@me.com', password: '123456', first_name: 'Joe', last_name: 'Exotic', artist: true, style: 'Japanese', price: 70, location: 'SE17 1JL, London', bio: "Really good japanese style", instagram: 'YouShallNotPass!')
+user3 = User.create!(email: 'f@me.com', password: '123456', first_name: 'Fabrice', last_name: 'Aslan', artist: true, style: 'Angelic', price: 80, address: '40 Amhurst Road, London', bio: "I am bad at tattooing", instagram: 'JoeyIsANipz', nickname: "Classio")
+user4 = User.create!(email: 'g@me.com', password: '123456', first_name: 'Michel', last_name: 'Leroy', artist: true, style: 'Minimalist', price: 70, address: '108 Kingsland Road London', bio: "Minimalist style for great render", instagram: '4Frodo', nickname: "Mowgli")
+user5 = User.create!(email: 'h@me.com', password: '123456', first_name: 'Joe', last_name: 'Exotic', artist: true, style: 'Japanese', price: 70, address: '50 Oxford Street, London', bio: "Really good japanese style", instagram: 'YouShallNotPass!', nickname: "Kingz")
+user6 = User.create!(email: 'z@me.com', password: '123456', first_name: 'Sam', last_name: 'Exotic', artist: true, style: 'lazer', price: 90, address: '27 Cavendish Street, London', bio: "Really good japanese style", instagram: 'FreakOut!', nickname: "Songs")
+user7 = User.create!(email: 'p@me.com', password: '123456', first_name: 'Tim', last_name: 'Exotic', artist: true, style: 'BigCatz', price: 20, address: '48 Charlotte Street, London', bio: "Really good style", instagram: 'FallBack!', nickname: "Helmz")
+user8 = User.create!(email: 'q@me.com', password: '123456', first_name: 'Fred', last_name: 'Exotic', artist: true, style: 'Japanese', price: 40, address: 'London Fields, London', bio: "Really wacky design", instagram: 'BloodHasBeenSpiltThisNight!', nickname: "Legolas")
+user9 = User.create!(email: 'r@me.com', password: '123456', first_name: 'Ellie', last_name: 'Exotic', artist: true, style: 'Angelic', price: 1000, address: '17 Queens Road, London', bio: "crazy stuuf i do", instagram: 'TheirTakingTheHobbitsToIsengard!', nickname: "Urukhai")
+user10 = User.create!(email: 's@me.com', password: '123456', first_name: 'June', last_name: 'Exotic', artist: true, style: 'Cubez', price: 990, address: "26 New King's Road, London", bio: "really excited about tattoooos", instagram: 'Gandaaaalf!', nickname: "Wizaard")
 
 puts "creating requests"
-Request.create!(name: 'Jeff', location: 'france, Paris', body_part: 'arm', size: '10 inches', style: 'japanese', description: 'i would like it to b epic', user: user1)
-Request.create!(name: 'Aslan', location: 'Uruguay', body_part: 'leg', size: '12 inches', style: 'gothic', description: 'i would like it to look like a barcode', user: user1)
-Request.create!(name: 'Joesephineepoo', location: 'Narnia', body_part: 'shoulder', size: '1 inches', style: 'Narnian', description: 'i lost a dare', user: user1)
-Request.create!(name: 'The Dude', location: 'London', body_part: 'chest', size: 'whole body', style: 'geometric', description: 'i am the dude, this means i will become one with tattoo', user: user1)
-
+Request.create!(name: 'Jeff', address: 'france, Paris', body_part: 'arm', size: '10 inches', style: 'japanese', description: 'i would like it to b epic', user: user1, client: user2)
+Request.create!(name: 'Aslan', address: 'Uruguay', body_part: 'leg', size: '12 inches', style: 'gothic', description: 'i would like it to look like a barcode', user: user1, client: user2)
+Request.create!(name: 'Joesephineepoo', address: 'Narnia', body_part: 'shoulder', size: '1 inches', style: 'Narnian', description: 'i lost a dare', user: user1, client: user2)
+Request.create!(name: 'The Dude', address: 'London', body_part: 'chest', size: 'whole body', style: 'geometric', description: 'i am the dude, this means i will become one with tattoo', user: user1, client: user2)
 puts "creating bookings"
-Booking.create!(date: DateTime.new(2001,2,3,4,5,6), price: 600, location: 'SE17 2NF, London', request: Request.first, user: user1 )
-Booking.create!(date: DateTime.new(2001,2,3,4,5,6), price: 600, location: 'SE5 0ED, London', request: Request.last, user: user1 )
+Booking.create!(date: DateTime.new(2001,2,3,4,5,6), price: 600, address: 'SE17 2NF, London', request: Request.first, user: user1, client: user2 )
+Booking.create!(date: DateTime.new(2001,2,3,4,5,6), price: 600, address: 'SE5 0ED, London', request: Request.last, user: user1, client: user2 )
 puts "Finished!"
 
 

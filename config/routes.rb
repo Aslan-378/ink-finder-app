@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :quizzes
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.htm
-  resources :users, only: [:index, :show ], path: 'artists' do
+  resources :users, only: [:index, :show, :edit, :update ], path: 'artists' do
     resources :requests, only: [:show, :index, :new, :create]
     resources :bookings, only: [:show, :new, :create, :index]
     resources :reviews, only: [:create, :new]

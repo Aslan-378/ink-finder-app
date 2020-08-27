@@ -7,7 +7,7 @@
     <div class="card-trip-infos">
       <div>
         <h2>Booking #<%= link_to booking.id, user_booking_path(current_user, booking) %></h2>
-        <p><%= booking.request.category %> | <%= booking.request.style %></p>
+        <p><%= booking.request.body_part %> | <%= booking.request.style %></p>
         <p><strong>AT</strong><%= booking.date %></p>
         <p><strong>Address:</strong> <%= booking.request.address %></p>
       </div>

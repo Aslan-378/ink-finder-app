@@ -1,16 +1,42 @@
+<%= render 'navbar-dashboard' %>
 <h1>Artist Dashboard</h1>
-<h2>requests</h2>
-<div class="request-container">
-    <% current_user.requests.each do |r| %>
-        <div class="request-card">
-            <%= r.name %>
+    <div class="home-request-container">
+        <div class="home-request-card__header">
+            <h2>Request</h2>
         </div>
-    <% end%>
-</div>
+        <% current_user.requests.each do |r| %>
+            <% if r.created_at == current_user.requests.earliest_date %>
+                <div class="home-request-card">
+                    <div class="home-request-card__info-container">
+                        <div class="home-request-card__image-container">
+                            <% if r.photos.attached? %>
+                                <%= cl_image_tag r.photos.first.key, class: "home-request-card__image" %>
+                            <% else %>
+                                <span>Photo</span>
+                            <% end %>
+                        </div>
+                        <div class="home-request-card__info">
+                            <span><%= r.name %></span>
+                            <span><%= r.address %></span>
+                        </div>
+                        <div class="home-request-card__description-container">
+                            <span><%= r.body_part %></span>
+                            <span><%= r.size %></span>
+                            <span><%= r.style %></span>
+                            <span><%= r.description %></span>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
 <h2>bookings</h2>
-<div class="booking-container">
+<div class="home-booking-container">
+     <div class="home-booking-card__header">
+        <h2>Booking</h2>
+     </div>
     <% current_user.bookings.each do |b| %>
-        <div class="booking-card">
+        <div class="home-booking-card">
             <%= b.date %>
         </div>
     <% end %>

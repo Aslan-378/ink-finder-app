@@ -90,10 +90,10 @@ FriendlyId.defaults do |config|
   # config.use :slugged
   # config.use Module.new {
   #   def should_generate_new_friendly_id?
-  #     slug.blank? || <your_column_name_here>_changed?
+  #     instagram_changed? || super
   #   end
   # }
-  #
+  # #
   # FriendlyId uses Rails's `parameterize` method to generate slugs, but for
   # languages that don't use the Roman alphabet, that's not usually sufficient.
   # Here we use the Babosa library to transliterate Russian Cyrillic slugs to

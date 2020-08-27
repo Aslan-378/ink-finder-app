@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< Updated upstream
-ActiveRecord::Schema.define(version: 2020_08_27_134227) do
-=======
-ActiveRecord::Schema.define(version: 2020_08_27_114638) do
->>>>>>> Stashed changes
+ActiveRecord::Schema.define(version: 2020_08_27_171049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_114638) do
   create_table "bookings", force: :cascade do |t|
     t.datetime "date"
     t.integer "price"
-    t.string "location"
+    t.string "address"
     t.boolean "confirmed", default: false
     t.bigint "request_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -79,7 +75,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_114638) do
 
   create_table "requests", force: :cascade do |t|
     t.string "name"
-    t.string "location"
+    t.string "address"
     t.string "body_part"
     t.integer "size"
     t.string "style"
@@ -118,7 +114,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_114638) do
     t.boolean "artist", default: false
     t.string "style"
     t.integer "price"
-    t.string "location"
+    t.string "address"
     t.text "bio"
     t.integer "experience"
     t.text "inspiration"
@@ -128,6 +124,9 @@ ActiveRecord::Schema.define(version: 2020_08_27_114638) do
     t.string "website"
     t.string "instagram"
     t.string "slug"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true

@@ -32,7 +32,7 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:user, :quiz, :style, :location, :body_part, :size, :name, :description, photos: [])
+    params.require(:request).permit(:user, :quiz, :style, :address, :body_part, :size, :name, :description, photos: [])
   end
 end
 
