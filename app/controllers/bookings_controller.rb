@@ -1,12 +1,16 @@
 class BookingsController < ApplicationController
+    def index
+    @bookings = policy_scope(Booking)
+  end
 
-  def index
-    @bookings = Booking.all
+  def show
+    @booking = Booking.find(params[:id])
+    @request = Request.new
+    @review = Review.new
   end
 
   def new
     @booking = Booking.new
-    @request.booking = @booking
   end
 
   def create
@@ -14,28 +18,24 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.request = @request
     @booking.user = current_user
-    @booking.save
     if @booking.save
-      redirect_to user_booking(current_user, @booking)
+      redirect_to user_booking_path(current_user, @booking)
     else
-      render :new
+      render 'request/show'
     end
   end
 
-  def show
+  def destroy
     @booking = Booking.find(params[:id])
-    @request = Request.new
+    @booking.destroy
+    redirect_to user_path(current_user)
   end
-
 
   private
 
   def booking_params
-    params.require(:booking).permit(:price, :start_date, :end_date, :confirmed, :request, photos: [] )
+    params.require(:booking).permit(:price, :start_date, :end_date, :confirmed, :request, photos: [])
   end
 end
-
-
-    
 
 
