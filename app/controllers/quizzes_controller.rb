@@ -9,6 +9,7 @@ class QuizzesController < ApplicationController
 
   def create
     @quiz = Quiz.new(quiz_params)
+    @quiz.user = current_user
     authorize @quiz
     if @quiz.save
       redirect_to users_path

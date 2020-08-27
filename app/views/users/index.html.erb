@@ -1,27 +1,29 @@
-<h1>Artists index</h1>
+<h1>Browse tattoo artists</h1>
 
-<div class="artist-container">
-  <% if @users.nil? %>
-    <p>No User found</p>
-  <% else %>
-    <% @users.artist.each do |artist| %>
-    <div class="artist-card">
-      <div class="artist-card__info-container">
-        <div class="artist-card__image-container">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="artist-card__image" />
+<div class="d-flex">
+  <div class="artist-container col-8">
+    <% if @users.nil? %>
+      <p>No User found</p>
+    <% else %>
+     <% @users.artist.each do |artist| %>
+        <div class="card-trip">
+        <img src="https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1268&q=80" />
+      <div class="card-trip-infos">
+        <div class="artist-info">
+        <h2> <%= artist.first_name %></h2>
+        <p><%= artist.style %> / <%= artist.location %></p>
         </div>
-        <div class="artist-card__info">
-          <div class="artist-card__description">
-           <h2><%= artist.first_name %></h2>
-           <p><%= artist.bio %></p>
-         </div>
-         <div class="artist-card__avatar-container">
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="artist-card__avatar" />
-            <span class="artist-card__price">£<%= artist.price  %>/hour</span>
-          </div>
+        <div class="artist-see-more">
+        <h2>See more</h2>
         </div>
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.wildtattooart.com%2Fwp-content%2Fuploads%2F2020%2F02%2Fface-tattoos-23.jpg&f=1&nofb=1" class="card-trip-user avatar-bordered" />
       </div>
     </div>
-   <% end %>
-  <% end %>
+    <% end %>
+    <% end %>
+  </div>
+  <div class="map-container col-4">
+    <p>MAP HERE</p>
+  </div>
 </div>
+
