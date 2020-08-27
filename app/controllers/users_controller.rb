@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def index
     @users = policy_scope(User)
+    @users = @users.where(style: params[:style]) if params[:style]
   end
 end
 
