@@ -8,17 +8,19 @@ class User < ApplicationRecord
   has_many :bookings
   has_many_attached :photos
 
-  geocoded_by :location
-  after_validation :geocode, if: :will_save_change
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   extend FriendlyId
   friendly_id :instagram, use: :slugged
 
   def self.artist
-    User.select { |u| u.artist }
+    User.where(artist: true)
   end
 
   def self.client
-    User.select { |u| !u.artist }
+    User.where(artist: false)
   end
 end
+
+
