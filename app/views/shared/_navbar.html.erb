@@ -17,11 +17,15 @@
         <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
         </li>
-        <% if current_user.artist %>
-              <%= link_to 'Dashboard', dashboard_artist_path %>
-        <% else %>
-              <%= link_to 'Dashboard', dashboard_path %>
-        <% end %>
+        <li>
+          <% if current_user.artist %>
+                <%= link_to 'Dashboard', dashboard_artist_path, class: "nav-link" %>
+          <% else %>
+                <%= link_to 'Dashboard', dashboard_path, class: "nav-link" %>
+          <% end %>
+       </li>
+       <li><%= link_to 'Arstits', users_path, class: "nav-link" %></li>
+       <li><% link_to 'Styles', '#', class: "nav-link" %></li>
 
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
