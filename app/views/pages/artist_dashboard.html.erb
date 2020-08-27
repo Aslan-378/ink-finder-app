@@ -1,4 +1,5 @@
 <h1>Artist Dashboard</h1>
+<h2>requests</h2>
 <div class="request-container">
     <% current_user.requests.each do |r| %>
         <div class="request-card">
@@ -6,6 +7,7 @@
         </div>
     <% end%>
 </div>
+<h2>bookings</h2>
 <div class="booking-container">
     <% current_user.bookings.each do |b| %>
         <div class="booking-card">
