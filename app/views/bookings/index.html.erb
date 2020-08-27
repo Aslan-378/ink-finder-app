@@ -1,1 +1,18 @@
-<!--  -->
+<h1>Your upcoming bookings (<%= Booking.count %>)</h1>
+
+<div class="container-2">
+  <% @bookings.each do |booking| %>
+  <div class="card-trip">
+    <img src="" />
+    <div class="card-trip-infos">
+      <div>
+        <h2>Booking #<%= link_to booking.id, user_booking_path(current_user, booking) %></h2>
+        <p><%= booking.request.category %> | <%= booking.request.style %></p>
+        <p><strong>AT</strong><%= booking.date %></p>
+        <p><strong>Address:</strong> <%= booking.request.address %></p>
+      </div>
+      <img src="" class="card-trip-user avatar-bordered" />
+    </div>
+  </div>
+  <% end %>
+</div>
