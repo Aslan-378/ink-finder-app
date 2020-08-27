@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :requests
   has_many_attached :photos
 
+  extend FriendlyId
+  friendly_id :instagram, use: :slugged
+
   def self.artist
     User.select { |u| u.artist }
   end
