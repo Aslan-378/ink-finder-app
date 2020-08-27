@@ -8,11 +8,19 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new(request_params)
-    @request.save
+    @request.user = current_user
+    authorize @request
+    if @request.save
+      redirect_to user_request_path(current_user, @request)
+    else
+      render :new
+    end
   end
+
 
   def show
     @request = Request.find(params[:id])
+    authorize @request
   end
 
   def index
@@ -22,7 +30,7 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:user, :quiz)
+    params.require(:request).permit(:name, :price, :location, :body_part, :style, :description, :size)
   end
 end
 

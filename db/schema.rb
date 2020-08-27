@@ -10,6 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2020_08_27_114638) do
+
 ActiveRecord::Schema.define(version: 2020_08_27_111709) do
 
   # These are extensions that must be enabled in order to support this database
@@ -72,6 +74,9 @@ ActiveRecord::Schema.define(version: 2020_08_27_111709) do
   end
 
   create_table "requests", force: :cascade do |t|
+
+    t.bigint "quiz_id"
+
     t.string "name"
     t.string "location"
     t.string "body_part"
