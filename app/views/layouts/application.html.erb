@@ -12,7 +12,9 @@
   </head>
 
   <body>
+    <% unless current_page?(new_user_session_path) %>
       <%= render 'shared/navbar' %>
+      <% end %>
       <%= render 'shared/flashes' %>
       <div class="container">
         <%= yield %>
