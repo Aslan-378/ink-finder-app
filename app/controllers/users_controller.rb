@@ -15,8 +15,27 @@ class UsersController < ApplicationController
         lat: artist.latitude,
         lng: artist.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { artist: artist }),
-        image_url: helpers.asset_url('bike.png')
+        image_url: helpers.asset_url('map_icon.png')
       }
+    end
+  end
+
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(user_params)
+    @user.save
+    if @user.save
+      flash[:success] = "Profile created"
+      if @user.artist
+        redirect_to dashboard_artist_path
+      else
+        redirect_to dashboard_path
+      end
+    else
+      render :new
     end
   end
 
@@ -24,7 +43,7 @@ class UsersController < ApplicationController
     user
     authorize @user
   end
-  
+
   def update
     user
     authorize @user
@@ -39,15 +58,15 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-  
+
   private
-  
+
   def user
     @user = User.friendly.find(params[:id])
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :phone_number, :style, :price, :address, :bio, :experience, :inspiration, :hobbies, :facebook, :shop, :website, :instagram, :nickname, :avatar, photos: [])
+    params.require(:user).permit(:first_name, :last_name, :phone_number, :style, :price, :address, :city, :bio, :experience, :inspiration, :hobbies, :facebook, :shop, :website, :instagram, :nickname, :avatar, photos: [])
   end
 
 end
