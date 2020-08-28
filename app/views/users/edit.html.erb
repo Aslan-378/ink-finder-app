@@ -1,4 +1,4 @@
-<div class="page-container"> 
+<div class="page-container">
   <div class="user-form">
     <h1 class="user-form__title">Edit Profile</h1>
       <%= simple_form_for @user, :html=> { class: "user-form__form" } do |f| %>
@@ -8,6 +8,7 @@
           <%= f.input :last_name, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
           <%= f.input :phone_number, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
           <%= f.input :address, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
+          <%= f.input :city, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
           <%= f.input :price, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
           <%= f.input :bio, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
           <%= f.input :experience, label: 'Experience(years)' ,:wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
