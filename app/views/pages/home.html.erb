@@ -1,11 +1,15 @@
+
+<div class="container center">
   <h1>InkFinder</h1>
   <p>Your tattoo journey begins here.</p>
 
   <%= link_to "Take a quiz!", new_quiz_path %>
   <% if current_user %>
-      <%= link_to "Make a request", new_user_request_path(current_user) %>
+    <%= link_to "Make a request", new_user_request_path(current_user) %>
   <% else %>
     <%= link_to "Make a request", new_user_session_path %>
   <% end %>
+</div>
+
 
 
