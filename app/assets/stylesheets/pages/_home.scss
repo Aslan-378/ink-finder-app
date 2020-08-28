@@ -12,9 +12,19 @@
 
 body {
   color: white;
+  font-weight: bolder;
   text-shadow: black;
+  background-image: url(artist.png);
+  background-size: cover;
+  background-position: center;
 }
 
 h1 {
   color: white;
+  font-weight: bolder;
+  font-size: 50px;
+}
+
+p {
+  font-size: 25px;
 }
