@@ -5,7 +5,6 @@ class QuizPolicy < ApplicationPolicy
     end
   end
 
-
   def new?
     true
   end
