@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/dashboard' => 'pages#client_dashboard'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :quizzes
+  resources :styles
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.htm
   resources :users, only: [:index, :show, :edit, :update], path: 'artists' do
