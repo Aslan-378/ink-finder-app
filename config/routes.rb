@@ -12,5 +12,10 @@ Rails.application.routes.draw do
     resources :bookings, only: [:show, :new, :create, :index]
     resources :reviews, only: [:create, :new]
   end
+  resources :requests, only: [:destroy] do 
+    member do
+      patch '/accept', to: 'requests#accept'
+    end
+  end
   resources :quizzes, only: [:index, :new, :create]
 end
