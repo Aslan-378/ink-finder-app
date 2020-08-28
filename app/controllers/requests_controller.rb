@@ -29,6 +29,22 @@ class RequestsController < ApplicationController
     @requests = policy_scope(Request)
   end
 
+  def accept
+    @request = Request.find(params[:id])
+    authorize @request
+    @request.update(accepted: true)
+
+    redirect_to user_requests_path(current_user)
+  end
+
+  def destroy
+    @request = Request.find(params[:id])
+    authorize @request
+    @request.destroy
+
+    redirect_to user_requests_path(current_user)
+  end
+
   private
 
   def request_params

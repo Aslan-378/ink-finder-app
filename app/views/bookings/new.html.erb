@@ -1,5 +1,8 @@
 <h1>Create a new Booking</h1>
-<%= simple_form_for @booking do |f| %>
-  <%= f.input :name %>
+<%= simple_form_for [current_user, @booking] do |f| %>
+  <%= f.input :date %>
+  <%= f.input :price %>
+  <%= f.input :address %>
+  <%= f.input :request, collection: current_user.requests %>
   <%= f.button :submit %>
 <% end %>
