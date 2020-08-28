@@ -2,16 +2,30 @@
   <div class="quiz-form">
   <%= form_for(@quiz) do |f| %>
     <div class="quiz-form__card">
-      <%= f.label :style %>
-      <%= f.text_field :style %>
-      <%= f.label :meaning %>
-      <%= f.text_field :meaning %>
-      <%= f.label :category %>
-      <%= f.text_field :category %>
-      <%= f.label :representation %>
-      <%= f.text_field :representation %>
+      <div class="form__group field">
+        <%= f.text_field :style, class: 'form__field' %>
+        <label for="name" class="form__label"><%= f.label :style %></label>
+      </div>
+
+
+      <div class="form__group field">
+        <%= f.text_field :meaning, class: 'form__field' %>
+        <label for="name" class="form__label"><%= f.label :meaning %></label>
+      </div>
+
+      <div class="form__group field">
+        <%= f.text_field :category, class: 'form__field' %>
+        <label for="name" class="form__label"><%= f.label :category %></label>
+      </div>
+
+      <div class="form__group field">
+        <%= f.text_field :representation, class: 'form__field' %>
+        <label for="name" class="form__label"><%= f.label :representation %></label>
+      </div>
+
+
       <%= f.submit %>
     </div>
-  <% end %>  
+  <% end %>
 </div>
 </div>
