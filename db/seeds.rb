@@ -12,6 +12,7 @@ Request.destroy_all
 User.destroy_all
 
 
+
 puts "Creating users"
 user1 = User.create!(email: 'm@me.com', password: '123456', first_name: 'Martin', last_name: 'Darras', artist: true, style: 'Gothic', price: 100, address: '10 Downing Street, London', city: "London", bio: "I am good at tattooing", instagram: 'Aslan4Days', nickname: "Mystix", experience: 3)
 user2 = User.create!(email: 'd@me.com', password: '123456', first_name: 'Declan', last_name: 'Dec', artist: false)
