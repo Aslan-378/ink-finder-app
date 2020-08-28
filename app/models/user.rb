@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :reviews
   has_many_attached :photos
   has_one_attached :avatar
-  validates :first_name, :last_name, :bio, :experience, :inspiration, :hobbies, :instagram, :address, :phone_number, presence: true
+  #validates :first_name, :last_name, :bio, :experience, :inspiration, :hobbies, :instagram, :address, :phone_number, presence: true
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 

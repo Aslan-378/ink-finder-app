@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_08_27_221013) do
 
+ActiveRecord::Schema.define(version: 2020_08_28_083030) do
+
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -134,6 +137,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_221013) do
     t.float "latitude"
     t.float "longitude"
     t.string "nickname"
+    t.string "city"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true
