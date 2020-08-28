@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :requests
   has_many :bookings
-  has_many :reviews
+  # has_many :reviews, dependent: :destroy
   has_many_attached :photos
   has_one_attached :avatar
   #validates :first_name, :last_name, :bio, :experience, :inspiration, :hobbies, :instagram, :address, :phone_number, presence: true
