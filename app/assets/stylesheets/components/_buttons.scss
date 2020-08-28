@@ -9,6 +9,7 @@
   transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
   cursor: pointer;
   user-select: none;
+  text-shadow: black;
 }
 
 .btn:before, .btn:after {
@@ -16,6 +17,7 @@
   position: absolute;
   transition: inherit;
   z-index: -1;
+  text-shadow: black;
 }
 
 .btn:hover {
@@ -28,8 +30,9 @@
 }
 
 .btn:hover:after {
-  background: silver;
+  background: #727472;
   transition-delay: .35s;
+  text-shadow: black;
 }
 
 .from-center:before {
@@ -47,7 +50,8 @@
   left: 0;
   height: 0;
   width: 100%;
-  background: silver;
+  background: #727472;
+  text-shadow: black;
 }
 
 .from-center:hover:before {
@@ -58,7 +62,9 @@
 .from-center:hover:after {
   top: 0;
   height: 100%;
+  text-shadow: black;
 }
 *, *:before, *:after {
   box-sizing: border-box;
+  text-shadow: black;
 }
