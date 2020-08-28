@@ -3,6 +3,7 @@ class RequestsController < ApplicationController
 
   def new
     @request = Request.new
+    @artist = User.friendly.find(params[:user_id])
     authorize @request
   end
 

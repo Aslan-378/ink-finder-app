@@ -4,7 +4,8 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.friendly.find(params[:id])
+    @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def new
@@ -16,8 +17,8 @@ class BookingsController < ApplicationController
     @request = Request.find(params[:booking][:request].to_i)
     @booking = Booking.new(booking_params)
     @booking.request = @request
-    @client = current_user
-    @artist = @request.user
+    @artist = current_user
+    @client = @request.client
     @booking.client = @client
     @booking.user = @artist
     authorize @booking
@@ -47,7 +48,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:price, :start_date, :end_date, :confirmed, photos: [])
+    params.require(:booking).permit(:price, :date, :confirmed, :address, photos: [])
   end
 end
 

@@ -18,4 +18,5 @@ Rails.application.routes.draw do
     end
   end
   resources :quizzes, only: [:index, :new, :create]
+  resources :bookings, only: [:destroy]
 end

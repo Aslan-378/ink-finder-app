@@ -1,11 +1,11 @@
 <h1>Details about your booking #<%= @booking.id %></h1>
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
-    <% if @request.photos.attached?%>
+    <% if @booking.request.photos.attached?%>
       <div class="carousel-item active">
         <%= cl_image_tag @request.photos.first.key, height: 500, width: 600, crop: :fill %>
       </div>
-      <% @request.photos.drop(1).each do |photo| %>
+      <% @booking.request.photos.drop(1).each do |photo| %>
         <div class="carousel-item">
             <%= cl_image_tag photo.key, height: 500, width: 600, crop: :fill %>
         </div>
@@ -14,23 +14,23 @@
 
   </div>
 <h4><%= @booking.request.user %></h4>
-  <div id="reviews">
-    <% if User.find.friendly(params[:user_id]).reviews.blank? %>
-      Be the first to leave a review for <%= @request.user %>!
-    <% else %>
-      <% @request.reviews.each do |review| %>
-        <p><%= review.content %></p>
-      <% end %>
-    <% end %>
+   <div id="reviews">
+    <%# if User.friendly.find(params[:user_id]).reviews.blank? %> 
+      Be the first to leave a review for <%#=ßß @request.user %>!
+    <%# else %>
+      <%# @request.reviews.each do |review| %>
+        <p><%#= review.content %></p>
+      <%# end %>
+    <%# end %>
   </div>
   <div class="review-form">
     <h1 class="review-form__title">Review this artist</h1>
-      <%= simple_form_for [@booking.request, @review], :html=> { class: "review-form__form" } do |f| %>
-          <%= f.input :name, :wrapper_html=> { class: "review-form__input-container" }, :input_html=> { class: "review-form__input" }, :label_html=> { class: "review-form__label"}%>
-          <%= f.input :content, :wrapper_html=> { class: "review-form__input-container" }, :input_html=> { class: "review-form__input" }, :label_html=> { class: "review-form__label"}%>
-          <%= f.input :rating, :wrapper_html=> { class: "review-form__input-container" }, :input_html=> { class: "review-form__input" }, :label_html=> { class: "review-form__label"}%>
-          <%= f.button :submit, class: "review-form__button request-form__button--submit" %>
-      <% end %>
+      <%#= simple_form_for [@booking.request, @review], :html=> { class: "review-form__form" } do |f| %>
+          <%#= f.input :name, :wrapper_html=> { class: "review-form__input-container" }, :input_html=> { class: "review-form__input" }, :label_html=> { class: "review-form__label"}%>
+          <%#= f.input :content, :wrapper_html=> { class: "review-form__input-container" }, :input_html=> { class: "review-form__input" }, :label_html=> { class: "review-form__label"}%>
+          <%#= f.input :rating, :wrapper_html=> { class: "review-form__input-container" }, :input_html=> { class: "review-form__input" }, :label_html=> { class: "review-form__label"}%>
+          <%#= f.button :submit, class: "review-form__button request-form__button--submit" %>
+      <%# end %>
     </div>
   <div class="dashboard">
     <%= link_to "Dashboard", user_path(current_user), class: "review-form__button" %>
