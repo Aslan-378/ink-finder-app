@@ -24,10 +24,10 @@
                     </div>
                     <div class="request-card__accept-container">
                         <div class="request-card__button--accept">
-                            <span>Accept</span>
+                            <%= link_to 'Accept', accept_request_path(r), method: :patch %>
                         </div>
                         <div class="request-card__button--decline">
-                            <span>Decline</span>
+                            <%= link_to 'Decline', request_path(r), method: :delete %>
                         </div>
                         <div class="request-card__accept-info">
                             <span>Would you like to accept or decilne this offer?</span>

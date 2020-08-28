@@ -1,5 +1,6 @@
 <%= render 'navbar-dashboard' %>
-<h1>Artist Dashboard</h1>
+<div class="home-page">
+    <h1>Artist Dashboard</h1>
     <div class="home-request-container">
         <div class="home-request-card__header">
             <h2>Request</h2>
@@ -30,14 +31,15 @@
             <% end %>
         <% end %>
     </div>
-<h2>bookings</h2>
-<div class="home-booking-container">
-     <div class="home-booking-card__header">
-        <h2>Booking</h2>
-     </div>
-    <% current_user.bookings.each do |b| %>
-        <div class="home-booking-card">
-            <%= b.date %>
+    <h2>bookings</h2>
+    <div class="home-booking-container">
+        <div class="home-booking-card__header">
+            <h2>Booking</h2>
         </div>
-    <% end %>
+        <% current_user.bookings.each do |b| %>
+            <div class="home-booking-card">
+                <%= b.date %>
+            </div>
+        <% end %>
+    </div>
 </div>
