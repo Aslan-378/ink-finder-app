@@ -12,9 +12,9 @@
     </span></div>
     <div class="item"><span>
        <% if current_user.artist %>
-              <%= link_to 'Dashboard', dashboard_artist_path %>
+              <%= link_to 'Dashboard', dashboard_artist_path, class: "nav-link" %>
         <% else %>
-              <%= link_to 'Dashboard', dashboard_path %>
+              <%= link_to 'Dashboard', dashboard_path, class: "nav-link" %>
         <% end %>
     </span></div>
     <% end %>
