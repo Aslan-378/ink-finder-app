@@ -1,29 +1,35 @@
-<div class="quiz-container">
+<div class="container">
   <div class="quiz-form">
   <%= form_for(@quiz) do |f| %>
     <div class="quiz-form__card">
+      <p class="pt-5">What style of tattoo do you want?</p>
       <div class="form__group field">
         <%= f.text_field :style, class: 'form__field' %>
         <label for="name" class="form__label"><%= f.label :style %></label>
       </div>
 
+      <p class="pt-5">Good tattoos have several meanings. Choose one of the following options to help us determine what kind of tattoo you want.</p>
 
       <div class="form__group field">
         <%= f.text_field :meaning, class: 'form__field' %>
         <label for="name" class="form__label"><%= f.label :meaning %></label>
       </div>
 
+      <p class="pt-5">Which components do you want your tattoo to have?</p>
+
+
       <div class="form__group field">
         <%= f.text_field :category, class: 'form__field' %>
         <label for="name" class="form__label"><%= f.label :category %></label>
       </div>
 
+      <p class="pt-5">Do you want it to be abstract  or more literal representation?</p>
+
+
       <div class="form__group field">
         <%= f.text_field :representation, class: 'form__field' %>
         <label for="name" class="form__label"><%= f.label :representation %></label>
       </div>
-
-
       <%= f.submit %>
     </div>
   <% end %>

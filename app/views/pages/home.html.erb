@@ -1,14 +1,23 @@
-
-<div class="container center">
-  <h1>InkFinder</h1>
-  <p>Your tattoo journey begins here.</p>
+<div class="container">
+  <div class="welcome text center">
+  <h1 class="upper">Welcome to InkFinder</h1>
+  <h3 class="upper">Your tattoo journey begins here.</h3>
 
   <%= link_to "Take a quiz!", new_quiz_path, class: 'btn from-center' %>
   <% if current_user %>
-    <%= link_to "Make a request", new_user_request_path(current_user), class: 'btn from-center'%>
+    <%= link_to "Find an artist", users_path, class: 'btn from-center'%>
   <% else %>
-    <%= link_to "Make a request", new_user_session_path, class: 'btn from-center' %>
+    <%= link_to "Make an artist", users_path, class: 'btn from-center' %>
   <% end %>
+</div>
+    <%= link_to styles_path do %>
+    <div class="pic-ctn">
+      <img src="https://i.ibb.co/t3DLpVL/photo-1475695752828-6d2b0a83cf8a.jpg" alt="" class="pic">
+      <img src="https://i.ibb.co/xL0t935/photo-1510362753328-028a0e6b0e9b.jpg" alt="" class="pic">
+      <img src="https://i.ibb.co/5xFfWwX/photo-1552627019-947c3789ffb5.jpg" alt="" class="pic">
+      <img src="https://i.ibb.co/WcFb0cf/photo-1565058379802-bbe93b2f703a.jpg" alt="" class="pic">
+    </div>
+    <% end %>
 </div>
 
 

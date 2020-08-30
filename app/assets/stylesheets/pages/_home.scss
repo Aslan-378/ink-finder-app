@@ -1,19 +1,38 @@
 // Specific CSS for your home-page
 .container {
-    padding: 50px;
-    margin: 0px auto;
+    padding: 60px 10px;
     color:white;
-    max-width: 1511px;
+    max-width: 1000px;
+    align-items: center;
+}
+
+.welcome-text {
+  max-width: 500px;
+}
+
+.space-around {
+  justify-content: space-between;
 }
 
 .center {
   text-align: center;
 }
 
+.content-center {
+  justify-content: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.fixed {
+  position: fixed;
+}
+
 body {
   color: white;
   text-shadow: black;
-  background-image: url(artist.png);
   background-size: cover;
   background-position: center;
 }
@@ -26,5 +45,72 @@ h1 {
 }
 
 p {
-  font-size: 25px;
+  font-size: 15px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+.pic {
+  height: 350px;
+  width: 900px;
+  object-fit: cover;
+}
+
+
+@keyframes display {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  10% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+}
+
+.pic-ctn {
+  position: relative;
+  width: 21.5vw;
+  height: 300px;
+  margin-top: 15vh;
+  margin-bottom: 15vh;
+}
+
+.pic-ctn > img {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 100px);
+  opacity: 0;
+  animation: display 10s infinite;
+}
+
+img:nth-child(2) {
+  animation-delay: 2s;
+}
+img:nth-child(3) {
+  animation-delay: 4s;
+}
+img:nth-child(4) {
+  animation-delay: 6s;
+}
+img:nth-child(5) {
+  animation-delay: 8s;
+}
+
+.upper {
+  text-transform: uppercase;
 }
