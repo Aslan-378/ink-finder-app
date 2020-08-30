@@ -12,7 +12,6 @@
 
 body {
   color: white;
-  font-weight: bolder;
   text-shadow: black;
   background-image: url(artist.png);
   background-size: cover;
@@ -22,7 +21,8 @@ body {
 h1 {
   color: white;
   font-weight: bolder;
-  font-size: 50px;
+  font-size: 100px;
+  text-decoration: underline;
 }
 
 p {
