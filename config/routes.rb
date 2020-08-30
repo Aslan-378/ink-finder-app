@@ -8,9 +8,10 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.htm
   resources :users, only: [:index, :show ], path: 'artists' do
+    resources :quizzes, only: [:index, :new, :create]
     resources :requests, only: [:show, :index, :new, :create]
     resources :bookings, only: [:show, :new, :create, :index]
     resources :reviews, only: [:create, :new]
   end
-  resources :quizzes, only: [:index, :new, :create]
+  
 end
