@@ -1,4 +1,4 @@
-<div class="quiz-container">
+<div class="container">
   <div class="quiz-form">
   <%= form_for(@quiz) do |f| %>
     <div class="quiz-form__card">
@@ -30,8 +30,6 @@
         <%= f.text_field :representation, class: 'form__field' %>
         <label for="name" class="form__label"><%= f.label :representation %></label>
       </div>
-
-
       <%= f.submit %>
     </div>
   <% end %>

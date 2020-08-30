@@ -1,10 +1,8 @@
 .btn {
   position: relative;
-  padding: 1.4rem 4.2rem;
-  padding-right: 3.1rem;
   font-size: 1.4rem;
   color: white;
-  letter-spacing: 0.9rem;
+  letter-spacing: 0.5rem;
   text-transform: uppercase;
   transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
   cursor: pointer;
@@ -21,7 +19,7 @@
 }
 
 .btn:hover {
-  color: white;
+  color: black;
   transition-delay: .5s;
 }
 
@@ -30,7 +28,7 @@
 }
 
 .btn:hover:after {
-  background: #727472;
+  background: white;
   transition-delay: .35s;
   text-shadow: black;
 }
@@ -50,7 +48,7 @@
   left: 0;
   height: 0;
   width: 100%;
-  background: #727472;
+  background: white;
   text-shadow: black;
 }
 
