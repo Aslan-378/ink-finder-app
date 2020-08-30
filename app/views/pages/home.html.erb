@@ -3,6 +3,7 @@
   <h1 class="upper">Welcome to InkFinder</h1>
   <h3 class="upper">Your tattoo journey begins here.</h3>
 
+<div class="wrapper">
   <%= link_to "Take a quiz!", new_quiz_path, class: 'btn from-center' %>
   <% if current_user %>
     <%= link_to "Find an artist", users_path, class: 'btn from-center'%>
@@ -19,9 +20,46 @@
     </div>
     <% end %>
 </div>
+</div>
+
+<div class="footer">
+<div class="footer-content">
+
+  <div class = "footer-section about">
+    <h1 class="logo-text"><span>InkFinder</span>.Design</h1>
+    <p>
+      InkFinder is a hub for tattoo enthusiasts to come together to really create something special!
+      Founded in 2020 by Fakhri Aslan and his close buddies, InkFinder is sure to be the next big thing in tattoos.
+    </p>
+    <div class="contact">
+      <span><i class= "fas fa-phone"><i> 07892906688; </span>
+        <span><i class= "fas fa-envelope"><i> joey8595@hotmail.co.uk; </span>
+
+      </div>
+
+    </div>
+
+ <div class= "footer-links"></div>
+    <h2>Quick links</h2>
+    <br>
+    <ul>
+      <a href="#""><li>Events</li></a>
+      <a href="#""><li>Gallery</li></a>
+      <a href="#""><li>Terms & Conditions</li></a>
 
 
 
+  <div class="footer-social"></div>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+</div>
+
+<div class="footer-bottom">
+  &copy; InkFinder.design | Designed by the boys who brought you Rent-my-ride
+</div>
+</div>
 
 
 
