@@ -1,7 +1,29 @@
 // Specific CSS for your home-page
 .container {
-    padding: 16px;
+    padding: 50px;
     margin: 0px auto;
     color:white;
     max-width: 1511px;
+}
+
+.center {
+  text-align: center;
+}
+
+body {
+  color: white;
+  font-weight: bolder;
+  text-shadow: black;
+  background-size: cover;
+  background-position: center;
+}
+
+h1 {
+  color: white;
+  font-weight: bolder;
+  font-size: 50px;
+}
+
+p {
+  font-size: 25px;
 }

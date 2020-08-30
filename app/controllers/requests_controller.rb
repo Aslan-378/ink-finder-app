@@ -3,6 +3,7 @@ class RequestsController < ApplicationController
 
   def new
     @request = Request.new
+    @artist = User.friendly.find(params[:user_id])
     authorize @request
   end
 
@@ -27,6 +28,22 @@ class RequestsController < ApplicationController
 
   def index
     @requests = policy_scope(Request)
+  end
+
+  def accept
+    @request = Request.find(params[:id])
+    authorize @request
+    @request.update(accepted: true)
+
+    redirect_to user_requests_path(current_user)
+  end
+
+  def destroy
+    @request = Request.find(params[:id])
+    authorize @request
+    @request.destroy
+
+    redirect_to user_requests_path(current_user)
   end
 
   private

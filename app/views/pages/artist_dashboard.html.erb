@@ -1,5 +1,13 @@
 <%= render 'navbar-dashboard' %>
-<h1>Artist Dashboard</h1>
+<div class="home-page">
+    <% if current_user != nil %>
+          <% if current_user.avatar.present? %>
+             <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
+    <% else %>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <% end %>
+    <h1>Artist Dashboard</h1>
     <div class="home-request-container">
         <div class="home-request-card__header">
             <h2>Request</h2>
@@ -30,14 +38,15 @@
             <% end %>
         <% end %>
     </div>
-<h2>bookings</h2>
-<div class="home-booking-container">
-     <div class="home-booking-card__header">
-        <h2>Booking</h2>
-     </div>
-    <% current_user.bookings.each do |b| %>
-        <div class="home-booking-card">
-            <%= b.date %>
+    <h2>bookings</h2>
+    <div class="home-booking-container">
+        <div class="home-booking-card__header">
+            <h2>Booking</h2>
         </div>
-    <% end %>
+        <% current_user.bookings.each do |b| %>
+            <div class="home-booking-card">
+                <%= b.date %>
+            </div>
+        <% end %>
+    </div>
 </div>

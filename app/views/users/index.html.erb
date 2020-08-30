@@ -7,16 +7,24 @@
     <% else %>
      <% @users.artist.each do |artist| %>
         <div class="card-trip">
-        <img src="https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1268&q=80" />
+          <% if artist.photos.attached? %>
+            <%= cl_image_tag artist.photos.first.key, crop: :fill %>
+            <% else %>
+              <img src="https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1268&q=80" />
+            <% end %>
       <div class="card-trip-infos">
         <div class="artist-info">
-        <h2> <%= artist.first_name %></h2>
-        <p><%= artist.style %> / <%= artist.address %></p>
+        <h2> <%= artist.nickname %></h2>
+        <p><%= artist.style %> ~ <%= artist.city %></p>
         </div>
         <div class="artist-see-more">
-        <h2>See more</h2>
+        <h2><%= link_to " ☞ See More", user_path(artist) %></h2>
         </div>
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.wildtattooart.com%2Fwp-content%2Fuploads%2F2020%2F02%2Fface-tattoos-23.jpg&f=1&nofb=1" class="card-trip-user avatar-bordered" />
+        <% if artist.avatar.attached? %>
+          <%= cl_image_tag artist.avatar.key, crop: :fill, class: "card-trip-user avatar-bordered" %>
+        <% else %>
+          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.wildtattooart.com%2Fwp-content%2Fuploads%2F2020%2F02%2Fface-tattoos-23.jpg&f=1&nofb=1" class="card-trip-user avatar-bordered" />
+        <% end %>
       </div>
     </div>
     <% end %>
@@ -37,7 +45,7 @@
         </div>
       </div>
       <div id="map"
-        style="width: 100%; height: 600px;"
+        style="width: 100%; height: 600px; border-radius: 5px; border: 1px lightgrey solid"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       </div>

@@ -1,4 +1,4 @@
-class UserPolicy < ApplicationPolicy
+class StylePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -9,15 +9,12 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def new?
+    true
+  end
+
   def show?
     true
   end
 
-  def edit?
-    user.id == record.id
-  end
-
-  def update?
-    edit?
-  end
 end

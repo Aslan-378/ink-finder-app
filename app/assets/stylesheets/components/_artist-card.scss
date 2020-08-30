@@ -3,6 +3,7 @@
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
+    border-radius: 5px;
 
 
     &__container {
@@ -23,14 +24,15 @@
 }
 
 body {
-  background-color: #040F0F
+  background-color: #040F0F;
+  font-family: 'Montserrat', sans-serif;
 }
 
 h1 {
-  color: lightgrey;
+  color: white;
   font-size: 30px;
-  font-family: 'Roboto';
-  margin-left: 28px;
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 0px;
   margin-top: 8px;
 }
 

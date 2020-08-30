@@ -1,1 +1,8 @@
+<%= link_to "Make a request",  new_user_request_path(@user, current_user), class: "btn from-center" %>
+
+
 <p><%= @user.instagram %></p>
+<p><%= @user.id  %></p>
+<% @user.photos.each do |p| %>
+    <%= cl_image_tag p.key %>
+<% end %>
