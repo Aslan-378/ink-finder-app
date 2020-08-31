@@ -1,29 +1,239 @@
 // Specific CSS for your home-page
 .container {
-    padding: 50px;
-    margin: 0px auto;
+    padding: 60px 10px;
     color:white;
-    max-width: 1511px;
+    max-width: 1000px;
+    align-items: center;
+}
+
+.welcome-text {
+  max-width: 500px;
+}
+
+.space-around {
+  justify-content: space-between;
 }
 
 .center {
   text-align: center;
 }
 
+.content-center {
+  justify-content: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.fixed {
+  position: fixed;
+}
+
 body {
   color: white;
-  font-weight: bolder;
   text-shadow: black;
   background-size: cover;
   background-position: center;
+  height:100%;
 }
 
+.btn-big {
+  padding: .7rem 1.6rem;
+  line-height: 1.3rem;
+  background-color: #8D918D;
+}
+.wrapper {
+  min-height: 100%;
+  background-color: #8D918D;
+}
 h1 {
   color: white;
   font-weight: bolder;
-  font-size: 50px;
+  font-size: 100px;
+  text-decoration: underline;
 }
 
 p {
-  font-size: 25px;
+  font-size: 15px;
+  color: white;
 }
+
+h3 {
+  font-size: 20px;
+  color: white;
+}
+
+.pic {
+  height: 350px;
+  width: 900px;
+  object-fit: cover;
+}
+
+
+@keyframes display {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  10% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+}
+
+.pic-ctn {
+  position: relative;
+  width: 21.5vw;
+  height: 300px;
+  margin-top: 15vh;
+  margin-bottom: 15vh;
+}
+
+.pic-ctn > img {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 100px);
+  opacity: 0;
+  animation: display 10s infinite;
+}
+
+img:nth-child(2) {
+  animation-delay: 2s;
+}
+img:nth-child(3) {
+  animation-delay: 4s;
+}
+img:nth-child(4) {
+  animation-delay: 6s;
+}
+img:nth-child(5) {
+  animation-delay: 8s;
+}
+
+.upper {
+  text-transform: uppercase;
+}
+
+
+.footer {
+  color: white;
+  height: 200px;
+  position: relative;
+}
+
+.footer .footer-content {
+  height: 200px;
+
+}
+
+.footer .footer-content .footer-section {
+  flex: 1;
+  padding: 15px;
+
+}
+
+.footer .footer-content .about h1 span {
+  color: white;
+}
+
+.footer .footer-content .about .contact span {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+
+}
+
+.footer .footer-content .about .socials a {
+  width: 45px;
+  height: 41px;
+  padding-top: 5px;
+  margin-right: 5px;
+  text-align: center;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  color: #8D918D;
+}
+
+.footer .footer-content .about .socials a :hover{
+  color: #8D918D;
+  transition: all .3s;
+
+}
+
+.footer .footer-content .links ul a {
+  float: right;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: #8D918D;
+  display: inline-block;
+}
+
+.footer .footer-content .links ul a:hover {
+  color: #8D918D;
+  margin-left: 15px;
+  transition: all .3s;
+
+}
+
+a {
+  color: #8D918D;
+}
+
+.inline {
+  display: inline;
+}
+
+a.inline {
+  display: inline;
+  color: #8D918D;
+}
+
+ul {
+  display: inline;
+  color: #8D918D;
+}
+
+.footer .footer-content .contact-form .contact-input {
+  background: #8D918D;
+  color: #8D918D ;
+  margin-bottom: 10px;
+  line-height: 1.5rem;
+  padding: .9rem, 1.4rem;
+  border: none;
+}
+
+.footer .footer-content .contact-form .contact-input:focus {
+  background: #8D918D;
+
+}
+
+
+.footer .footer-content .contact-form .contact-btn {
+  float: right;
+}
+
+.footer .footer-bottom {
+  color: #8D918D;
+  height: 20px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+  padding-top: 20px;
+}
+

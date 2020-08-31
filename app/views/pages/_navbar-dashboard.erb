@@ -1,11 +1,26 @@
-<div class="usernavba-container">
-    <div class="user-nav">
-        <ul class="user-nav__list">
-            <li class="user-nav__link"><%= link_to 'Requests', user_requests_path(current_user), class: "btn btn-primary" %></li>
-            <li class="user-nav__link"><%= link_to 'Bookings', user_bookings_path(current_user), class: "btn btn-primary" %></li>
-            <li class="user-nav__link"><%= link_to 'Portfolio', user_path(current_user), class: "btn btn-primary" %></li>
-            <li class="user-nav__link">Messages</li>
-            <li class="user-nav__link"><%= link_to 'Edit Profile', edit_user_path(current_user), class: "btn btn-primary" %></li>
-        </ul>
+
+<% if current_user.artist %>
+    <div class="user-container">
+        <div class="user-nav">
+            <ul class="user-nav__list">
+                <li class="user-nav__li"><%= link_to 'Requests', user_requests_path(current_user), class:'user-nav__link' %></li>
+                <li class="user-nav__li"><%= link_to 'Bookings', user_bookings_path(current_user), class:'user-nav__link' %></li>
+                <li class="user-nav__li"><%= link_to 'Portfolio', user_path(current_user), class:'user-nav__link' %></li>
+                <li class="user-nav__li"><%= link_to 'Messages', '', class:'user-nav__link' %></li>
+                <li class="user-nav__li"><%= link_to 'Edit Profile', edit_user_path(current_user), class:'user-nav__link' %></li>
+            </ul>
+        </div>
     </div>
-</div>
+<% else %>
+    <div class="user-container">
+        <div class="user-nav">
+            <ul class="user-nav__list">
+                <li class="user-nav__li"><%= link_to 'Requests', user_requests_path(current_user), class:'user-nav__link' %></li>
+                <li class="user-nav__li"><%= link_to 'Bookings', user_bookings_path(current_user), class:'user-nav__link' %></li>
+                <li class="user-nav__li"><%= link_to 'Messages', '', class:'user-nav__link' %></li>
+                <li class="user-nav__li"><%= link_to 'Edit Profile', edit_user_path(current_user), class:'user-nav__link' %></li>
+            </ul>
+        </div>
+    </div>
+<% end %>
+

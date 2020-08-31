@@ -1,6 +1,7 @@
 <div class="page-container">
   <div class="user-form">
     <h1 class="user-form__title">Edit Profile</h1>
+    <% if current_user.artist %>
       <%= simple_form_for @user, :html=> { class: "user-form__form" } do |f| %>
           <%= f.input :avatar, as: :file, :wrapper_html=> { class: "user-form__input-container" }, input_html: { class: "user-form__input" }, :label_html=> { class: "user-form__label"} %>
           <%= f.input :instagram, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
@@ -22,7 +23,16 @@
           <%= f.input :photos, as: :file, :wrapper_html=> { class: "user-form__input-container" }, input_html: { multiple: true, class: "user-form__input" }, :label_html=> { class: "user-form__label"} %>
           <%= f.button :submit, class: "user-form__button user-form__button--submit" %>
       <% end %>
-    </div>
+    <% else %>
+        <%= simple_form_for @user, :html=> { class: "user-form__form" } do |f| %>
+          <%= f.input :avatar, as: :file, :wrapper_html=> { class: "user-form__input-container" }, input_html: { class: "user-form__input" }, :label_html=> { class: "user-form__label"} %>
+          <%= f.input :first_name, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
+          <%= f.input :last_name, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
+          <%= f.input :phone_number, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
+          <%= f.button :submit, class: "user-form__button user-form__button--submit" %>
+        <% end %>
+    <% end %>
+  </div>
   <div class="dashboard">
     <%= link_to "Dashboard", dashboard_artist_path, class: "user-form__button" %>
   </div>

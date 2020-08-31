@@ -6,4 +6,8 @@ class Booking < ApplicationRecord
 
   validates :date, :price, :address, presence: true
 
+  def self.sort_bookings
+    Booking.order(:date)
+  end
+
 end
