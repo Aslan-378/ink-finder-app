@@ -19,6 +19,11 @@ Rails.application.routes.draw do
       patch '/accept', to: 'requests#accept'
     end
   end
+
+  resources :bookings, only: [:destroy] do 
+    member do
+      patch '/accept', to: 'bookings#accept'
+    end
+  end
   
-  resources :bookings, only: [:destroy]
 end

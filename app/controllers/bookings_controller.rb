@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
     @booking.user = @artist
     authorize @booking
     if @booking.save
-      redirect_to user_booking_path(current_user, @booking)
+      redirect_to user_requests_path(current_user)
     else
       render 'requests/show'
     end
@@ -39,10 +39,10 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
-    authorize @request
-    @request.destroy
+    authorize @booking
+    @booking.destroy
 
-    redirect_to user_bookings_path(current_user)
+    redirect_to dashboard_path
   end
 
   private

@@ -25,7 +25,7 @@
       </div>
 
       <!-- no fancy photo -->
-      <div class="quiz-form__container" id="q0" style="display: none">
+      <!-- <div class="quiz-form__container" id="q0" style="display: none">
         <div class="quiz-form__info">
           <div class="quiz-form__images">
             <% Style.style_pics.each do |p| %>
@@ -39,7 +39,7 @@
             <%= f.input :style, collection: User::STYLES, :wrapper_html=> { class: "quiz-form__input-container" }, :input_html=> { class: "quiz-form__input", :id => "question_id_1" }, :label_html=> { class: "quiz-form__label"}%>
           </div>
         </div>
-      </div>
+      </div> -->
       <!--question 2 -->
       <div class="quiz-form__container" id="q1" style="display: none">
         <div class="quiz-form__description-container">
@@ -60,13 +60,13 @@
           <%= f.input :representation, :wrapper_html=> { class: "quiz-form__input-container" }, :input_html=> { class: "quiz-form__input", :id => "question_id_4" }, :label_html=> { class: "quiz-form__label"}%>
         </div>
       </div>
-      <div class="quiz-form__buttons">
-        <button class="quiz-form__button">Previous</button>
-        <button class="quiz-form__button">Next</button>
+      <div class="quiz-form__buttons" >
+        <button class="quiz-form__button" id="previous" style="display: none">Previous</button>
+        <button class="quiz-form__button" id="next" style="display: block">Next</button>
       </div>
       <div class="quiz-form__submit">
         <%= link_to 'Preview', "" %>
-        <%= f.button :submit, class: "quiz-form__submit quiz-form__submit--create" %>
+        <%= f.button :submit, class: "quiz-form__submit quiz-form__submit--create", style: "display: none", id: "submit" %>
       </div>
     <% end %>
   </div>

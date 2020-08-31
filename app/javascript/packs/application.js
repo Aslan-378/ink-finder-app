@@ -8,12 +8,17 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+import "bootstrap";
+
 import { initMapbox } from '../plugins/init_mapbox';
 
 import { next } from '../components/quiz-card';
 
+
+
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  next();
 })
 
 
@@ -30,7 +35,7 @@ document.addEventListener('turbolinks:load', () => {
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 // External imports
-import "bootstrap";
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
