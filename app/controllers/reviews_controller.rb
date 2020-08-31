@@ -14,6 +14,10 @@ class ReviewsController < ApplicationController
         end
     end
 
+    def index
+      @reviews = policy_scope(Review)
+    end
+
     private
 
     def review_params

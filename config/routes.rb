@@ -12,13 +12,17 @@ Rails.application.routes.draw do
     resources :quizzes, only: [:index, :new, :create, :show]
     resources :requests, only: [:show, :index, :new, :create]
     resources :bookings, only: [:show, :new, :create, :index]
-    resources :reviews, only: [:create, :new]
+
   end
-  resources :requests, only: [:destroy] do 
+  resources :requests, only: [:destroy] do
     member do
       patch '/accept', to: 'requests#accept'
     end
   end
+
+  resources :bookings, only: [:destroy]
+  resources :reviews, only: [:create, :new, :index, :show], path: 'gallery'
+ end
 
   resources :bookings, only: [:destroy] do 
     member do
@@ -27,3 +31,4 @@ Rails.application.routes.draw do
   end
   
 end
+
