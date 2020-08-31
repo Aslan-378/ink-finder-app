@@ -1,0 +1,33 @@
+.user-nav  {
+    $this: &;
+    width: 80px;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 140px;
+    left: 0px;
+    background-color: inherit;
+    padding-top: 20px;
+    overflow-x: hidden;
+
+    &__list {
+        list-style-type: none;
+        
+    }
+
+    &__li {
+        padding-top: 24px;
+
+    }
+
+    &__link {
+        text-decoration: none!important;
+        color: white;
+
+        &:hover {
+            color:#8D918D;
+        }
+    }
+
+
+}

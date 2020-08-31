@@ -10,4 +10,12 @@ class Request < ApplicationRecord
     start_at_values = Request.pluck(:created_at)
     earliest_date = start_at_values.min
   end
+
+  def self.accepted
+    Request.where(accepted: true)
+  end
+
+  def self.pending
+    Request.where(accepted: false)
+  end
 end

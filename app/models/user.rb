@@ -20,6 +20,8 @@ class User < ApplicationRecord
     instagram_changed? || super
   end
 
+  STYLES = ["Blackwork", "American Traditional", "Surrealism", "Traditional Japanese", "Blackwork Japanese", "Realism"]
+
   def self.artist
     User.where(artist: true)
   end
