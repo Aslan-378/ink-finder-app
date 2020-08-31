@@ -19,8 +19,8 @@
 }
 
 .btn:hover {
-  color: black;
-  transition-delay: .2s;
+  color: purple;
+  transition-delay: .1s;
 }
 
 .btn:hover:before {
@@ -29,7 +29,7 @@
 
 .btn:hover:after {
   background: white;
-  transition-delay: .2s;
+  transition-delay: .1s;
   text-shadow: black;
 }
 

@@ -25,16 +25,6 @@
 
   <div class="home-footer">
 
-    <div class = "footer-section about footer-width">
-      <h2 class="logo-text underline"><span>InkFinder</span>.Design</h2>
-      <p class="home-about">
-        InkFinder is a hub for tattoo enthusiasts which brings together both artists and clients alike. From first time buyers to seasoned pros, there is only one place to go for finding the perfect piece of art.
-        Founded in 2020 by Fakhri Aslan and his close buddies, InkFinder is sure to be the next big thing in tattoos.
-      </p>
-    </div>
-
-
-
     <div class= "inline footer-width">
       <h2 class="underline">Get Social</h2>
        <div class="footer-social">
@@ -49,12 +39,20 @@
           <a href="#" class="list-link">Events</a>
         </li>
         <li>
-          <a href="#" class="list-link">Gallery</a>
+         <%= link_to "Gallery", reviews_path, class: "list-link" %>
         </li>
         <li>
           <a href="#" class="list-link">Meet the team!</a>
         </li>
       </ul>
+    </div>
+
+      <div class = "footer-section about footer-width">
+      <h2 class="logo-text underline"><span>InkFinder</span>.Design</h2>
+      <p class="home-about">
+        InkFinder is a hub for tattoo enthusiasts which brings together both artists and clients alike. From first time buyers to seasoned pros, there is only one place to go for finding the perfect piece of art.
+        Founded in 2020 by Fakhri Aslan and his close buddies, InkFinder is sure to be the next big thing in tattoos.
+      </p>
     </div>
 
     <div class="footer-section contact-form footer-width">
@@ -105,9 +103,7 @@
                     </div> -->
 
 
-    <div class="footer-bottom">
-      &copy; InkFinder.design | Designed by the boys who brought you Rent-my-ride
-    </div>
+
 
 
 
