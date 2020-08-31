@@ -1,6 +1,6 @@
 <h1>Your upcoming bookings (<%= current_user.my_bookings.confirmed.count %>)</h1>
 
-<div class="container-2">
+<div class="container">
   <% current_user.my_bookings.confirmed.each do |booking| %>
   <div class="card-trip">
     <img src="" />

@@ -3,10 +3,10 @@
   <h1 class="upper">Welcome to InkFinder</h1>
   <h3 class="upper">Your tattoo journey begins here.</h3>
 
-<div class="wrapper">
-  <%= link_to "Take a quiz!", new_quiz_path, class: 'btn from-center' %>
+
+  <%= link_to "Your next tattoo", new_quiz_path, class: 'btn from-center' %>
   <% if current_user %>
-    <%= link_to "Find an artist", users_path, class: 'btn from-center'%>
+    <%= link_to "Search artists", users_path, class: 'btn from-center'%>
   <% else %>
     <%= link_to "Make an artist", users_path, class: 'btn from-center' %>
   <% end %>

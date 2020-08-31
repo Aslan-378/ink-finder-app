@@ -1,12 +1,21 @@
-<div class="container">
-      <% @styles.each do |style| %>
-      <div class="card-product pt-2">
-      <%= link_to style do %>
-
-      <% end %>
-      <div class="card-product-infos">
-      <h2><%= style.name %></h2>
-      </div>
-      </div>
+<div class="wrapper">
+  <% @styles.each do |style| %>
+    <div class="cols">
+        <div class="col" ontouchstart="this.classList.toggle('hover');">
+          <div class="container-card">
+            <div class="front" style="background-image: url(<%= cl_image_path(style.photo.key)%>)">
+              <div class="inner">
+                <p class="upper"><%= style.name %></p>
+              </div>
+            </div>
+            <div class="back">
+              <div class="inner">
+                <p><%= link_to "Learn more", style, class: "btn btn-outline-light" %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
     <% end %>
-</div>
+    </div>
+
