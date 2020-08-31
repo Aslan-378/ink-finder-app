@@ -36,32 +36,42 @@ body {
   background-size: cover;
   background-position: center;
   height:100%;
+  font-family: Nunito;
 }
 
 .btn-big {
   padding: .7rem 1.6rem;
   line-height: 1.3rem;
   background-color: #8D918D;
+  border: solid 1px white;
 }
 .wrapper {
   min-height: 100%;
   background-color: #8D918D;
+  border: 1px solid white;
 }
 h1 {
   color: white;
   font-weight: bolder;
   font-size: 100px;
   text-decoration: underline;
+  font-family: Nunito;
 }
 
 p {
   font-size: 15px;
   color: white;
+  font-family: Nunito;
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 h3 {
   font-size: 20px;
   color: white;
+  font-family: Nunito;
 }
 
 .pic {
@@ -128,92 +138,138 @@ img:nth-child(5) {
 }
 
 
-.footer {
+.home-footer {
   color: white;
   height: 200px;
-  position: relative;
+  font-family: Nunito;
+  display: flex;
 }
 
-.footer .footer-content {
-  height: 200px;
+
+.footer-width {
+  width: 33.33%;
+}
+
+.home-about {
+  max-width: 340px;
+}
+
+.icon-color {
+  color: purple;
+  font-size: 32px;
+  padding: 24px;
 
 }
 
-.footer .footer-content .footer-section {
-  flex: 1;
-  padding: 15px;
+// .footer .footer-content {
+//   height: 200px;
 
+// }
+
+// .footer .footer-content .footer-section {
+//   flex: 1;
+//   padding: 15px;
+
+// }
+
+// .footer .footer-content .about h1 span {
+//   color: white;
+// }
+
+// .footer .footer-content .about .contact span {
+//   display: block;
+//   font-size: 1.1rem;
+//   margin-bottom: 8px;
+
+// }
+
+// .footer .footer-content .about .socials a {
+//   width: 45px;
+//   height: 41px;
+//   padding-top: 5px;
+//   margin-right: 5px;
+//   text-align: center;
+//   font-size: 1.3rem;
+//   border-radius: 5px;
+//   color: #8D918D;
+// }
+
+// .footer .footer-content .about .socials a :hover{
+//   color: #8D918D;
+//   transition: all .3s;
+
+// }
+
+// .footer .footer-content .links ul a {
+//   float: right;
+//   padding-left: 10px;
+//   margin-bottom: 10px;
+//   font-size: 1.2em;
+//   color: #8D918D;
+//   display: inline-block;
+// }
+
+// .footer .footer-content .links ul a:hover {
+//   color: #8D918D;
+//   margin-left: 15px;
+//   transition: all .3s;
+
+// }
+
+// a {
+//   color: #8D918D;
+// }
+
+// a:hover {
+//   color: purple;
+// }
+
+// // .inline {
+// //   display: inline;
+// // }
+
+// a.inline {
+//   display: inline;
+//   color: #8D918D;
+// }
+
+// ul {
+//   display: inline;
+//   color: #8D918D;
+// }
+// .footer .footer-content .contact-form {
+//   display: flex;
+//   color: white;
+// }
+
+// .footer .footer-content .contact-form .contact-input {
+//   background: #8D918D;
+//   color: white;
+//   margin-bottom: 5px;
+//   line-height: 1.5rem;
+//   padding: 1rem, 2rem;
+//   border: solid 1px white;
+//   float: center;
+
+// }
+
+.footer-width {
+  width: 33.33%;
 }
 
-.footer .footer-content .about h1 span {
+.text-input,
+.contact-input {
   color: white;
+  height: 54px;
 }
 
-.footer .footer-content .about .contact span {
-  display: block;
-  font-size: 1.1rem;
-  margin-bottom: 8px;
+.list-link{
+  color: purple;
 
 }
-
-.footer .footer-content .about .socials a {
-  width: 45px;
-  height: 41px;
-  padding-top: 5px;
-  margin-right: 5px;
-  text-align: center;
-  font-size: 1.3rem;
-  border-radius: 5px;
-  color: #8D918D;
-}
-
-.footer .footer-content .about .socials a :hover{
-  color: #8D918D;
-  transition: all .3s;
-
-}
-
-.footer .footer-content .links ul a {
-  float: right;
-  padding-left: 10px;
-  margin-bottom: 10px;
-  font-size: 1.2em;
-  color: #8D918D;
-  display: inline-block;
-}
-
-.footer .footer-content .links ul a:hover {
-  color: #8D918D;
-  margin-left: 15px;
-  transition: all .3s;
-
-}
-
-a {
-  color: #8D918D;
-}
-
-.inline {
-  display: inline;
-}
-
-a.inline {
-  display: inline;
-  color: #8D918D;
-}
-
-ul {
-  display: inline;
-  color: #8D918D;
-}
-
-.footer .footer-content .contact-form .contact-input {
-  background: #8D918D;
-  color: #8D918D ;
-  margin-bottom: 10px;
-  line-height: 1.5rem;
-  padding: .9rem, 1.4rem;
-  border: none;
+.form-center {
+  display: flex;
+  align-items: center;
 }
 
 .footer .footer-content .contact-form .contact-input:focus {
@@ -223,10 +279,10 @@ ul {
 
 
 .footer .footer-content .contact-form .contact-btn {
-  float: right;
+  float: center;
 }
 
-.footer .footer-bottom {
+ .footer-bottom {
   color: #8D918D;
   height: 20px;
   width: 100%;
