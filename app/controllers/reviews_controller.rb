@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     end
 
     def index
-      @reviews = policy_scope(Review)
+      @reviews = Review.all
     end
 
     private
