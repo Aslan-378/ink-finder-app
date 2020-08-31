@@ -10,4 +10,12 @@ class Booking < ApplicationRecord
     Booking.order(:date)
   end
 
+  def self.confirmed
+    Booking.where(confirmed: true)
+  end
+
+  def self.unconfirmed
+    Booking.where(confirmed: false)
+  end
+
 end

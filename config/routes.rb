@@ -24,3 +24,11 @@ Rails.application.routes.draw do
   resources :reviews, only: [:create, :new, :index, :show], path: 'gallery'
  end
 
+  resources :bookings, only: [:destroy] do 
+    member do
+      patch '/accept', to: 'bookings#accept'
+    end
+  end
+  
+end
+
