@@ -19,8 +19,8 @@
 }
 
 .btn:hover {
-  color: black;
-  transition-delay: .5s;
+  color: purple;
+  transition-delay: .1s;
 }
 
 .btn:hover:before {
@@ -29,13 +29,13 @@
 
 .btn:hover:after {
   background: white;
-  transition-delay: .35s;
+  transition-delay: .1s;
   text-shadow: black;
 }
 
 .from-center:before {
   top: 0;
-  left: 50%;
+  left: 30%;
   height: 100%;
   width: 0;
   border: 1px solid white;

@@ -3,7 +3,7 @@
   <div class="carousel-inner">
     <% if @booking.request.photos.attached?%>
       <div class="carousel-item active">
-        <%= cl_image_tag @request.photos.first.key, height: 500, width: 600, crop: :fill %>
+        <%= cl_image_tag @booking.request.photos.first.key, height: 500, width: 600, crop: :fill %>
       </div>
       <% @booking.request.photos.drop(1).each do |photo| %>
         <div class="carousel-item">
@@ -13,7 +13,7 @@
     <% end %>
 
   </div>
-<h4><%= @booking.request.user %></h4>
+<h4><%= @booking.request.user.instagram %></h4>
    <div id="reviews">
     <%# if User.friendly.find(params[:user_id]).reviews.blank? %> 
       Be the first to leave a review for <%#=ßß @request.user %>!

@@ -32,24 +32,46 @@
 
 body {
   color: white;
-  font-weight: bolder;
   text-shadow: black;
   background-size: cover;
   background-position: center;
+  height:100%;
+  font-family: Nunito;
 }
 
+.btn-big {
+  padding: .7rem 1.6rem;
+  line-height: 1.3rem;
+  background-color: #8D918D;
+  border: solid 1px white;
+}
+.wrapper {
+  min-height: 100%;
+  background-color: #8D918D;
+  border: 1px solid white;
+}
 h1 {
   color: white;
   font-weight: bolder;
-  font-size: 50px;
+  font-size: 100px;
+  text-decoration: underline;
+  font-family: Nunito;
 }
 
 p {
   font-size: 15px;
+  color: white;
+  font-family: Nunito;
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 h3 {
   font-size: 20px;
+  color: white;
+  font-family: Nunito;
 }
 
 .pic {
@@ -114,3 +136,70 @@ img:nth-child(5) {
 .upper {
   text-transform: uppercase;
 }
+
+
+.home-footer {
+  color: white;
+  height: 200px;
+  font-family: Nunito;
+  display: flex;
+}
+
+
+.footer-width {
+  width: 33.33%;
+}
+
+.home-about {
+  max-width: 340px;
+}
+
+.icon-color {
+  color: white;
+  font-size: 32px;
+  padding: 24px;
+
+}
+
+
+.footer-width {
+  width: 33.33%;
+}
+
+.text-input,
+.contact-input {
+  color: white;
+  height: 54px;
+}
+
+.list-link{
+  color: white;
+
+}
+
+.form-center {
+  display: flex;
+  align-items: center;
+}
+
+.footer .footer-content .contact-form .contact-input:focus {
+  background: #8D918D;
+
+}
+
+
+.footer .footer-content .contact-form .contact-btn {
+  float: center;
+}
+
+ .footer-bottom {
+  color: #8D918D;
+  height: 20px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+  padding-top: 20px;
+}
+

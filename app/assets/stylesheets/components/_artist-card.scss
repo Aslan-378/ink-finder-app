@@ -32,8 +32,9 @@ h1 {
   color: white;
   font-size: 30px;
   font-family: 'Montserrat', sans-serif;
-  margin-left: 0px;
-  margin-top: 8px;
+  margin-left: 8px;
+  margin-top: 48px;
+  margin-bottom: 32px;
 }
 
 
@@ -69,8 +70,10 @@ h1 {
 
 .card-trip p {
   font-size: 12px;
-  opacity: .7;
+  opacity: 1;
   margin: 0;
+  color: black;
+  margin-bottom: 5px;
 }
 
 .card-trip-infos {
@@ -87,8 +90,9 @@ h1 {
 .card-trip-infos .card-trip-user {
   position: absolute;
   right: 16px;
-  top: -32px;
-  width: 64px;
+  top: -40px;
+  width: 72px;
+  height: 72px;
 }
 
 .artist-see-more h2 {
@@ -97,5 +101,10 @@ h1 {
   right: 10px;
   bottom: 12px;
 }
+
+.artist-see-more > img {
+
+}
+
 
 
