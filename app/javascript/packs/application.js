@@ -10,6 +10,8 @@ require("channels")
 
 import { initMapbox } from '../plugins/init_mapbox';
 
+import { next } from '../components/quiz-card';
+
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
 })

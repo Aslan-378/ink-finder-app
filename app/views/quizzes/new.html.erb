@@ -1,37 +1,73 @@
 <div class="container">
   <div class="quiz-form">
-  <%= form_for(@quiz) do |f| %>
-    <div class="quiz-form__card">
-      <p class="pt-5">What style of tattoo do you want?</p>
-      <div class="form__group field">
-        <%= f.text_field :style, class: 'form__field' %>
-        <label for="name" class="form__label"><%= f.label :style %></label>
+    <%= simple_form_for @quiz, :html=> { class: "quiz-form__form", id: "questions" } do |f| %>
+
+    <!-- attempting to do a fancy on hover card -->
+      <div class="quiz-form__container" id="q0" >
+        <div class="quiz-form__info">
+          <div class="quiz-form__images">
+            <% Style.style_pics.each do |p| %>
+                <div class="quiz-form__card">
+                    <img src="<%= p %>" alt="styles" class="quiz-form__image">
+                  <div class="quiz-form__information">
+                    <h1 class= "quiz-form__header">Header!!</h1>
+                    <p class="quiz-form__p-tag">Leriores adipisci. Corrupti, facilis?</p>
+                    <%= link_to 'More Info', styles_path, class:"quiz-form__link" %>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+          <div class="quiz-form__description-container">
+            <span class="quiz-form__question" id="question_id_1" >What style of tattoo do you want?</span>
+            <%= f.input :style, collection: User::STYLES, :wrapper_html=> { class: "quiz-form__input-container" }, :input_html=> { class: "quiz-form__input", :id => "question_id_1" }, :label_html=> { class: "quiz-form__label"}, prompt:'Please choose a style'%>
+          </div>
+        </div>
       </div>
 
-      <p class="pt-5">Good tattoos have several meanings. Choose one of the following options to help us determine what kind of tattoo you want.</p>
-
-      <div class="form__group field">
-        <%= f.text_field :meaning, class: 'form__field' %>
-        <label for="name" class="form__label"><%= f.label :meaning %></label>
+      <!-- no fancy photo -->
+      <div class="quiz-form__container" id="q0" style="display: none">
+        <div class="quiz-form__info">
+          <div class="quiz-form__images">
+            <% Style.style_pics.each do |p| %>
+                <div class="quiz-form__image-container">
+                    <img src="<%= p %>" alt="styles" class="quiz-form__image">
+                </div>
+            <% end %>
+          </div>
+          <div class="quiz-form__description-container">
+            <span class="quiz-form__question" id="question_id_1" >What style of tattoo do you want?</span>
+            <%= f.input :style, collection: User::STYLES, :wrapper_html=> { class: "quiz-form__input-container" }, :input_html=> { class: "quiz-form__input", :id => "question_id_1" }, :label_html=> { class: "quiz-form__label"}%>
+          </div>
+        </div>
       </div>
-
-      <p class="pt-5">Which components do you want your tattoo to have?</p>
-
-
-      <div class="form__group field">
-        <%= f.text_field :category, class: 'form__field' %>
-        <label for="name" class="form__label"><%= f.label :category %></label>
+      <!--question 2 -->
+      <div class="quiz-form__container" id="q1" style="display: none">
+        <div class="quiz-form__description-container">
+          <span class="quiz-form__question" id="question_id_2" >Good tattoos have several meanings. Choose one of the following options to help us determine what kind of tattoo you want.</span>
+          <%= f.input :meaning, :wrapper_html=> { class: "quiz-form__input-container" }, :input_html=> { class: "quiz-form__input", :id => "question_id_2" }, :label_html=> { class: "quiz-form__label"}%>
+        </div>  
       </div>
-
-      <p class="pt-5">Do you want it to be abstract  or more literal representation?</p>
-
-
-      <div class="form__group field">
-        <%= f.text_field :representation, class: 'form__field' %>
-        <label for="name" class="form__label"><%= f.label :representation %></label>
+      <div class="quiz-form__container" id="q2" style="display: none">
+        <div class="quiz-form__description-container">
+          <span class="quiz-form__question" id="question_id_3">Which components do you want your tattoo to have?</span>
+          <%= f.input :category, :wrapper_html=> { class: "quiz-form__input-container" }, :input_html=> { class: "quiz-form__input", :id => "question_id_3" }, :label_html=> { class: "quiz-form__label"}%>
+        </div>
       </div>
-      <%= f.submit %>
-    </div>
-  <% end %>
-</div>
+      <!--question 3 -->
+      <div class="quiz-form__container" id="q3" style="display: none">
+        <div class="quiz-form__description-container">
+          <span class="quiz-form__question" id="question_id_4">Do you want it to be abstract  or more literal representation?</span>
+          <%= f.input :representation, :wrapper_html=> { class: "quiz-form__input-container" }, :input_html=> { class: "quiz-form__input", :id => "question_id_4" }, :label_html=> { class: "quiz-form__label"}%>
+        </div>
+      </div>
+      <div class="quiz-form__buttons">
+        <button class="quiz-form__button">Previous</button>
+        <button class="quiz-form__button">Next</button>
+      </div>
+      <div class="quiz-form__submit">
+        <%= link_to 'Preview', "" %>
+        <%= f.button :submit, class: "quiz-form__submit quiz-form__submit--create" %>
+      </div>
+    <% end %>
+  </div>
 </div>
