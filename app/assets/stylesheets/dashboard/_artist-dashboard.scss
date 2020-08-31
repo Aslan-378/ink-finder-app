@@ -27,6 +27,17 @@
 
 }
 
+.home-booking-card {
+    $this: &;
+
+
+    &__avatar {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+    }
+}
+
 
 
 .dash-avatar {

@@ -13,8 +13,8 @@
         <div class="home-request-card__header">
             <h2>Request</h2>
         </div>
-        <% current_user.requests.each do |r| %>
-            <% if r.created_at == current_user.requests.earliest_date %>
+        <% current_user.requests.pending.each do |r| %>
+            <% if r.created_at == current_user.requests.pending.earliest_date %>
                 <div class="home-request-card">
                     <div class="home-request-card__info-container">
                         <div class="home-request-card__image-container">
@@ -33,6 +33,14 @@
                             <span><%= r.size %></span>
                             <span><%= r.style %></span>
                             <span><%= r.description %></span>
+                        </div>
+                    </div>
+                    <div class="request-card__accept-container">
+                        <div class="request-card__button--accept">
+                            <%= link_to 'Accept', accept_request_path(r), method: :patch %>
+                        </div>
+                        <div class="request-card__button--decline">
+                            <%= link_to 'Decline', request_path(r), method: :delete %>
                         </div>
                     </div>
                 </div>
