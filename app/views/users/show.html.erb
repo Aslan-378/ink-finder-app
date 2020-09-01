@@ -7,7 +7,11 @@
 
   <div class="artist-info">
     <div class="artist-main">
-      <%= cl_image_tag @user.avatar.key, crop: :fill, class: "artist-avatar" %>
+      <% if current_user.avatar.present? %>
+          <%= cl_image_tag @user.avatar.key, crop: :fill, class: "artist-avatar" %>
+      <% else %>
+        <img src="https://res.cloudinary.com/dimly1skf/image/upload/v1598905968/White-and-Red-Modern-Technology-Gaming-Logo_gjja8o_jkuqil.png" class="artist-avatar">
+      <% end %>
       <h2><%= @user.nickname %> ~ <%=  @user.style %> ~ <%= @user.city %></h2>
     </div>
     <div class="artist-details">
