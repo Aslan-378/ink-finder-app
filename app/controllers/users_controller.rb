@@ -10,13 +10,27 @@ class UsersController < ApplicationController
     @users = policy_scope(User)
     @users = @users.where(style: params[:style]) if params[:style]
 
-    @markers = @users.artist.map do |artist|
-      {
-        lat: artist.latitude,
-        lng: artist.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { artist: artist }),
-        image_url: helpers.asset_url('map_icon.png')
-      }
+    if params[:query].present?
+      @users.artist = User.where(artist: true).near(params[:query], 20)
+      @markers = @users.artist.map do |artist|
+        {
+          lat: artist.latitude,
+          lng: artist.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { artist: artist }),
+          image_url: helpers.asset_url('map_icon.png')
+        }
+      end
+    else
+      @users.artist = User.where(artist: true)
+      @users.artist = User.where(artist: true).geocoded
+      @markers = @users.artist.map do |artist|
+        {
+          lat: artist.latitude,
+          lng: artist.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { artist: artist }),
+          image_url: helpers.asset_url('map_icon.png')
+        }
+      end
     end
   end
 
