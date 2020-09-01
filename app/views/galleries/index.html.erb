@@ -1,0 +1,26 @@
+<ul>
+<% @galleries.each do |gallery| %>
+  <%= cl_image_tag gallery.photo.key %>
+    <li><%= gallery.description %></li>
+  <% end %>
+</ul> -->
+
+
+<div id="lightgallery">
+  <a data-src="sexy-woman.jpg.jpg">
+      <img src="sexy-woman.jpg" />
+  </a>
+  <a data-src="tribal.jpeg.jpg">
+      <img src="tribal.jpg" />
+  </a>
+  <a data-src="img/img3.jpg">
+      <img src="olympics.jpg" />
+  </a>
+  <a data-src="wristy.jpg.jpg">
+      <img src="wristy.jpg" />
+  </a>
+</div>
+
+<script type="text/javascript">
+  var gallery = $("#lightgallery").lightgallery();
+</script>

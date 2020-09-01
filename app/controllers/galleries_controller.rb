@@ -21,6 +21,19 @@ class GalleriesController < ApplicationController
     @commment = Comment.new
   end
 
+  def index
+    @galleries = policy_scope(Gallery)
+    authorize @galleries
+  end
+
+  def destroy
+    @gallery = Gallery.find(params[:id])
+    authorize @gallery
+    @gallery.destroy
+
+    redirect_to galleries_path
+  end
+
   private
 
   def gallery_params

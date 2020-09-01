@@ -20,4 +20,8 @@ class GalleryPolicy < ApplicationPolicy
     def destroy?
       true
     end
+
+    def index?
+      true
+    end
 end
