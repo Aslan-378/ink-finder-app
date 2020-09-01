@@ -12,8 +12,8 @@ class PagesController < ApplicationController
 
 
   def dashboard
+  end
 
   def gallery
-
   end
 end
