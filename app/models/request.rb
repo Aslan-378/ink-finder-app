@@ -1,10 +1,19 @@
 class Request < ApplicationRecord
+  extend Enumerize
   belongs_to :quiz, optional: true
   belongs_to :user
   belongs_to :client, class_name: 'User'
   has_one :booking, dependent: :destroy
-  validates :user, :style, :name, :address, :body_part, :size, :style, :description, presence: true
+  validates :user, :name, :body_part, :size, :description, presence: true
+  validates :description, length: { maximum: 300, tokenizer: lambda { |str| str.scan(/\w+/) } }
   has_many_attached :photos
+
+  enumerize :style, in: ["Blackwork", "American Traditional", "Surrealism", "Traditional Japanese", "Blackwork Japanese", "Realism"]
+
+  enumerize :body_part, in: ['Arm', 'Leg', 'Chest', 'Back', 'Head', 'Thigh', 'Calf', 'Hand', 'Ribs', 'Neck', 'Shoulder', 'Upper Torso', 'Lower Torso']
+
+  enumerize :size, in: (0..10).to_a.map(&:to_s)
+
 
   def self.earliest_date
     start_at_values = Request.pluck(:created_at)

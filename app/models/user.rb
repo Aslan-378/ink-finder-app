@@ -1,10 +1,11 @@
 class User < ApplicationRecord
+  extend Enumerize
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
-  has_one :quiz
+
+  has_many :quizzes
   has_many :requests
   has_many :bookings
   has_many :made_requests, foreign_key: 'client_id', class_name: 'Request'
@@ -22,7 +23,12 @@ class User < ApplicationRecord
     instagram_changed? || super
   end
 
-  STYLES = ["Blackwork", "American Traditional", "Surrealism", "Traditional Japanese", "Blackwork Japanese", "Realism"]
+  enumerize :style, in: ["Blackwork", "American Traditional", "Surrealism", "Traditional Japanese", "Blackwork Japanese", "Realism", "illustration", "Tribal"]
+
+  enumerize :body_part, in: ['Arm', 'Leg', 'Chest', 'Back', 'Head', 'Thigh', 'Calf', 'Hand', 'Ribs', 'Neck', 'Shoulder', 'Upper Torso', 'Lower Torso']
+
+  enumerize :size, in: (0..30).to_a.map(&:to_s)
+
 
   def self.artist
     User.where(artist: true)

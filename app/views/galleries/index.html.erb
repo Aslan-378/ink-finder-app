@@ -1,0 +1,23 @@
+
+<div class="container">
+  <h3> <%= current_user %> </h3>
+
+  <ul id="lightGallery">
+        <% @galleries.all %>
+        <% @galleries.each do |gallery| %>
+          <a data-src="beautiful-woman.jpg-woman.jpg.jpg">
+            <%= image_tag "beautiful-woman.jpg", alt: "alttext" %>
+          </a>
+          <a data-src="tribal.jpeg.jpg">
+            <%= image_tag "beautiful-woman.jpg", alt: "alttext" %>
+          </a>
+          <a data-src="img/img3.jpg">
+            <%= image_tag "beautiful-woman.jpg", alt: "alttext" %>
+          </a>
+          <a data-src="wristy.jpg.jpg">
+            <%= image_tag "beautiful-woman.jpg", alt: "alttext" %>
+          </a>
+      <li><%= gallery.description %></li>
+    <% end %>
+  </ul> -->
+ </div>

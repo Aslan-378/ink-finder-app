@@ -34,6 +34,9 @@ gem 'devise'
 
 gem 'geocoder'
 
+gem 'light_gallery_rails'
+gem 'enumerize'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
