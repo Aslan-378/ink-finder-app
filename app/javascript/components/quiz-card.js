@@ -31,6 +31,10 @@ export const next = () => {
     const previousButton = document.getElementById('previous');
     const submitQuiz = document.getElementById('submit')
 
+    if ( !nextButton || !previousButton ) {
+        return;
+    }
+
         nextButton.addEventListener('click', (event) => {
             console.log(counter);
             event.preventDefault();

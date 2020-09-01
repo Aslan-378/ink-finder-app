@@ -36,6 +36,11 @@
         width: 80px;
         border-radius: 50%;
     }
+
+    &__booking-info {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 
@@ -50,7 +55,12 @@
     
 }
 
-.request-card {
+.home-booking-messages-container {
+    display: flex;
+
+}
+
+.home-request-card {
     $this: &;
     color: white;
     display: flex;
@@ -82,6 +92,32 @@
     &__description-container {
         display: flex;
         flex-direction: column;
+    }
+
+    &__accepted {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__accepted-clock {
+        width: fit-content;
+        font-size: 24px;
+        padding: 10px;
+        color: silver;
+    }
+
+    &__accepted-tick {
+        width: fit-content;
+        font-size: 24px;
+        padding: 10px;
+        color: green;
+    }
+
+    &__accepted-text {
+        
     }
 }
 

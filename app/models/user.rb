@@ -24,6 +24,10 @@ class User < ApplicationRecord
 
   STYLES = ["Blackwork", "American Traditional", "Surrealism", "Traditional Japanese", "Blackwork Japanese", "Realism"]
 
+  BODY_PART = ['Arm', 'Leg', 'Chest', 'Back', 'Head', 'Thigh', 'Calf', 'Hand', 'Ribs', 'Neck', 'Shoulder', 'Upper Torso', 'Lower Torso']
+
+  SIZE = [0..10]
+
   def self.artist
     User.where(artist: true)
   end

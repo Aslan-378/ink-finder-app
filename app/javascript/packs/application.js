@@ -13,12 +13,12 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 
 import { next } from '../components/quiz-card';
-
-
+import { tabs } from '../components/request-booking-tab'
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
-  next();
+  next();  
+  tabs();
 })
 
 

@@ -30,17 +30,17 @@ user10 = User.create!(email: 's@me.com', password: '123456', first_name: 'June',
 
 
 puts "creating requests"
-Request.create!(name: 'Jeff', address: 'france, Paris', body_part: 'arm', size: '10 inches', style: 'japanese', description: 'i would like it to b epic', user: user1, client: user2)
-Request.create!(name: 'Aslan', address: 'Uruguay', body_part: 'leg', size: '12 inches', style: 'gothic', description: 'i would like it to look like a barcode', user: user1, client: user2)
-Request.create!(name: 'Joesephineepoo', address: 'Narnia', body_part: 'shoulder', size: '1 inches', style: 'Narnian', description: 'i lost a dare', user: user1, client: user2)
-Request.create!(name: 'The Dude', address: 'London', body_part: 'chest', size: 'whole body', style: 'geometric', description: 'i am the dude, this means i will become one with tattoo', user: user1, client: user2)
-puts "creating bookings"
-Booking.create!(date: DateTime.new(2001,2,3,4,5,6), price: 600, address: 'SE17 2NF, London', request: Request.first, user: user1, client: user2 )
-Booking.create!(date: DateTime.new(2002,2,3,4,5,6), price: 600, address: 'SE5 0ED, London', request: Request.last, user: user1, client: user2 )
-Booking.create!(date: DateTime.new(2001,1,3,4,5,6), price: 600, address: 'SE17 2NF, London', request: Request.first, user: user1, client: user2 )
-Booking.create!(date: DateTime.new(2003,2,3,3,5,6), price: 600, address: 'SE5 0ED, London', request: Request.last, user: user1, client: user2 )
-Booking.create!(date: DateTime.new(2005,2,3,4,5,6), price: 600, address: 'SE17 2NF, London', request: Request.first, user: user1, client: user2 )
-Booking.create!(date: DateTime.new(2001,2,3,4,2,6), price: 600, address: 'SE5 0ED, London', request: Request.last, user: user1, client: user2 )
+# Request.create!(name: 'Jeff', address: 'france, Paris', body_part: 'arm', size: '10 inches', style: 'japanese', description: 'i would like it to b epic', user: user1, client: user2)
+# Request.create!(name: 'Aslan', address: 'Uruguay', body_part: 'leg', size: '12 inches', style: 'gothic', description: 'i would like it to look like a barcode', user: user1, client: user2)
+# Request.create!(name: 'Joesephineepoo', address: 'Narnia', body_part: 'shoulder', size: '1 inches', style: 'Narnian', description: 'i lost a dare', user: user1, client: user2)
+# Request.create!(name: 'The Dude', address: 'London', body_part: 'chest', size: 'whole body', style: 'geometric', description: 'i am the dude, this means i will become one with tattoo', user: user1, client: user2)
+# puts "creating bookings"
+# Booking.create!(date: DateTime.new(2001,2,3,4,5,6), price: 600, address: 'SE17 2NF, London', request: Request.first, user: user1, client: user2 )
+# Booking.create!(date: DateTime.new(2002,2,3,4,5,6), price: 600, address: 'SE5 0ED, London', request: Request.last, user: user1, client: user2 )
+# Booking.create!(date: DateTime.new(2001,1,3,4,5,6), price: 600, address: 'SE17 2NF, London', request: Request.first, user: user1, client: user2 )
+# Booking.create!(date: DateTime.new(2003,2,3,3,5,6), price: 600, address: 'SE5 0ED, London', request: Request.last, user: user1, client: user2 )
+# Booking.create!(date: DateTime.new(2005,2,3,4,5,6), price: 600, address: 'SE17 2NF, London', request: Request.first, user: user1, client: user2 )
+# Booking.create!(date: DateTime.new(2001,2,3,4,2,6), price: 600, address: 'SE5 0ED, London', request: Request.last, user: user1, client: user2 )
 puts "Finished!"
 
 
