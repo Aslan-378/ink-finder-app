@@ -53,10 +53,46 @@
                                     <span>£<%= b.price %></span>
                                 </div>    
                                 <div class="booking-card__request">
-                                    <div class="booking-card__request-image-container">
-                                        <% if b.request.photos.attached? %>
-                                            <%= cl_image_tag b.request.photos.first.key, class: "request-card__image" %>                    
-                                        <% end %>
+                                      <div class="request-card">
+                                        <div class="request-card__info-container">
+                                            <div id="carouselExampleControls" class="carousel slide request-card__image-container" data-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    <% if b.request.photos.attached? %>
+                                                        <div class="carousel-item active">
+                                                            <%= cl_image_tag b.request.photos.first.key, height: 250, width: 300, crop: :fit %>
+                                                        </div>
+                                                        <% b.request.photos.drop(1).each do |photo| %>
+                                                            <div class="carousel-item">
+                                                                <%= cl_image_tag photo.key, height: 250, width: 300, crop: :fit %>
+                                                            </div>
+                                                        <% end %>
+                                                    <% else %>
+                                                        <span class="request-card__no-photo">No Photo</span>
+                                                    <% end %>
+                                                </div>
+                                                <a class="carousel-control-prev carousel-control-show-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Previous</span>
+                                                </a>
+                                                <a class="carousel-control-next carousel-control-show-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Next</span>
+                                                </a>
+                                            </div>
+                                         <div class="request-card__description-container">
+                                            <span class="request-card__details-title">Client Name: <span class="request-card__details"><%= b.request.name %></span></span> 
+                                            <div class="request-card__details-container">
+                                                <span class="request-card__details-title-details">Position: <span class="request-card__details-in"><%= b.request.body_part %></span></span> 
+                                                <span class="request-card__details-title-details">Size(inches): <span class="request-card__details-in"><%= b.request.size %></span></span>
+                                                <span class="request-card__details-title-details">Style: <span class="request-card__details-in"><%= b.request.style %></span></span>
+                                            </div>
+                                            <span class="request-card__details-title">Description: <span class="request-card__details-descr"><%= b.request.description %></span></span>
+                                        </div>
+                                            <div class="request-card__accept-container">
+                                                <%= link_to 'Make Booking', new_user_booking_path(current_user, request_id: b.request.id), class: "btn request-card__button--booking"  %>
+                                            </div>
+                                        </div>
+                                    </div>
                                     </div>
                                     <div class="booking-card__request-details">
 
