@@ -1,10 +1,8 @@
 <h1>New request</h1>
       <%= simple_form_for [@artist, @request], :html=> { class: "request-form__form" } do |f| %>
-          <%= f.input :name, :wrapper_html=> { class: "request-form__input-container" }, :input_html=> { class: "request-form__input" }, :label_html=> { class: "request-form__label"}%>
-          <%= f.input :address, :wrapper_html=> { class: "request-form__input-container" }, :input_html=> { class: "request-form__input" }, :label_html=> { class: "request-form__label"}%>
+          <%= f.input :name, :wrapper_html=> { class: "request-form__input-container" }, :input_html=> { class: "request-form__input" }, :label_html=> { class: "request-form__label"}%>          
           <%= f.input :body_part, :wrapper_html=> { class: "request-form__input-container" }, :input_html=> { class: "request-form__input" }, :label_html=> { class: "request-form__label"}%>
-          <%= f.input :size, :wrapper_html=> { class: "request-form__input-container" }, :input_html=> { class: "request-form__input" }, :label_html=> { class: "request-form__label"}%>
-          <%= f.input :style, :wrapper_html=> { class: "request-form__input-container" }, :input_html=> { class: "request-form__input" }, :label_html=> { class: "request-form__label"}%>
+          <%= f.input :size, label: 'Size(inches)', :wrapper_html=> { class: "request-form__input-container" }, :input_html=> { class: "request-form__input" }, :label_html=> { class: "request-form__label"}%>          
           <%= f.input :description, :wrapper_html=> { class: "request-form__input-container" }, :input_html=> { class: "request-form__input" }, :label_html=> { class: "request-form__label"}%>
           <%= f.input :photos, as: :file, :wrapper_html=> { class: "request-form__input-container" }, input_html: { multiple: true, class: "request-form__input" }, :label_html=> { class: "request-form__label"} %>
           <%= f.button :submit, class: "request-form__button request-form__button--submit" %>

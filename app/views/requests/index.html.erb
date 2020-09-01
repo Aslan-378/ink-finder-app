@@ -1,70 +1,228 @@
     <div class="request-container">
-        <div class="request-card__header">
-            <h2>Requests</h2>
-        </div>
-        <% current_user.requests.pending.each do |r| %>
-            <div class="request-card">
-                <div class="request-card__info-container">
-                    <div class="request-card__image-container">
-                        <%= link_to user_path(r.user) do %>
-                            <% if r.photos.attached? %>
-                                <%= cl_image_tag r.photos.first.key, class: "request-card__image" %>
+
+
+        <% if current_user.artist %>
+            <div class="tabs js-tabs">
+                <div class="tabs__tabs-container">
+                    <div class="tabs__tab js-tab active" data-tab="1">Requests</div>
+                    <div class="tabs__tab js-tab" data-tab="2">Accepted Requests</div>
+                </div>
+
+                <div class="tabs__content-container">
+                    <div class="tabs__content js-tabs-content active" data-tab="1">
+                        <% if current_user.requests.pending.count == 0 %>
+                                <span class="request-card__no">currently no requests recieved</span>
+                        <% else %>
+                         <!-- Tab 1 -->
+                            <% current_user.requests.pending.each do |r| %>
+                                <div class="request-card">
+                                    <div class="request-card__info-container">
+                                        <div id="carouselExampleControls" class="carousel slide request-card__image-container" data-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    <% if r.photos.attached? %>
+                                                        <div class="carousel-item active">
+                                                            <%= cl_image_tag r.photos.first.key, height: 250, width: 300, crop: :fit %>
+                                                        </div>
+                                                        <% r.photos.drop(1).each do |photo| %>
+                                                            <div class="carousel-item">
+                                                                <%= cl_image_tag photo.key, height: 250, width: 300, crop: :fit %>
+                                                            </div>
+                                                        <% end %>
+                                                    <% else %>
+                                                        <span class="request-card__no-photo">No Photo</span>
+                                                    <% end %>
+                                                </div>
+                                                <a class="carousel-control-prev carousel-control-show-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Previous</span>
+                                                </a>
+                                                <a class="carousel-control-next carousel-control-show-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Next</span>
+                                                </a>
+                                            </div>
+                                        <div class="request-card__description-container">
+                                            <span class="request-card__details-title">Client Name: <span class="request-card__details"><%= r.name %></span></span> 
+                                            <span class="request-card__details-title">Position: <span class="request-card__details"><%= r.body_part %></span></span> 
+                                            <span class="request-card__details-title">Size(inches): <span class="request-card__details"><%= r.size %></span></span>
+                                            <span class="request-card__details-title">Style: <span class="request-card__details"><%= r.style %></span></span>
+                                            <span class="request-card__details-title">Description: <span class="request-card__details-descr"><%= r.description %></span></span>
+                                        </div>
+                                        <div class="request-card__accept-container">                                    
+                                                <%= link_to 'Accept', accept_request_path(r), method: :patch, class: "btn request-card__button--accept"%>                                                                                
+                                                <%= link_to 'Decline', request_path(r), method: :delete, class: "btn request-card__button--decline" %>
+                                        </div>
+                                    </div>                                
+                                </div>
                             <% end %>
-                        <% end %>      
+                        <% end %>
                     </div>
-                    <div class="request-card__info">
-                        <span><%= r.name %></span>
-                        <span><%= r.address %></span>
+                    <div class="tabs__content js-tabs-content" data-tab="2">
+                        <% if current_user.requests.accepted.count == 0 %>
+                                <span class="request-card__no">currently no requests accepted</span>
+                        <% else %>
+                         <!-- Tab 2 -->
+                            <% current_user.requests.accepted.each do |r| %>
+                                <% if r.booking.nil? %>
+                                    <div class="request-card">
+                                        <div class="request-card__info-container">
+                                            <div id="carouselExampleControls" class="carousel slide request-card__image-container" data-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    <% if r.photos.attached? %>
+                                                        <div class="carousel-item active">
+                                                            <%= cl_image_tag r.photos.first.key, height: 250, width: 300, crop: :fit %>
+                                                        </div>
+                                                        <% r.photos.drop(1).each do |photo| %>
+                                                            <div class="carousel-item">
+                                                                <%= cl_image_tag photo.key, height: 250, width: 300, crop: :fit %>
+                                                            </div>
+                                                        <% end %>
+                                                    <% else %>
+                                                        <span class="request-card__no-photo">No Photo</span>
+                                                    <% end %>
+                                                </div>
+                                                <a class="carousel-control-prev carousel-control-show-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Previous</span>
+                                                </a>
+                                                <a class="carousel-control-next carousel-control-show-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Next</span>
+                                                </a>
+                                            </div>
+                                        <div class="request-card__description-container">
+                                            <span class="request-card__details-title">Client Name: <span class="request-card__details"><%= r.name %></span></span> 
+                                            <span class="request-card__details-title">Position: <span class="request-card__details"><%= r.body_part %></span></span> 
+                                            <span class="request-card__details-title">Size(inches): <span class="request-card__details"><%= r.size %></span></span>
+                                            <span class="request-card__details-title">Style: <span class="request-card__details"><%= r.style %></span></span>
+                                            <span class="request-card__details-title">Description: <span class="request-card__details-descr"><%= r.description %></span></span>
+                                        </div>
+                                            <div class="request-card__accept-container">
+                                                <%= link_to 'Make Booking', new_user_booking_path(current_user, request_id: r.id), class: "btn request-card__button--booking"  %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% end %>
+                            <% end %>
+                        <% end %>
                     </div>
-                    <div class="request-card__description-container">
-                        <span><%= r.body_part %></span>
-                        <span><%= r.size %></span>
-                        <span><%= r.style %></span>
-                        <span><%= r.description %></span>
+                </div>
+
+            </div> 
+
+        <!-- client -->
+        <% elsif current_user != true %>
+
+             <div class="tabs js-tabs">
+                <div class="tabs__tabs-container">
+                    <div class="tabs__tab js-tab active" data-tab="3">Accepted Requests</div>
+                    <div class="tabs__tab js-tab" data-tab="4">Pending Requests</div>
+                </div>
+
+                <div class="tabs__content-container">
+                    <div class="tabs__content js-tabs-content active" data-tab="3">
+                        <% if current_user.made_requests.accepted.count == 0 %>
+                                <span class="request-card__no">currently no requests accepted</span>
+                        <% else %>
+                            <% current_user.made_requests.accepted.each do |r| %>
+                                <div class="request-card">
+                                    <div class="request-card__info-container">                                                                                                                                  
+                                            <div id="carouselExampleControls" class="carousel slide request-card__image-container" data-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    <% if r.photos.attached? %>
+                                                        <div class="carousel-item active">
+                                                            <%= cl_image_tag r.photos.first.key, height: 250, width: 300, crop: :fit %>
+                                                        </div>
+                                                        <% r.photos.drop(1).each do |photo| %>
+                                                            <div class="carousel-item">
+                                                                <%= cl_image_tag photo.key, height: 250, width: 300, crop: :fit %>
+                                                            </div>
+                                                        <% end %>
+                                                    <% else %>
+                                                        <span class="request-card__no-photo">No Photo</span>
+                                                    <% end %>
+                                                </div>
+                                                <a class="carousel-control-prev carousel-control-show-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Previous</span>
+                                                </a>
+                                                <a class="carousel-control-next carousel-control-show-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Next</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="request-card__description-container">
+                                            <span class="request-card__details-title">Client Name: <span class="request-card__details"><%= r.name %></span></span> 
+                                            <span class="request-card__details-title">Position: <span class="request-card__details"><%= r.body_part %></span></span> 
+                                            <span class="request-card__details-title">Size(inches): <span class="request-card__details"><%= r.size %></span></span>
+                                            <span class="request-card__details-title">Style: <span class="request-card__details"><%= r.style %></span></span>
+                                            <span class="request-card__details-title">Description: <span class="request-card__details-descr"><%= r.description %></span></span>
+                                        </div>
+                                        <div class="request-card__accepted">
+                                            <i class="far fa-check-circle request-card__accepted-tick"></i>
+                                            <span class="request-card__accepted-text">Accepted</span>
+                                            <span class="request-card__accepted-text">Booking pending</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% end %>
+                        <% end %>
                     </div>
-                    <div class="request-card__accept-container">
-                        <div class="request-card__button--accept">
-                            <%= link_to 'Accept', accept_request_path(r), method: :patch %>
-                        </div>
-                        <div class="request-card__button--decline">
-                            <%= link_to 'Decline', request_path(r), method: :delete %>
-                        </div>
-                        <div class="request-card__accept-info">
-                            <span>Would you like to accept or decilne this offer?</span>
-                        </div>
+                    <div class="tabs__content js-tabs-content" data-tab="4">
+                        <!-- content of tab 2 -->
+                            <% if current_user.made_requests.pending.count == 0 %>
+                                <span class="request-card__no">currently no requests made</span>
+                            <% else %>
+                                <% current_user.made_requests.pending.each do |r| %>
+                                    <div class="request-card">
+                                        <div class="request-card__info-container">
+                                            <div id="carouselExampleControls" class="carousel slide request-card__image-container" data-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    <% if r.photos.attached? %>
+                                                        <div class="carousel-item active">
+                                                            <%= cl_image_tag r.photos.first.key, height: 250, width: 300, crop: :fit %>
+                                                        </div>
+                                                        <% r.photos.drop(1).each do |photo| %>
+                                                            <div class="carousel-item">
+                                                                <%= cl_image_tag photo.key, height: 250, width: 300, crop: :fit %>
+                                                            </div>
+                                                        <% end %>
+                                                    <% else %>
+                                                        <span class="request-card__no-photo">No Photo</span>
+                                                    <% end %>
+                                                </div>
+                                                <a class="carousel-control-prev carousel-control-show-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Previous</span>
+                                                </a>
+                                                <a class="carousel-control-next carousel-control-show-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Next</span>
+                                                </a>
+                                            </div>
+                                        <div class="request-card__description-container">
+                                            <span class="request-card__details-title">Client Name: <span class="request-card__details"><%= r.name %></span></span> 
+                                            <span class="request-card__details-title">Position: <span class="request-card__details"><%= r.body_part %></span></span> 
+                                            <span class="request-card__details-title">Size(inches): <span class="request-card__details"><%= r.size %></span></span>
+                                            <span class="request-card__details-title">Style: <span class="request-card__details"><%= r.style %></span></span>
+                                            <span class="request-card__details-title">Description: <span class="request-card__details-descr"><%= r.description %></span></span>
+                                        </div>
+                                        <div class="request-card__accepted">
+                                            <i class="far fa-clock request-card__accepted-clock"></i>
+                                            <span class="request-card__accepted-text">Request Pending</span>                                            
+                                        </div>
+                                        </div>
+                                    </div>
+                                <% end %>
+                            <% end %>            
+                        <% end %>
                     </div>
                 </div>
             </div>
-        <% end %>
-        <div class="request-card__header">
-            <h2>Accepted Requests</h2>
-        </div>
-        <% current_user.requests.accepted.each do |r| %>
-            <% if r.booking.nil? %>
-                <div class="request-card">
-                    <div class="request-card__info-container">
-                        <div class="request-card__image-container">
-                            <%= link_to user_path(r.user) do %>
-                                <% if r.photos.attached? %>
-                                    <%= cl_image_tag r.photos.first.key, class: "request-card__image" %>
-                                <% end %>
-                            <% end %>      
-                        </div>
-                        <div class="request-card__info">
-                            <span><%= r.name %></span>
-                            <span><%= r.address %></span>
-                        </div>
-                        <div class="request-card__description-container">
-                            <span><%= r.body_part %></span>
-                            <span><%= r.size %></span>
-                            <span><%= r.style %></span>
-                            <span><%= r.description %></span>
-                        </div>
-                        <div class="request-card__booking">
-                            <%= link_to 'Make Booking', new_user_booking_path(current_user, r.client) %>
-                        </div>
-                    </div>
-                </div>
-            <% end %>
-        <% end %>
     </div>
+
+
+
+           
+          

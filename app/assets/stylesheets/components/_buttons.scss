@@ -70,3 +70,11 @@
   box-sizing: border-box;
   text-shadow: black;
 }
+
+#btn-submit:hover:after {
+  background: white;
+  transition-delay: .1s;
+  text-shadow: black;
+}
+
+

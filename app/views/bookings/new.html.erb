@@ -3,6 +3,6 @@
   <%= f.input :date %>
   <%= f.input :price %>
   <%= f.input :address %>
-  <%= f.input :request, collection: current_user.requests %>
+  <%= f.input :request_id, :as => :hidden, input_html: { value: params[:request_id] } %>
   <%= f.button :submit %>
 <% end %>
