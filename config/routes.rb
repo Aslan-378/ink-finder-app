@@ -26,4 +26,11 @@ Rails.application.routes.draw do
       patch '/accept', to: 'bookings#accept'
     end
   end
+
+  resources :reviews, only: [:create, :new, :index, :show]
+  resources :galleries do
+    resources :comments, only: [:create]
+  end
 end
+end
+
