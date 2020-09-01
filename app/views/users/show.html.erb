@@ -1,12 +1,36 @@
-<% content_for :meta_title, "#{@user.instagram} • Artist page" %>
+<% content_for :meta_title, "#{@user.nickname} • Artist page" %>
 <% content_for :meta_description, @user.bio %>
 
 
-<%= link_to "Make a request",  new_user_request_path(@user, current_user), class: "btn from-center" %>
 
 
-<p><%= @user.instagram %></p>
-<p><%= @user.id  %></p>
-<% @user.photos.each do |p| %>
-    <%= cl_image_tag p.key %>
-<% end %>
+<div class="container">
+
+
+  <div class="artist-info">
+    <div class="artist-main">
+      <%= cl_image_tag @user.avatar.key, crop: :fill, class: "artist-avatar" %>
+      <h2><%= @user.nickname %> ~ <%=  @user.style %> ~ <%= @user.city %></h2>
+    </div>
+    <div class="artist-details">
+      <div class="details">
+        <p><i class="fab fa-instagram"></i>  ‣  <%= @user.instagram %></p>
+        <p><i class="fas fa-map-marker-alt"></i>  ‣  <%= @user.address %></p>
+        <p><i class="fas fa-phone"></i>  ‣  <%= @user.phone_number %></p>
+        <p><i class="far fa-lightbulb"></i>  ‣  <%= @user.inspiration %></p>
+        <p>Bio  ‣  <%= @user.bio %></p>
+      </div>
+      <div class="request-btn">
+       <%= link_to "Make a request",  new_user_request_path(@user, current_user), class: "btn from-center" %>
+      </div>
+    </div>
+  </div>
+
+  <h1>Artist portfolio</h1>
+
+  <div class="artist-portfolio">
+    <% @user.photos.each do |p| %>
+      <%= cl_image_tag p.key %>
+    <% end %>
+  </div>
+</div>
