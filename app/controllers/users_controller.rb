@@ -66,7 +66,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       if @user.artist
-        redirect_to dashboard_artist_path
+        redirect_to dashboard_path
       else
         redirect_to dashboard_path
       end

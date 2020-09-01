@@ -14,13 +14,9 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @request = Request.find(params[:booking][:request].to_i)
     @booking = Booking.new(booking_params)
-    @booking.request = @request
-    @artist = current_user
-    @client = @request.client
-    @booking.client = @client
-    @booking.user = @artist
+    @booking.client = @booking.request.client
+    @booking.user = current_user
     authorize @booking
     if @booking.save
       redirect_to user_requests_path(current_user)
@@ -48,7 +44,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:price, :date, :confirmed, :address, photos: [])
+    params.require(:booking).permit(:price, :request_id, :date, :confirmed, :address, photos: [])
   end
 end
 

@@ -11,6 +11,7 @@ class RequestsController < ApplicationController
     @request.client = current_user
     @artist = User.friendly.find(params[:user_id])
     @request.user = @artist
+    @request.style = @artist.style
     authorize @request
     if @request.save
       redirect_to user_path(@artist)
@@ -48,7 +49,7 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:user, :quiz, :style, :address, :body_part, :size, :name, :description, photos: [])
+    params.require(:request).permit(:user, :quiz, :address, :body_part, :size, :name, :description, photos: [])
   end
 end
 
