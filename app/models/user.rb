@@ -23,11 +23,11 @@ class User < ApplicationRecord
     instagram_changed? || super
   end
 
-  enumerize :style, in: ["Blackwork", "American Traditional", "Surrealism", "Traditional Japanese", "Blackwork Japanese", "Realism"]
+  enumerize :style, in: ["Blackwork", "American Traditional", "Surrealism", "Traditional Japanese", "Blackwork Japanese", "Realism", "illustration", "Tribal"]
 
   enumerize :body_part, in: ['Arm', 'Leg', 'Chest', 'Back', 'Head', 'Thigh', 'Calf', 'Hand', 'Ribs', 'Neck', 'Shoulder', 'Upper Torso', 'Lower Torso']
 
-  enumerize :size, in: (0..10).to_a.map(&:to_s)
+  enumerize :size, in: (0..30).to_a.map(&:to_s)
 
 
   def self.artist

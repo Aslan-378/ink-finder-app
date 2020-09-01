@@ -5,6 +5,7 @@ class Request < ApplicationRecord
   belongs_to :client, class_name: 'User'
   has_one :booking, dependent: :destroy
   validates :user, :name, :body_part, :size, :description, presence: true
+  validates :description, length: { maximum: 300, tokenizer: lambda { |str| str.scan(/\w+/) } }
   has_many_attached :photos
 
   enumerize :style, in: ["Blackwork", "American Traditional", "Surrealism", "Traditional Japanese", "Blackwork Japanese", "Realism"]

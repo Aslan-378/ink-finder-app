@@ -43,9 +43,11 @@
                                             </div>
                                         <div class="request-card__description-container">
                                             <span class="request-card__details-title">Client Name: <span class="request-card__details"><%= r.name %></span></span> 
-                                            <span class="request-card__details-title">Position: <span class="request-card__details"><%= r.body_part %></span></span> 
-                                            <span class="request-card__details-title">Size(inches): <span class="request-card__details"><%= r.size %></span></span>
-                                            <span class="request-card__details-title">Style: <span class="request-card__details"><%= r.style %></span></span>
+                                            <div class="request-card__details-container">
+                                                <span class="request-card__details-title-details">Position: <span class="request-card__details-in"><%= r.body_part %></span></span> 
+                                                <span class="request-card__details-title-details">Size(inches): <span class="request-card__details-in"><%= r.size %></span></span>
+                                                <span class="request-card__details-title-details">Style: <span class="request-card__details-in"><%= r.style %></span></span>
+                                            </div>
                                             <span class="request-card__details-title">Description: <span class="request-card__details-descr"><%= r.description %></span></span>
                                         </div>
                                         <div class="request-card__accept-container">                                    
@@ -90,11 +92,13 @@
                                                     <span class="sr-only">Next</span>
                                                 </a>
                                             </div>
-                                        <div class="request-card__description-container">
+                                         <div class="request-card__description-container">
                                             <span class="request-card__details-title">Client Name: <span class="request-card__details"><%= r.name %></span></span> 
-                                            <span class="request-card__details-title">Position: <span class="request-card__details"><%= r.body_part %></span></span> 
-                                            <span class="request-card__details-title">Size(inches): <span class="request-card__details"><%= r.size %></span></span>
-                                            <span class="request-card__details-title">Style: <span class="request-card__details"><%= r.style %></span></span>
+                                            <div class="request-card__details-container">
+                                                <span class="request-card__details-title-details">Position: <span class="request-card__details-in"><%= r.body_part %></span></span> 
+                                                <span class="request-card__details-title-details">Size(inches): <span class="request-card__details-in"><%= r.size %></span></span>
+                                                <span class="request-card__details-title-details">Style: <span class="request-card__details-in"><%= r.style %></span></span>
+                                            </div>
                                             <span class="request-card__details-title">Description: <span class="request-card__details-descr"><%= r.description %></span></span>
                                         </div>
                                             <div class="request-card__accept-container">
@@ -127,48 +131,50 @@
                             <% current_user.made_requests.accepted.each do |r| %>
                                 <div class="request-card">
                                     <div class="request-card__info-container">                                                                                                                                  
-                                            <div id="carouselExampleControls" class="carousel slide request-card__image-container" data-ride="carousel">
-                                                <div class="carousel-inner">
-                                                    <% if r.photos.attached? %>
-                                                        <div class="carousel-item active">
-                                                            <%= cl_image_tag r.photos.first.key, height: 250, width: 300, crop: :fit %>
+                                        <div id="carouselExampleControls" class="carousel slide request-card__image-container" data-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <% if r.photos.attached? %>
+                                                    <div class="carousel-item active">
+                                                        <%= cl_image_tag r.photos.first.key, height: 250, width: 300, crop: :fit %>
+                                                    </div>
+                                                    <% r.photos.drop(1).each do |photo| %>
+                                                        <div class="carousel-item">
+                                                            <%= cl_image_tag photo.key, height: 250, width: 300, crop: :fit %>
                                                         </div>
-                                                        <% r.photos.drop(1).each do |photo| %>
-                                                            <div class="carousel-item">
-                                                                <%= cl_image_tag photo.key, height: 250, width: 300, crop: :fit %>
-                                                            </div>
-                                                        <% end %>
-                                                    <% else %>
-                                                        <span class="request-card__no-photo">No Photo</span>
                                                     <% end %>
-                                                </div>
-                                                <a class="carousel-control-prev carousel-control-show-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                    <span class="sr-only">Previous</span>
-                                                </a>
-                                                <a class="carousel-control-next carousel-control-show-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                    <span class="sr-only">Next</span>
-                                                </a>
+                                                <% else %>
+                                                    <span class="request-card__no-photo">No Photo</span>
+                                                <% end %>
                                             </div>
-                                        </div>
-                                        <div class="request-card__description-container">
-                                            <span class="request-card__details-title">Client Name: <span class="request-card__details"><%= r.name %></span></span> 
-                                            <span class="request-card__details-title">Position: <span class="request-card__details"><%= r.body_part %></span></span> 
-                                            <span class="request-card__details-title">Size(inches): <span class="request-card__details"><%= r.size %></span></span>
-                                            <span class="request-card__details-title">Style: <span class="request-card__details"><%= r.style %></span></span>
-                                            <span class="request-card__details-title">Description: <span class="request-card__details-descr"><%= r.description %></span></span>
-                                        </div>
-                                        <div class="request-card__accepted">
-                                            <i class="far fa-check-circle request-card__accepted-tick"></i>
-                                            <span class="request-card__accepted-text">Accepted</span>
-                                            <span class="request-card__accepted-text">Booking pending</span>
+                                            <a class="carousel-control-prev carousel-control-show-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                            <a class="carousel-control-next carousel-control-show-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
                                         </div>
                                     </div>
-                                </div>
+                                    <div class="request-card__description-container">
+                                        <span class="request-card__details-title">Client Name: <span class="request-card__details"><%= r.name %></span></span> 
+                                        <div class="request-card__details-container">
+                                            <span class="request-card__details-title-details">Position: <span class="request-card__details-in"><%= r.body_part %></span></span> 
+                                            <span class="request-card__details-title-details">Size(inches): <span class="request-card__details-in"><%= r.size %></span></span>
+                                            <span class="request-card__details-title-details">Style: <span class="request-card__details-in"><%= r.style %></span></span>
+                                        </div>
+                                        <span class="request-card__details-title">Description: <span class="request-card__details-descr"><%= r.description %></span></span>
+                                    </div>
+                                    <div class="request-card__accepted">
+                                        <i class="far fa-check-circle request-card__accepted-tick"></i>
+                                        <span class="request-card__accepted-text">Accepted</span>
+                                        <span class="request-card__accepted-text">Booking pending</span>
+                                    </div>
+                                </div>                            
                             <% end %>
                         <% end %>
                     </div>
+                </div>
                     <div class="tabs__content js-tabs-content" data-tab="4">
                         <!-- content of tab 2 -->
                             <% if current_user.made_requests.pending.count == 0 %>
@@ -203,9 +209,11 @@
                                             </div>
                                         <div class="request-card__description-container">
                                             <span class="request-card__details-title">Client Name: <span class="request-card__details"><%= r.name %></span></span> 
-                                            <span class="request-card__details-title">Position: <span class="request-card__details"><%= r.body_part %></span></span> 
-                                            <span class="request-card__details-title">Size(inches): <span class="request-card__details"><%= r.size %></span></span>
-                                            <span class="request-card__details-title">Style: <span class="request-card__details"><%= r.style %></span></span>
+                                            <div class="request-card__details-container">
+                                                <span class="request-card__details-title-details">Position: <span class="request-card__details-in"><%= r.body_part %></span></span> 
+                                                <span class="request-card__details-title-details">Size(inches): <span class="request-card__details-in"><%= r.size %></span></span>
+                                                <span class="request-card__details-title-details">Style: <span class="request-card__details-in"><%= r.style %></span></span>
+                                            </div>
                                             <span class="request-card__details-title">Description: <span class="request-card__details-descr"><%= r.description %></span></span>
                                         </div>
                                         <div class="request-card__accepted">

@@ -20,12 +20,7 @@ import { next } from '../components/quiz-card';
 import { tabs } from '../components/request-booking-tab'
 
 document.addEventListener('turbolinks:load', () => {
-  initMapbox();
-
-  next();
-
-  next();  
-
+  initMapbox(); 
   tabs();
 })
 
