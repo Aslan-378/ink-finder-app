@@ -1,25 +1,22 @@
-
-<h1>Client Dashboard</h1>
-
 <%= render 'navbar-dashboard' %>
 <div class="home-page">
     <div class="home-page__welcome">
         <% if current_user != nil %>
             <% if current_user.avatar.present? %>
                 <%= cl_image_tag current_user.avatar.key, class: "home-page__avatar"%>
-            <% else %>
-                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% end %>    
+            <% end %>
+        <% else %>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
     </div>
     <div class="home-request-container">
         <div class="home-request-card__header">
             <h2>Your Requests</h2>
         </div>
-        <% if current_user.made_requests.pending.count == 0 %>
+        <% if current_user.made_requests.count == 0 %>
                 <span>currently no requests made</span>
         <% else %>
-            <% current_user.made_requests.pending.each do |r| %>
+            <% current_user.made_requests.each do |r| %>
                 <div class="home-request-card">
                     <div class="home-request-card__info-container">
                         <div class="home-request-card__image-container">
@@ -38,6 +35,16 @@
                             <span><%= r.size %></span>
                             <span><%= r.style %></span>
                             <span><%= r.description %></span>
+                        </div>
+                        <div class="home-request-card__accepted">
+                            <% if r.accepted %>
+                                <i class="far fa-check-circle home-request-card__accepted-tick"></i>
+                                <span class="home-request-card__accepted-text">Accepted</span>
+                                <span class="home-request-card__accepted-text">Booking pending</span>
+                            <% else %>
+                                <i class="far fa-clock home-request-card__accepted-clock"></i>
+                                <span class="home-request-card__accepted-text">Request Pending</span>
+                            <% end %>
                         </div>
                     </div>
                 </div>

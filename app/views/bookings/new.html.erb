@@ -3,6 +3,6 @@
   <%= f.input :date %>
   <%= f.input :price %>
   <%= f.input :address %>
-  <%= f.input :request, collection: current_user.requests %>
+  <%= f.input :request, collection: current_user.requests.accepted %>
   <%= f.button :submit %>
 <% end %>
