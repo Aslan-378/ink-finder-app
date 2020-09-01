@@ -8,11 +8,14 @@ class UsersController < ApplicationController
 
   def index
     @users = policy_scope(User)
-    @users = @users.where(style: params[:style]) if params[:style]
+    #@users = @users.where(style: params[:style]) if params[:style]
 
     if params[:query].present?
-      @users.artist = User.where(artist: true).near(params[:query], 20)
-      @markers = @users.artist.map do |artist|
+      sql_query = "city ILIKE :query OR style ILIKE :query OR nickname ILIKE :query "
+      @users = User.where(sql_query, query: "%#{params[:query]}%")
+
+      #@users = User.near(params[:query], 20)
+      @markers = @users.map do |artist|
         {
           lat: artist.latitude,
           lng: artist.longitude,
@@ -21,9 +24,9 @@ class UsersController < ApplicationController
         }
       end
     else
-      @users.artist = User.where(artist: true)
-      @users.artist = User.where(artist: true).geocoded
-      @markers = @users.artist.map do |artist|
+      @users = User.where(artist: true)
+      #@users.artist = User.where(artist: true).geocoded
+      @markers = @users.map do |artist|
         {
           lat: artist.latitude,
           lng: artist.longitude,
