@@ -1,0 +1,229 @@
+
+
+
+.booking-card {
+    $this: &;
+    display: flex;
+    width: 90%;
+    height: 250px;
+    margin: 0 auto;
+    box-shadow: inset 0px 0px 109px -28px rgba(255,255,255,.4);
+
+    &__booking-info {
+        display: flex;
+        flex-direction: column;
+        padding: 14px;
+        justify-content: center;
+        align-items: start;
+    }
+
+    &__request {
+
+    }
+
+    &__info {
+        display: flex;
+        font-weight: normal;
+        font-size: 15px;
+        // padding-bottom: 8px;
+        align-items: center;        
+        color: white;
+        justify-content: center;
+        padding-bottom: 20px;
+    }
+
+    &__info-j {
+        font-weight: normal;
+        font-size: 15px;
+        // padding-bottom: 8px;
+        align-items: center;        
+        color: white;  
+        margin-left: 14px;
+    }
+
+    &__info-i {     
+        font-weight: bold;
+        font-size: 18px;
+        padding-bottom: 8px;
+        color: grey;
+    }
+}
+
+.booking-request-card {
+    $this: &;
+    display: flex;
+    width: 950px;
+    height: 250px;
+    margin: 0 auto;
+    margin-bottom: 16px;
+    border-radius: 10px;
+
+    &__no {
+        display: flex;
+        justify-content: start;
+        width: fit-content;
+        padding: 16px;
+    }
+
+    &__no-photo {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__info-container {
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        width: 350px;
+        height: 250px;
+        flex-grow: 1;
+    }
+    
+    &__image-container {
+        flex-shrink: 0;
+        width: 300px;
+        display: flex;
+
+    }
+
+    &__image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        padding: 10px;
+    }
+
+    &__description-container {
+        display: flex;
+        flex-direction: column;
+        width: 700px;
+        margin-left: 16px;
+        padding-top: 20px;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        padding: 8px;
+        flex-grow: 1;
+        justify-content: center;
+
+    }
+
+    &__details-title {
+        display: flex;        
+        font-weight: bold;
+        font-size: 18px;
+        padding-bottom: 8px;
+        color: grey;
+    }
+
+    &__details {
+        display: flex;
+        font-weight: normal;
+        font-size: 15px;
+        // padding-bottom: 8px;
+        align-items: center;
+        padding-left: 10px;
+        color: white;    
+    }
+
+    &__details-container {
+        display: flex;
+    }
+
+    &__details-title-details {
+        display: flex;
+        margin-right: 50px;
+        // display: flex;        
+        font-weight: bold;
+        font-size: 18px;
+        padding-bottom: 8px;
+        color: grey;
+
+    }
+
+    &__details-in {
+        display: flex;
+        font-weight: normal;
+        font-size: 15px;
+        // padding-bottom: 8px;
+        align-items: center;        
+        color: white;  
+        margin-left: 14px;
+    }
+
+    &__details-descr {
+        display: flex;
+        font-weight: normal;
+        font-size: 15px;
+        // padding-bottom: 8px;
+        align-items: center;
+        color: white;  
+        width: 400px; 
+        overflow: hidden;
+        padding-left: 10px;
+        text-align: left;
+    }
+
+    &__accept-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__accept-info {
+
+    }
+
+    &__accepted {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 200px;
+    }
+
+    &__accepted-tick {
+        margin-bottom: 10px;
+        color: #00FF40;
+        font-size: 30px;
+    }
+
+    &__accepted-clock {
+        margin-bottom: 10px;
+        color: #035A9E;
+        font-size: 30px;
+    }
+
+    &__button {
+        
+
+        &--accept {
+            padding-bottom: 16px;
+
+            &:hover {
+                color: #00FF40;
+            }
+
+        }
+
+        &--decline {
+
+            &:hover {
+                color: #F50312;
+            }
+
+        }
+
+        &--booking {
+
+            &:hover {
+                color: #035A9E;
+            }
+        }
+    }
+
+}
