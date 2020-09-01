@@ -2,9 +2,8 @@
   display: flex;
 }
 
-
 .wrapper{
-  width: 1300px;
+  width: 1350px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -52,15 +51,15 @@
   min-height: 280px;
   height: auto;
   border-radius: 10px;
-  color: #fff;
+  color: gray;
   font-size: 1.5rem;
 }
 
 .back{
-  background: #cedce7;
-  background: -webkit-linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
-  background: -o-linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
-  background: linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+  background: gray;
+  background: -webkit-linear-gradient(45deg,  #cedce7 0%,gray 100%);
+  background: -o-linear-gradient(45deg,  #cedce7 0%, gray 100%);
+  background: linear-gradient(45deg,  #cedce7 0%, gray 100%);
 }
 
 .front:after{
