@@ -1,112 +1,145 @@
+<div class="booking-container">
+    <% if current_user.artist %>           
+        <div class="tabs js-tabs">
+            <div class="tabs__tabs-container">
+                <div class="tabs__tab js-tab active" data-tab="1">Upcoming Bookings (<%= current_user.bookings.confirmed.count %>)</div>
+                <div class="tabs__tab js-tab" data-tab="2">Pending Bookings (<%= current_user.bookings.unconfirmed.count %>)</div>
+            </div>
 
-    <div class="booking-container">
-        <% if current_user.artist %>
-          <div class="booking-card__header">
-              <h2>Your upcoming bookings (<%= current_user.bookings.confirmed.count %>)</h2>
-          </div>
-          <% current_user.bookings.confirmed.each do |b| %>
-                  <div class="booking-card">
-                      <div class="booking-card__booking-info">
-                          <span><%= b.date.strftime("%I:%M%p") %></span>
-                          <span><%= b.date.strftime("%d/%m/%y") %></span>
-                          <span><%= b.address %></span>
-                          <span>£<%= b.price %></span>
-                      </div>    
-                      <div class="booking-card__request">
-                          <div class="booking-card__request-image-container">
-                              <% if b.request.photos.attached? %>
-                                  <%= cl_image_tag b.request.photos.first.key, class: "request-card__image" %>                    
-                              <% end %>
-                          </div>
-                          <div class="booking-card__request-details">
+            <div class="tabs__content-container">
+                <!--------------------------------tab 1----------------------------------------->
+                <div class="tabs__content js-tabs-content active" data-tab="1">
+                    <% if current_user.bookings.confirmed.count == 0 %>
+                        <span class="booking-card__no">currently no bookings</span>
+                    <% else %>
+                        <% current_user.bookings.confirmed.each do |b| %>
+                            <div class="booking-card">
+                                <div class="booking-card__booking-info">
+                                    <span><%= b.date.strftime("%I:%M%p") %></span>
+                                    <span><%= b.date.strftime("%d/%m/%y") %></span>
+                                    <span><%= b.address %></span>
+                                    <span>£<%= b.price %></span>
+                                </div>    
+                                <div class="booking-card__request">
+                                    <div class="booking-card__request-image-container">
+                                        <% if b.request.photos.attached? %>
+                                            <%= cl_image_tag b.request.photos.first.key, class: "request-card__image" %>                    
+                                        <% end %>
+                                    </div>
+                                    <div class="booking-card__request-details">
 
-                          </div>
-                          <div class="booking-card__request-info">
+                                    </div>
+                                    <div class="booking-card__request-info">
 
-                          </div>                      
-                      </div>
-                  </div>
-          <% end %>
-          <div class="booking-card__header">
-              <h2>Pending Bookings (<%= current_user.bookings.unconfirmed.count %>)</h2>
-          </div>
-          <% current_user.bookings.unconfirmed.each do |b| %>
-                  <div class="booking-card">
-                      <div class="booking-card__booking-info">
-                          <span><%= b.date.strftime("%I:%M%p") %></span>
-                          <span><%= b.date.strftime("%d/%m/%y") %></span>
-                          <span><%= b.address %></span>
-                          <span>£<%= b.price %></span>
-                      </div>    
-                      <div class="booking-card__request">
-                          <div class="booking-card__request-image-container">
-                              <% if b.request.photos.attached? %>
-                                  <%= cl_image_tag b.request.photos.first.key, class: "request-card__image" %>                    
-                              <% end %>
-                          </div>
-                          <div class="booking-card__request-details">
+                                    </div>                      
+                                </div>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
+                <!--------------------------------tab 1----------------------------------------->
 
-                          </div>
-                          <div class="booking-card__request-info">
+                <!--------------------------------tab 2----------------------------------------->
+                <div class="tabs__content js-tabs-content" data-tab="2">
+                    <% if current_user.bookings.unconfirmed.count == 0 %>
+                        <span class="booking-card__no">currently no pending bookings</span>
+                    <% else %>
+                        <% current_user.bookings.unconfirmed.each do |b| %>
+                            <div class="booking-card">
+                                <div class="booking-card__booking-info">
+                                    <span><%= b.date.strftime("%I:%M%p") %></span>
+                                    <span><%= b.date.strftime("%d/%m/%y") %></span>
+                                    <span><%= b.address %></span>
+                                    <span>£<%= b.price %></span>
+                                </div>    
+                                <div class="booking-card__request">
+                                    <div class="booking-card__request-image-container">
+                                        <% if b.request.photos.attached? %>
+                                            <%= cl_image_tag b.request.photos.first.key, class: "request-card__image" %>                    
+                                        <% end %>
+                                    </div>
+                                    <div class="booking-card__request-details">
 
-                          </div>                      
-                      </div>
-                  </div>
-          <% end %>
+                                    </div>
+                                    <div class="booking-card__request-info">
 
+                                    </div>                      
+                                </div>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
+                <!--------------------------------tab 2----------------------------------------->                
+            </div>            
+        </div>
         <!-- client -->
-        <% elsif current_user.artist != true %>
-          <div class="booking-card__header">
-              <h2>Your upcoming bookings (<%= current_user.my_bookings.confirmed.count %>)</h2>
-          </div>
-          <% current_user.my_bookings.confirmed.each do |b| %>
-                  <div class="booking-card">
-                      <div class="booking-card__booking-info">
-                          <span><%= b.date.strftime("%I:%M%p") %></span>
-                          <span><%= b.date.strftime("%d/%m/%y") %></span>
-                          <span><%= b.address %></span>
-                          <span>£<%= b.price %></span>
-                      </div>    
-                      <div class="booking-card__request">
-                          <div class="booking-card__request-image-container">
-                              <% if b.request.photos.attached? %>
-                                  <%= cl_image_tag b.request.photos.first.key, class: "request-card__image" %>                    
-                              <% end %>
-                          </div>
-                          <div class="booking-card__request-details">
+    <% elsif current_user.artist != true %>
+        <div class="tabs js-tabs">
+            <div class="tabs__tabs-container">
+                <div class="tabs__tab js-tab active" data-tab="3">Upcoming Bookings (<%= current_user.my_bookings.confirmed.count %>)</div>
+                <div class="tabs__tab js-tab" data-tab="4">Pending Bookings (<%= current_user.my_bookings.unconfirmed.count %>)</div>
+            </div>
+            <div class="tabs__content-container">
+        <!--------------------------------tab 1----------------------------------------->
+                <div class="tabs__content js-tabs-content active" data-tab="3">
+                    <% if current_user.my_bookings.confirmed.count == 0 %>
+                        <span class="booking-card__no">currently no bookings</span>
+                    <% else %>
+                        <% current_user.my_bookings.confirmed.each do |b| %>
+                            <div class="booking-card">
+                                <div class="booking-card__booking-info">
+                                    <span><%= b.date.strftime("%I:%M%p") %></span>
+                                    <span><%= b.date.strftime("%d/%m/%y") %></span>
+                                    <span><%= b.address %></span>
+                                    <span>£<%= b.price %></span>
+                                </div>    
+                                <div class="booking-card__request">
+                                    <div class="booking-card__request-image-container">
+                                        <% if b.request.photos.attached? %>
+                                            <%= cl_image_tag b.request.photos.first.key, class: "request-card__image" %>                    
+                                        <% end %>
+                                    </div>
+                                    <div class="booking-card__request-details">
 
-                          </div>
-                          <div class="booking-card__request-info">
+                                    </div>
+                                    <div class="booking-card__request-info">
 
-                          </div>                      
-                      </div>
-                  </div>
-          <% end %>
-          <div class="booking-card__header">
-              <h2>Your upcoming bookings (<%= current_user.my_bookings.confirmed.count %>)</h2>
-          </div>
-          <% current_user.my_bookings.unconfirmed.each do |b| %>
-                  <div class="booking-card">
-                      <div class="booking-card__booking-info">
-                          <span><%= b.date.strftime("%I:%M%p") %></span>
-                          <span><%= b.date.strftime("%d/%m/%y") %></span>
-                          <span><%= b.address %></span>
-                          <span>£<%= b.price %></span>
-                      </div>    
-                      <div class="booking-card__request">
-                          <div class="booking-card__request-image-container">
-                              <% if b.request.photos.attached? %>
-                                  <%= cl_image_tag b.request.photos.first.key, class: "request-card__image" %>                    
-                              <% end %>
-                          </div>
-                          <div class="booking-card__request-details">
+                                    </div>                      
+                                </div>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
+                <div class="tabs__content js-tabs-content" data-tab="4">
+                    <% if current_user.my_bookings.unconfirmed.count == 0 %>
+                        <span class="booking-card__no">currently no bookings offers</span>
+                    <% else %>
+                        <% current_user.my_bookings.unconfirmed.each do |b| %>
+                            <div class="booking-card">
+                                <div class="booking-card__booking-info">
+                                    <span><%= b.date.strftime("%I:%M%p") %></span>
+                                    <span><%= b.date.strftime("%d/%m/%y") %></span>
+                                    <span><%= b.address %></span>
+                                    <span>£<%= b.price %></span>
+                                </div>    
+                                <div class="booking-card__request">
+                                    <div class="booking-card__request-image-container">
+                                        <% if b.request.photos.attached? %>
+                                            <%= cl_image_tag b.request.photos.first.key, class: "request-card__image" %>                    
+                                        <% end %>
+                                    </div>
+                                    <div class="booking-card__request-details">
 
-                          </div>
-                          <div class="booking-card__request-info">
+                                    </div>
+                                    <div class="booking-card__request-info">
 
-                          </div>                      
-                      </div>
-                  </div>
-          <% end %>
-        <% end %>
-    </div>
+                                    </div>                      
+                                </div>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>   
+            </div>        
+        </div>
+    <% end %>
+</div>

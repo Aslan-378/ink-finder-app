@@ -95,6 +95,31 @@
         color: white;    
     }
 
+    &__details-container {
+        display: flex;
+    }
+
+    &__details-title-details {
+        display: flex;
+        margin-right: 50px;
+        // display: flex;        
+        font-weight: bold;
+        font-size: 18px;
+        padding-bottom: 8px;
+        color: grey;
+
+    }
+
+    &__details-in {
+        display: flex;
+        font-weight: normal;
+        font-size: 15px;
+        // padding-bottom: 8px;
+        align-items: center;        
+        color: white;  
+        margin-left: 14px;
+    }
+
     &__details-descr {
         display: flex;
         font-weight: normal;

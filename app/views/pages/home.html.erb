@@ -1,25 +1,28 @@
 <div class="container">
   <div class="welcome text center">
-  <h1 class="upper">Welcome to InkFinder</h1>
-  <h3 class="upper">Your tattoo journey begins here.</h3>
+    <h1 class="upper">Welcome to InkFinder</h1>
+    <h3 class="upper">Your tattoo journey begins here.</h3>
 
 
-  <%= link_to "Your next tattoo", new_quiz_path, class: 'btn from-center home-page-btn-margin' %>
-  <% if current_user %>
-    <%= link_to "Search artists", users_path, class: 'btn from-center home-page-btn-margin'%>
-  <% else %>
-    <%= link_to "Make an artist", users_path, class: 'btn from-center home-page-btn-margin' %>
-  <% end %>
+    <%= link_to "Your next tattoo", new_quiz_path, class: 'btn from-center home-page-btn-margin' %>
+    <% if current_user %>
+      <%= link_to "Search artists", users_path, class: 'btn from-center home-page-btn-margin'%>
+    <% else %>
+      <%= link_to "Make an artist", users_path, class: 'btn from-center home-page-btn-margin' %>
+    <% end %>
+  
 </div>
     <%= link_to styles_path do %>
-    <div class="pic-ctn">
-      <img src="https://i.ibb.co/t3DLpVL/photo-1475695752828-6d2b0a83cf8a.jpg" alt="" class="pic">
-      <img src="https://i.ibb.co/xL0t935/photo-1510362753328-028a0e6b0e9b.jpg" alt="" class="pic">
-      <img src="https://i.ibb.co/5xFfWwX/photo-1552627019-947c3789ffb5.jpg" alt="" class="pic">
-      <img src="https://i.ibb.co/WcFb0cf/photo-1565058379802-bbe93b2f703a.jpg" alt="" class="pic">
-    </div>
+      <div class="pic-ctn">
+        <img src="https://i.ibb.co/t3DLpVL/photo-1475695752828-6d2b0a83cf8a.jpg" alt="" class="pic">
+        <img src="https://i.ibb.co/xL0t935/photo-1510362753328-028a0e6b0e9b.jpg" alt="" class="pic">
+        <img src="https://i.ibb.co/5xFfWwX/photo-1552627019-947c3789ffb5.jpg" alt="" class="pic">
+        <img src="https://i.ibb.co/WcFb0cf/photo-1565058379802-bbe93b2f703a.jpg" alt="" class="pic">
+      </div>
     <% end %>
+    <div class="empty-space"></div>
 </div>
+
 </div>
 
 <div class="home-footer">
@@ -45,7 +48,6 @@
         </li>
       </ul>
     </div>
-
       <div class = "footer-section about footer-width">
       <h2 class="logo-text underline"><span>InkFinder</span>.Design</h2>
       <p class="home-about">
@@ -59,7 +61,7 @@
       <form action="home.html" method="post">
         <div class="form-center">
           <input type="email" name="email" class="text-input contact-input" placeholder="Your email address..">
-          <textarea name="message" class="text-input contact-input" placeholder="Your message.."></textarea>
+          <textarea name="message" class="text-input contact-input-j" placeholder="Your message.." style="line-height: 3;"></textarea>
         </div>
         <button type="submit" class="btn btn-big contact-btn">
           Send
