@@ -1,3 +1,7 @@
+<% content_for :meta_title, "#{@user.instagram} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @user.bio %>
+<% content_for :meta_image, cl_image_path(@user.avatar.path) %>
+
 <%= link_to "Make a request",  new_user_request_path(@user, current_user), class: "btn from-center" %>
 
 

@@ -12,8 +12,9 @@ Rails.application.routes.draw do
     resources :quizzes, only: [:index, :new, :create, :show]
     resources :requests, only: [:show, :index, :new, :create]
     resources :bookings, only: [:show, :new, :create, :index]
-
+    resources :reviews, only: [:create, :new, :index]
   end
+
   resources :requests, only: [:destroy] do
     member do
       patch '/accept', to: 'requests#accept'
@@ -31,7 +32,5 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
 end
-
-
-
+end
 
