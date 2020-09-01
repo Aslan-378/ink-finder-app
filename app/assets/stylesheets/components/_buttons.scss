@@ -8,8 +8,12 @@
   cursor: pointer;
   user-select: none;
   text-shadow: black;
+
 }
 
+.home-page-btn-margin {
+  margin: 10px 40px;
+}
 .btn:before, .btn:after {
   content: '';
   position: absolute;
@@ -19,7 +23,7 @@
 }
 
 .btn:hover {
-  color: purple;
+  color: black;
   transition-delay: .1s;
 }
 
