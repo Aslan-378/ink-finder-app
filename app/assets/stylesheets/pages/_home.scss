@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .container {
-    padding: 60px 10px;
+    padding: 5px 10px;
     color:white;
     max-width: 1000px;
     align-items: center;
@@ -45,16 +45,18 @@ body {
   background-color: #8D918D;
   border: solid 1px white;
 }
-.wrapper {
-  min-height: 100%;
-  background-color: #8D918D;
-  border: 1px solid white;
-}
+
+//.wrapper {
+  //min-height: 100%;
+  //background-color: #8D918D;
+  //border: 1px solid white;
+//}
+
 h1 {
   color: white;
   font-weight: bolder;
   font-size: 100px;
-  text-decoration: underline;
+  //text-decoration: underline;
   font-family: Nunito;
 }
 
@@ -108,7 +110,7 @@ h3 {
   position: relative;
   width: 21.5vw;
   height: 300px;
-  margin-top: 15vh;
+  margin-top: 6vh;
   margin-bottom: 15vh;
 }
 
@@ -193,13 +195,13 @@ img:nth-child(5) {
 }
 
  .footer-bottom {
-  color: #8D918D;
+  color: white;
   height: 20px;
   width: 100%;
   text-align: center;
   position: relative;
   bottom: 0px;
   left: 0px;
-  padding-top: 20px;
+  padding-top: 0px;
 }
 
