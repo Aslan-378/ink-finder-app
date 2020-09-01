@@ -1,70 +1,160 @@
     <div class="request-container">
-        <div class="request-card__header">
-            <h2>Requests</h2>
-        </div>
-        <% current_user.requests.pending.each do |r| %>
-            <div class="request-card">
-                <div class="request-card__info-container">
-                    <div class="request-card__image-container">
-                        <%= link_to user_path(r.user) do %>
-                            <% if r.photos.attached? %>
-                                <%= cl_image_tag r.photos.first.key, class: "request-card__image" %>
+
+
+        <% if current_user.artist %>
+            <div class="tabs js-tabs">
+                <div class="tabs__tabs-container">
+                    <div class="tabs__tab js-tab active" data-tab="1">Requests</div>
+                    <div class="tabs__tab js-tab" data-tab="2">Accepted Requests</div>
+                </div>
+
+                <div class="tabs__content-container">
+                    <div class="tabs__content js-tabs-content active" data-tab="1">
+                         <!-- Tab 1 -->
+                        <% current_user.requests.pending.each do |r| %>
+                            <div class="request-card">
+                                <div class="request-card__info-container">
+                                    <div class="request-card__image-container">                                       
+                                        <% if r.photos.attached? %>
+                                            <%= cl_image_tag r.photos.first.key, class: "request-card__image" %>
+                                        <% end %>    
+                                    </div>
+                                    <div class="request-card__description-container">
+                                        <span class="request-card__details-title">Client Name: <span class="request-card__details"><%= r.name %></span></span> 
+                                        <span class="request-card__details-title">Position: <span class="request-card__details"><%= r.body_part %></span></span> 
+                                        <span class="request-card__details-title">Size(inches): <span class="request-card__details"><%= r.size %></span></span>
+                                        <span class="request-card__details-title">Style: <span class="request-card__details"><%= r.style %></span></span>
+                                        <span class="request-card__details-title">Description: <span class="request-card__details-descr"><%= r.description %></span></span>
+                                    </div>
+                                    <div class="request-card__accept-container">                                    
+                                            <%= link_to 'Accept', accept_request_path(r), method: :patch, class: "btn request-card__button--accept"%>                                                                                
+                                            <%= link_to 'Decline', request_path(r), method: :delete, class: "btn request-card__button--decline" %>
+                                    </div>
+                                </div>                                
+                            </div>
+                        <% end %>
+                    </div>
+                    <div class="tabs__content js-tabs-content" data-tab="2">
+                         <!-- Tab 2 -->
+                        <% current_user.requests.accepted.each do |r| %>
+                            <% if r.booking.nil? %>
+                                <div class="request-card">
+                                    <div class="request-card__info-container">
+                                        <div class="request-card__image-container">
+                                            <% if r.photos.attached? %>
+                                                <%= cl_image_tag r.photos.first.key, class: "request-card__image" %>
+                                            <% end %>
+                                        </div>
+                                    <div class="request-card__description-container">
+                                        <span class="request-card__details-title">Client Name: <span class="request-card__details"><%= r.name %></span></span> 
+                                        <span class="request-card__details-title">Position: <span class="request-card__details"><%= r.body_part %></span></span> 
+                                        <span class="request-card__details-title">Size(inches): <span class="request-card__details"><%= r.size %></span></span>
+                                        <span class="request-card__details-title">Style: <span class="request-card__details"><%= r.style %></span></span>
+                                        <span class="request-card__details-title">Description: <span class="request-card__details-descr"><%= r.description %></span></span>
+                                    </div>
+                                        <div class="request-card__accept-container">
+                                            <%= link_to 'Make Booking', new_user_booking_path(current_user, r.client), class: "btn request-card__button--booking"  %>
+                                        </div>
+                                    </div>
+                                </div>
                             <% end %>
-                        <% end %>      
+                        <% end %>
                     </div>
-                    <div class="request-card__info">
-                        <span><%= r.name %></span>
-                        <span><%= r.address %></span>
+                </div>
+
+            </div> 
+
+        <!-- client -->
+        <% elsif current_user != true %>
+
+             <div class="tabs js-tabs">
+                <div class="tabs__tabs-container">
+                    <div class="tabs__tab js-tab active" data-tab="3">Tab 1</div>
+                    <div class="tabs__tab js-tab" data-tab="4">Tab 2</div>
+                </div>
+
+                <div class="tabs__content-container">
+                    <div class="tabs__content js-tabs-content active" data-tab="3">
+                         <div class="request-card__header">
+                            <h2>Your Requests</h2>
+                        </div>
+                        <% if current_user.made_requests.accepted.count == 0 %>
+                                <span>currently no requests made</span>
+                        <% else %>
+                            <% current_user.made_requests.accepted.each do |r| %>
+                                <div class="request-card">
+                                    <div class="request-card__info-container">
+                                        <div class="request-card__image-container">
+                                            <% if r.photos.attached? %>
+                                                <%= cl_image_tag r.photos.first.key, class: "request-card__image" %>
+                                            <% else %>
+                                                <span>Photo</span>
+                                            <% end %>
+                                        </div>
+                                        <div class="request-card__info">
+                                            <span class="request-card__details"><%= r.name %></span>
+                                            <span class="request-card__details"><%= r.address %></span>
+                                        </div>
+                                        <div class="request-card__description-container">
+                                            <span class="request-card__details"><%= r.body_part %></span>
+                                            <span class="request-card__details"><%= r.size %></span>
+                                            <span class="request-card__details"><%= r.style %></span>
+                                            <span class="request-card__details"><%= r.description %></span>
+                                        </div>
+                                        <div class="request-card__accepted">
+                                            <% if r.accepted %>
+                                                <i class="far fa-check-circle request-card__accepted-tick"></i>
+                                                <span class="request-card__accepted-text">Accepted</span>
+                                                <span class="request-card__accepted-text">Booking pending</span>
+                                            <% else %>
+                                                <i class="far fa-clock request-card__accepted-clock"></i>
+                                                <span class="request-card__accepted-text">Request Pending</span>
+                                            <% end %>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% end %>
+                        <% end %>
                     </div>
-                    <div class="request-card__description-container">
-                        <span><%= r.body_part %></span>
-                        <span><%= r.size %></span>
-                        <span><%= r.style %></span>
-                        <span><%= r.description %></span>
-                    </div>
-                    <div class="request-card__accept-container">
-                        <div class="request-card__button--accept">
-                            <%= link_to 'Accept', accept_request_path(r), method: :patch %>
-                        </div>
-                        <div class="request-card__button--decline">
-                            <%= link_to 'Decline', request_path(r), method: :delete %>
-                        </div>
-                        <div class="request-card__accept-info">
-                            <span>Would you like to accept or decilne this offer?</span>
-                        </div>
+                    <div class="tabs__content js-tabs-content" data-tab="4">
+                        <!-- content of tab 2 -->
+                            <div class="request-card__header">
+                                <h2>Requests made</h2>
+                            </div>
+                            <% if current_user.made_requests.pending.count == 0 %>
+                                <span>currently no requests made</span>
+                            <% else %>
+                                <% current_user.made_requests.pending.each do |r| %>
+                                    <div class="request-card">
+                                        <div class="request-card__info-container">
+                                            <div class="request-card__image-container">
+                                                <% if r.photos.attached? %>
+                                                    <%= cl_image_tag r.photos.first.key, class: "request-card__image" %>
+                                                <% else %>
+                                                    <span>Photo</span>
+                                                <% end %>
+                                            </div>
+                                            <div class="request-card__info">
+                                                <span><%= r.name %></span>
+                                                <span><%= r.address %></span>
+                                            </div>
+                                            <div class="request-card__description-container">
+                                                <span><%= r.body_part %></span>
+                                                <span><%= r.size %></span>
+                                                <span><%= r.style %></span>
+                                                <span><%= r.description %></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% end %>
+                            <% end %>            
+                        <% end %>
                     </div>
                 </div>
             </div>
-        <% end %>
-        <div class="request-card__header">
-            <h2>Accepted Requests</h2>
-        </div>
-        <% current_user.requests.accepted.each do |r| %>
-            <% if r.booking.nil? %>
-                <div class="request-card">
-                    <div class="request-card__info-container">
-                        <div class="request-card__image-container">
-                            <%= link_to user_path(r.user) do %>
-                                <% if r.photos.attached? %>
-                                    <%= cl_image_tag r.photos.first.key, class: "request-card__image" %>
-                                <% end %>
-                            <% end %>      
-                        </div>
-                        <div class="request-card__info">
-                            <span><%= r.name %></span>
-                            <span><%= r.address %></span>
-                        </div>
-                        <div class="request-card__description-container">
-                            <span><%= r.body_part %></span>
-                            <span><%= r.size %></span>
-                            <span><%= r.style %></span>
-                            <span><%= r.description %></span>
-                        </div>
-                        <div class="request-card__booking">
-                            <%= link_to 'Make Booking', new_user_booking_path(current_user, r.client) %>
-                        </div>
-                    </div>
-                </div>
-            <% end %>
-        <% end %>
     </div>
+
+
+
+           
+          

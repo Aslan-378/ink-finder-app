@@ -1,0 +1,5 @@
+<% if current_user.artist %>
+    <%= render 'pages/artist_dashboard' %>
+<% else %>
+    <%= render 'pages/client_dashboard' %>
+<% end %>
