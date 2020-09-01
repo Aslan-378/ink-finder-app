@@ -1,6 +1,10 @@
 <div class="popup-content">
   <div class="popup-avatar">
-    <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/MartinDE8" />
+    <% if artist.avatar.attached? %>
+          <%= cl_image_tag artist.avatar.key, crop: :fill, class: "card-trip-user avatar-bordered" %>
+        <% else %>
+          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.wildtattooart.com%2Fwp-content%2Fuploads%2F2020%2F02%2Fface-tattoos-23.jpg&f=1&nofb=1" class="card-trip-user avatar-bordered" />
+        <% end %>
   </div>
   <div class="popup-info">
     <h2><%= artist.nickname %></h2>
