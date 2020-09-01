@@ -2,6 +2,16 @@
     margin: 10px;
 }
 
+.carousel-inner {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.carousel-item {
+    width: 300px;
+}
+
 .request-card {
     $this: &;
     display: flex;
@@ -12,18 +22,34 @@
     margin-bottom: 16px;
     border-radius: 10px;
 
+    &__no {
+        display: flex;
+        justify-content: start;
+        width: fit-content;
+        padding: 16px;
+    }
+
+    &__no-photo {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
     &__info-container {
         display: flex;
         overflow: hidden;
         position: relative;
-        width: 600px;
+        width: 350px;
         height: 250px;
         flex-grow: 1;
     }
     
     &__image-container {
         flex-shrink: 0;
-        width: 200px;
+        width: 300px;
+        display: flex;
+
     }
 
     &__image {
@@ -36,8 +62,9 @@
     &__description-container {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         width: 700px;
+        margin-left: 16px;
+        padding-top: 20px;
     }
 
     &__info {
@@ -78,6 +105,7 @@
         width: 400px; 
         overflow: hidden;
         padding-left: 10px;
+        text-align: left;
     }
 
     &__accept-container {
@@ -88,6 +116,25 @@
 
     &__accept-info {
 
+    }
+
+    &__accepted {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 200px;
+    }
+
+    &__accepted-tick {
+        margin-bottom: 10px;
+        color: #00FF40;
+        font-size: 30px;
+    }
+
+    &__accepted-clock {
+        margin-bottom: 10px;
+        color: #035A9E;
+        font-size: 30px;
     }
 
     &__button {
