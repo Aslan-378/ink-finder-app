@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_30_191441) do
+ActiveRecord::Schema.define(version: 2020_09_01_094735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(version: 2020_08_30_191441) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.bigint "gallery_id", null: false
+    t.bigint "user_id", null: false
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["gallery_id"], name: "index_comments_on_gallery_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -60,6 +70,14 @@ ActiveRecord::Schema.define(version: 2020_08_30_191441) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "galleries", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_galleries_on_user_id"
   end
 
   create_table "quizzes", force: :cascade do |t|
@@ -146,6 +164,9 @@ ActiveRecord::Schema.define(version: 2020_08_30_191441) do
   add_foreign_key "bookings", "requests"
   add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "users", column: "client_id"
+  add_foreign_key "comments", "galleries"
+  add_foreign_key "comments", "users"
+  add_foreign_key "galleries", "users"
   add_foreign_key "quizzes", "users"
   add_foreign_key "requests", "quizzes"
   add_foreign_key "requests", "users"

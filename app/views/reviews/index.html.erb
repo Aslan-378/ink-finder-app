@@ -1,0 +1,9 @@
+<% if policy(Review).create? %>
+  <%= link_to "New review", new_review_path %>
+<% end %>
+
+<% @reviews.each do |review| %>
+  <% if policy(review).edit? %>
+    <%= link_to "Update", edit_review_path(review) %>
+  <% end %>
+<% end %>

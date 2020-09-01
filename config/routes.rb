@@ -20,15 +20,18 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :bookings, only: [:destroy]
-  resources :reviews, only: [:create, :new, :index, :show], path: 'gallery'
- end
-
-  resources :bookings, only: [:destroy] do 
+  resources :bookings, only: [:destroy] do
     member do
       patch '/accept', to: 'bookings#accept'
     end
   end
-  
+
+  resources :reviews, only: [:create, :new, :index, :show]
+  resources :galleries do
+    resources :comments, only: [:create]
+  end
 end
+
+
+
 
