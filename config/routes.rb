@@ -12,18 +12,25 @@ Rails.application.routes.draw do
     resources :quizzes, only: [:index, :new, :create, :show]
     resources :requests, only: [:show, :index, :new, :create]
     resources :bookings, only: [:show, :new, :create, :index]
-    resources :reviews, only: [:create, :new]
+    resources :reviews, only: [:create, :new, :index]
   end
-  resources :requests, only: [:destroy] do 
+
+  resources :requests, only: [:destroy] do
     member do
       patch '/accept', to: 'requests#accept'
     end
   end
 
-  resources :bookings, only: [:destroy] do 
+  resources :bookings, only: [:destroy] do
     member do
       patch '/accept', to: 'bookings#accept'
     end
   end
-  
+
+  resources :reviews, only: [:create, :new, :index, :show]
+  resources :galleries do
+    resources :comments, only: [:create]
+  end
 end
+
+

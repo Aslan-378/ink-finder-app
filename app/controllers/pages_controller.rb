@@ -10,6 +10,10 @@ class PagesController < ApplicationController
   def artist_dashboard
   end
 
+
   def dashboard
+
+  def gallery
+
   end
 end

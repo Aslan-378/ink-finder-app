@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .container {
-    padding: 60px 10px;
+    padding: 5px 10px;
     color:white;
     max-width: 1000px;
     align-items: center;
@@ -45,16 +45,18 @@ body {
   background-color: #8D918D;
   border: solid 1px white;
 }
-.wrapper {
-  min-height: 100%;
-  background-color: #8D918D;
-  border: 1px solid white;
-}
+
+//.wrapper {
+  //min-height: 100%;
+  //background-color: #8D918D;
+  //border: 1px solid white;
+//}
+
 h1 {
   color: white;
   font-weight: bolder;
   font-size: 100px;
-  text-decoration: underline;
+  //text-decoration: underline;
   font-family: Nunito;
 }
 
@@ -108,7 +110,7 @@ h3 {
   position: relative;
   width: 21.5vw;
   height: 300px;
-  margin-top: 15vh;
+  margin-top: 6vh;
   margin-bottom: 15vh;
 }
 
@@ -155,103 +157,12 @@ img:nth-child(5) {
 }
 
 .icon-color {
-  color: purple;
+  color: white;
   font-size: 32px;
   padding: 24px;
 
 }
 
-// .footer .footer-content {
-//   height: 200px;
-
-// }
-
-// .footer .footer-content .footer-section {
-//   flex: 1;
-//   padding: 15px;
-
-// }
-
-// .footer .footer-content .about h1 span {
-//   color: white;
-// }
-
-// .footer .footer-content .about .contact span {
-//   display: block;
-//   font-size: 1.1rem;
-//   margin-bottom: 8px;
-
-// }
-
-// .footer .footer-content .about .socials a {
-//   width: 45px;
-//   height: 41px;
-//   padding-top: 5px;
-//   margin-right: 5px;
-//   text-align: center;
-//   font-size: 1.3rem;
-//   border-radius: 5px;
-//   color: #8D918D;
-// }
-
-// .footer .footer-content .about .socials a :hover{
-//   color: #8D918D;
-//   transition: all .3s;
-
-// }
-
-// .footer .footer-content .links ul a {
-//   float: right;
-//   padding-left: 10px;
-//   margin-bottom: 10px;
-//   font-size: 1.2em;
-//   color: #8D918D;
-//   display: inline-block;
-// }
-
-// .footer .footer-content .links ul a:hover {
-//   color: #8D918D;
-//   margin-left: 15px;
-//   transition: all .3s;
-
-// }
-
-// a {
-//   color: #8D918D;
-// }
-
-// a:hover {
-//   color: purple;
-// }
-
-// // .inline {
-// //   display: inline;
-// // }
-
-// a.inline {
-//   display: inline;
-//   color: #8D918D;
-// }
-
-// ul {
-//   display: inline;
-//   color: #8D918D;
-// }
-// .footer .footer-content .contact-form {
-//   display: flex;
-//   color: white;
-// }
-
-// .footer .footer-content .contact-form .contact-input {
-//   background: #8D918D;
-//   color: white;
-//   margin-bottom: 5px;
-//   line-height: 1.5rem;
-//   padding: 1rem, 2rem;
-//   border: solid 1px white;
-//   float: center;
-
-// }
 
 .footer-width {
   width: 33.33%;
@@ -264,9 +175,10 @@ img:nth-child(5) {
 }
 
 .list-link{
-  color: purple;
+  color: white;
 
 }
+
 .form-center {
   display: flex;
   align-items: center;
@@ -283,13 +195,13 @@ img:nth-child(5) {
 }
 
  .footer-bottom {
-  color: #8D918D;
+  color: white;
   height: 20px;
   width: 100%;
   text-align: center;
   position: relative;
   bottom: 0px;
   left: 0px;
-  padding-top: 20px;
+  padding-top: 0px;
 }
 

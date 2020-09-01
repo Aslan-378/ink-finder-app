@@ -7,16 +7,16 @@ class QuizzesController < ApplicationController
     authorize @quiz
   end
 
-  def create
-    @quiz = Quiz.new(quiz_params)
-    @quiz.user = current_user
-    authorize @quiz
-    if @quiz.save
-      redirect_to users_path(style: @quiz.style)
-    else
-      render :new
-    end
-  end
+  #def create
+   # @quiz = Quiz.new(quiz_params)
+    #@quiz.user = current_user
+    #authorize @quiz
+    #if @quiz.save
+     # redirect_to users_path(style: @quiz.style)
+    #else
+     # render :new
+    #end
+  #end
 
   def show
     @quiz = Quiz.find(params[:id])

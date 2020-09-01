@@ -3,12 +3,12 @@
   <h1 class="upper">Welcome to InkFinder</h1>
   <h3 class="upper">Your tattoo journey begins here.</h3>
 
-<div class="wrapper">
-  <%= link_to "Take a quiz!", new_quiz_path, class: 'btn from-center' %>
+
+  <%= link_to "Your next tattoo", new_quiz_path, class: 'btn from-center home-page-btn-margin' %>
   <% if current_user %>
-    <%= link_to "Find an artist", users_path, class: 'btn from-center'%>
+    <%= link_to "Search artists", users_path, class: 'btn from-center home-page-btn-margin'%>
   <% else %>
-    <%= link_to "Make an artist", users_path, class: 'btn from-center' %>
+    <%= link_to "Make an artist", users_path, class: 'btn from-center home-page-btn-margin' %>
   <% end %>
 </div>
     <%= link_to styles_path do %>
@@ -22,18 +22,7 @@
 </div>
 </div>
 
-
-  <div class="home-footer">
-
-    <div class = "footer-section about footer-width">
-      <h2 class="logo-text underline"><span>InkFinder</span>.Design</h2>
-      <p class="home-about">
-        InkFinder is a hub for tattoo enthusiasts which brings together both artists and clients alike. From first time buyers to seasoned pros, there is only one place to go for finding the perfect piece of art.
-        Founded in 2020 by Fakhri Aslan and his close buddies, InkFinder is sure to be the next big thing in tattoos.
-      </p>
-    </div>
-
-
+<div class="home-footer">
 
     <div class= "inline footer-width">
       <h2 class="underline">Get Social</h2>
@@ -49,12 +38,20 @@
           <a href="#" class="list-link">Events</a>
         </li>
         <li>
-          <a href="#" class="list-link">Gallery</a>
+        <%= link_to "Gallery", user_reviews_path(:user_id), class: "list-link" %>
         </li>
         <li>
           <a href="#" class="list-link">Meet the team!</a>
         </li>
       </ul>
+    </div>
+
+      <div class = "footer-section about footer-width">
+      <h2 class="logo-text underline"><span>InkFinder</span>.Design</h2>
+      <p class="home-about">
+        InkFinder is a hub for tattoo enthusiasts which brings together both artists and clients alike. From first time buyers to seasoned pros, there is only one place to go for finding the perfect piece of art.
+        Founded in 2020 by Fakhri Aslan and his close buddies, InkFinder is sure to be the next big thing in tattoos.
+      </p>
     </div>
 
     <div class="footer-section contact-form footer-width">
@@ -73,41 +70,6 @@
 
 
 
-                   <!--  <div>
-
-                        <span> Joe Williamson </span>
-
-                        <span> 07892906688; </span>
-                        <br>
-                        <span> joey8595@hotmail.co.uk; </span>
-
-
-                        <span> Declan Ordish </span>
-
-                        <span> +447949235309 </span>
-                        <br>
-                        <span> declan.ordish@hotmail.co.uk </span>
-
-
-                        <span> Fakhri Aslan </span>
-
-                        <span>  </span>
-                        <br>
-                        <span>  </span>
-
-
-                        <span> Martin Darras </span>
-
-                        <span>  </span>
-                        <br>
-                        <span>  </span>
-
-                    </div> -->
-
-
-    <div class="footer-bottom">
-      &copy; InkFinder.design | Designed by the boys who brought you Rent-my-ride
-    </div>
 
 
 

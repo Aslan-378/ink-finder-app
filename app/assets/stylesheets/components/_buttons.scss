@@ -8,8 +8,12 @@
   cursor: pointer;
   user-select: none;
   text-shadow: black;
+
 }
 
+.home-page-btn-margin {
+  margin: 10px 40px;
+}
 .btn:before, .btn:after {
   content: '';
   position: absolute;
@@ -20,7 +24,7 @@
 
 .btn:hover {
   color: black;
-  transition-delay: .2s;
+  transition-delay: .1s;
 }
 
 .btn:hover:before {
@@ -29,7 +33,7 @@
 
 .btn:hover:after {
   background: white;
-  transition-delay: .2s;
+  transition-delay: .1s;
   text-shadow: black;
 }
 
