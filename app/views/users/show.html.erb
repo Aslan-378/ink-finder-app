@@ -1,10 +1,7 @@
 <% content_for :meta_title, "#{@user.nickname} • Artist page" %>
 <% content_for :meta_description, @user.bio %>
 
-
 <div class="container">
-
-
   <div class="artist-info">
     <div class="artist-main">
       <% if current_user.avatar.present? %>
@@ -27,13 +24,9 @@
       </div>
     </div>
   </div>
-
-  <h1>Artist portfolio</h1>
-
   <div class="artist-portfolio">
     <% @user.photos.each do |p| %>
       <%= cl_image_tag p.key %>
     <% end %>
   </div>
 </div>
-
