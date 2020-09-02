@@ -8,9 +8,9 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import $ from 'jquery';
+// import $ from 'jquery';
 
-import "lightgallery";
+// import "lightgallery";
 
 import "bootstrap";
 
@@ -20,12 +20,14 @@ import { next } from '../components/quiz-card';
 import { tabs } from '../components/request-booking-tab';
 import { initChatroomCable } from '../channels/chatroom_channel';
 
-import {gallery} from "../components/gallery";
+// import {gallery} from "../components/gallery";
+
 document.addEventListener('turbolinks:load', () => {
-  initMapbox(); 
+  initMapbox();
   tabs();
-  gallery();
+  // gallery();
   initChatroomCable();
+
 })
 
 // $(document).on('turbolinks:load', function(){
