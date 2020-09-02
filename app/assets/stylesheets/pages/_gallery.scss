@@ -1,3 +1,13 @@
+
+.container {
+  display: flex;
+}
+
+.gallery-container {
+  display: flex;
+}
+
+
 .gallery-row > .column {
   padding: 0 8px;
 }
@@ -13,6 +23,24 @@
   float: left;
   width: 25%;
 }
+
+
+#image1 {
+    object-fit: cover;
+  }
+
+#image2 {
+  object-fit: cover;
+}
+
+#image1 {
+  object-fit: cover;
+}
+
+#image1 {
+  object-fit: cover;
+}
+
 
 /* The Modal (background) */
 .modal {

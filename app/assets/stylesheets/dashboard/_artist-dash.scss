@@ -75,6 +75,14 @@ h3 {
   grid-template-rows: repeat(5, 1fr);
 }
 
+.confirmed-booking-details {
+  display: flex;
+  flex-direction: row;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
 .pending-bookings-container {
   background-color: blue;
   width: 45%;

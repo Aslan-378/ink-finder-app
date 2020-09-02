@@ -34,7 +34,7 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
     authorize @request
     @request.update(accepted: true)
-    @chatroom = Chatroom.create(request: @request)
+    @chatroom = Chatroom.create(request: @request, name: "#{current_user.first_name} ~ #{@request.name}")
 
       redirect_to request_chatroom_path(@request, @chatroom)
   end
