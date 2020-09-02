@@ -21,11 +21,11 @@
                                                 <div class="carousel-inner">
                                                     <% if r.photos.attached? %>
                                                         <div class="carousel-item active">
-                                                            <%= cl_image_tag r.photos.first.key, height: 250, width: 300, crop: :fit %>
+                                                            <%= cl_image_tag r.photos.first.key, height: 250, width: 200, crop: :fit %>
                                                         </div>
                                                         <% r.photos.drop(1).each do |photo| %>
                                                             <div class="carousel-item">
-                                                                <%= cl_image_tag photo.key, height: 250, width: 300, crop: :fit %>
+                                                                <%= cl_image_tag photo.key, height: 250, width: 200, crop: :fit %>
                                                             </div>
                                                         <% end %>
                                                     <% else %>
@@ -72,11 +72,11 @@
                                                 <div class="carousel-inner">
                                                     <% if r.photos.attached? %>
                                                         <div class="carousel-item active">
-                                                            <%= cl_image_tag r.photos.first.key, height: 250, width: 300, crop: :fit %>
+                                                            <%= cl_image_tag r.photos.first.key, height: 250, width: 200, crop: :fit %>
                                                         </div>
                                                         <% r.photos.drop(1).each do |photo| %>
                                                             <div class="carousel-item">
-                                                                <%= cl_image_tag photo.key, height: 250, width: 300, crop: :fit %>
+                                                                <%= cl_image_tag photo.key, height: 250, width: 200, crop: :fit %>
                                                             </div>
                                                         <% end %>
                                                     <% else %>
@@ -135,11 +135,11 @@
                                             <div class="carousel-inner">
                                                 <% if r.photos.attached? %>
                                                     <div class="carousel-item active">
-                                                        <%= cl_image_tag r.photos.first.key, height: 250, width: 300, crop: :fit %>
+                                                        <%= cl_image_tag r.photos.first.key, height: 250, width: 200, crop: :fit %>
                                                     </div>
                                                     <% r.photos.drop(1).each do |photo| %>
                                                         <div class="carousel-item">
-                                                            <%= cl_image_tag photo.key, height: 250, width: 300, crop: :fit %>
+                                                            <%= cl_image_tag photo.key, height: 250, width: 200, crop: :fit %>
                                                         </div>
                                                     <% end %>
                                                 <% else %>
@@ -187,11 +187,11 @@
                                                 <div class="carousel-inner">
                                                     <% if r.photos.attached? %>
                                                         <div class="carousel-item active">
-                                                            <%= cl_image_tag r.photos.first.key, height: 250, width: 300, crop: :fit %>
+                                                            <%= cl_image_tag r.photos.first.key, height: 250, width: 200, crop: :fit %>
                                                         </div>
                                                         <% r.photos.drop(1).each do |photo| %>
                                                             <div class="carousel-item">
-                                                                <%= cl_image_tag photo.key, height: 250, width: 300, crop: :fit %>
+                                                                <%= cl_image_tag photo.key, height: 250, width: 200, crop: :fit %>
                                                             </div>
                                                         <% end %>
                                                     <% else %>

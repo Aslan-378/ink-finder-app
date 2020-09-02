@@ -1,3 +1,18 @@
+.carousel-item {
+    width: 242px;
+}
+
+.booking-accept {
+    font-size: 18px;
+    padding-left: 0px;
+
+}
+
+.booking-decline {
+    font-size: 14px;
+    padding-left: 0px;
+}
+
 
 .booking-card {
     $this: &;
@@ -18,7 +33,8 @@
     }
 
     &__request {
-
+        display: flex;
+        width: 975px;
     }
 
     &__info {
