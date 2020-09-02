@@ -1,5 +1,6 @@
 <%= render 'navbar-dashboard' %>
-<div class="home-page">
+<div class="main-dashboard-container">
+
     <div class="home-page__welcome">
         <% if current_user != nil %>
             <% if current_user.avatar.present? %>
@@ -9,7 +10,8 @@
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
     </div>
-    <div class="home-request-container">
+
+      <div class="home-request-container">
         <div class="home-request-card__header">
             <h2>Your Requests</h2>
         </div>
@@ -18,7 +20,7 @@
         <% else %>
             <% current_user.made_requests.each do |r| %>
                 <div class="request-card">
-                    <div class="request-card__info-container">                                                                                                                                  
+                    <div class="request-card__info-container">
                             <div id="carouselExampleControls" class="carousel slide request-card__image-container" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <% if r.photos.attached? %>
@@ -45,9 +47,9 @@
                             </div>
                         </div>
                         <div class="request-card__description-container">
-                            <span class="request-card__details-title">Client Name: <span class="request-card__details"><%= r.name %></span></span> 
+                            <span class="request-card__details-title">Client Name: <span class="request-card__details"><%= r.name %></span></span>
                             <div class="request-card__details-container">
-                                <span class="request-card__details-title-details">Position: <span class="request-card__details-in"><%= r.body_part %></span></span> 
+                                <span class="request-card__details-title-details">Position: <span class="request-card__details-in"><%= r.body_part %></span></span>
                                 <span class="request-card__details-title-details">Size(inches): <span class="request-card__details-in"><%= r.size %></span></span>
                                 <span class="request-card__details-title-details">Style: <span class="request-card__details-in"><%= r.style %></span></span>
                             </div>
@@ -61,11 +63,9 @@
                             <i class="far fa-clock home-request-card__accepted-clock"></i>
                             <span class="home-request-card__accepted-text">Request Pending</span>
                         <% end %>
-                    </div>
-                </div>
             <% end %>
+          </div>
         <% end %>
-    </div>
     <div class="home-booking-container">
         <div class="home-booking-card__header">
             <h2>Upcoming Bookings</h2>
@@ -80,6 +80,7 @@
             <% end %>
         <% end %>
     </div>
+
      <div class="home-booking-container">
         <div class="home-booking-card__header">
             <h2>Pending Bookings</h2>
@@ -87,8 +88,9 @@
         <% if current_user.my_bookings.unconfirmed.count == 0 %>
             <span>No current pending Bookings</span>
         <% else %>
-        
+
             <% current_user.my_bookings.unconfirmed.sort_bookings[0..2].each do |b| %>
+
                 <div class="home-booking-card">
                     <div class="home-booking-card__card">
                         <div class="home-booking-card__details">
@@ -106,7 +108,7 @@
                                     <%= cl_image_tag b.user.avatar.key, class: "home-booking-card__avatar"%>
                                 <% else %>
                                     <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                                <% end %>    
+                                <% end %>
                             <% end %>
                             <span class="home-booking-card__avatar-name"><%= b.user.first_name %> <%= b.user.last_name%> </span>
                         </div>
@@ -115,6 +117,7 @@
             <% end %>
         <% end %>
     </div>
+
     <div class="home-messages-container">
         <div class="home-messages-card__header">
             <h2>messages</h2>
@@ -123,4 +126,7 @@
             <p>bare messages</p>
         </div>
     </div>
+
 </div>
+
+
