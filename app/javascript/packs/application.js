@@ -19,17 +19,26 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { next } from '../components/quiz-card';
 import { tabs } from '../components/request-booking-tab'
 
+import {gallery} from "../components/gallery";
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   next();
   tabs();
+  gallery();
 })
 
-$(document).on('turbolinks:load', function(){
-  var gallery = $("#lightGallery").lightGallery({
-    speed: 1000
-  });
-});
+// $(document).on('turbolinks:load', function(){
+//   var gallery = $("#lightGallery").lightGallery({
+//     speed: 1000
+//   });
+// });
+
+
+// $(document).ready(function(){$('#lightgallery').lightGallery();
+// selector:'item'
+// });
+
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
