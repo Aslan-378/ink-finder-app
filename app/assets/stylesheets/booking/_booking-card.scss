@@ -1,6 +1,4 @@
 
-
-
 .booking-card {
     $this: &;
     display: flex;
@@ -8,6 +6,8 @@
     height: 250px;
     margin: 0 auto;
     box-shadow: inset 0px 0px 109px -28px rgba(255,255,255,.4);
+    margin-bottom: 16px;
+    border-radius: 10px;
 
     &__booking-info {
         display: flex;
@@ -83,7 +83,7 @@
     
     &__image-container {
         flex-shrink: 0;
-        width: 300px;
+        width: 260px;
         display: flex;
 
     }
