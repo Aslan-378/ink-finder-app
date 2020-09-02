@@ -26,7 +26,6 @@
   <p>
     InkFinder is a hub for tattoo enthusiasts which brings together both artists and clients alike.
     From first time buyers to seasoned pros, there is only one place to go for finding the perfect piece of art.
-    Founded in 2020 by Fakhri Aslan and his friends, InkFinder is sure to be the next big thing in tattoos.
   </p>
 </div>
 
@@ -35,28 +34,28 @@
 <div class="home-footer">
 
     <div class= "inline footer-width">
-      <h2 class="underline">Get Social</h2>
+      <h2 class="underline">Social Media</h2>
        <div class="footer-social">
-        <a href="#"><i class="fab fa-facebook icon-color"></i></a>
+        <a href="#"><i class="fab fa-facebook icon-color no-pad"></i></a>
         <a href="#"><i class="fab fa-instagram icon-color"></i></a>
         <a href="#"><i class="fab fa-twitter icon-color"></i></a>
         <a href="#"><i class="fab fa-youtube icon-color"></i></a>
       </div>
 
-      <ul>
+      <ul class="style-list list-inline list-middot">
         <li>
           <a href="#" class="list-link">Events</a>
         </li>
         <li>
-        <%= link_to "Gallery", galleries_path , class: "list-link" %>
+        <%= link_to "Gallery", galleries_path , class: "list-link list-link-padding-left" %>
         </li>
         <li>
-          <a href="#" class="list-link">Meet the team!</a>
+          <a href="#" class="list-link list-link-padding-left">About</a>
         </li>
       </ul>
     </div>
       <div class = "footer-section about footer-width">
-      <h2 class="logo-text underline"><span>InkFinder</span>.Design</h2>
+      <h2 class="logo-text underline">About</h2>
       <p class="home-about">
         InkFinder is a hub for tattoo enthusiasts which brings together both artists and clients alike. From first time buyers to seasoned pros, there is only one place to go for finding the perfect piece of art.
         Founded in 2020 by Fakhri Aslan and his close buddies, InkFinder is sure to be the next big thing in tattoos.
@@ -66,11 +65,15 @@
     <div class="footer-section contact-form footer-width">
       <h2 class="underline">Contact us</h2>
       <form action="home.html" method="post">
-        <div class="form-center">
-          <input type="email" name="email" class="text-input contact-input" placeholder="Your email address..">
-          <textarea name="message" class="text-input contact-input-j" placeholder="Your message.." style="line-height: 3;"></textarea>
+        <div class="form__group field">
+          <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
+          <label for="name" class="form__label">Name</label>
         </div>
-        <button type="submit" class="btn btn-big contact-btn">
+        <div class="form__group field">
+          <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
+          <label for="name" class="form__label">Message</label>
+        </div>
+        <button type="submit" class="btn from-center home-send-button">
           Send
         </button>
       </form>

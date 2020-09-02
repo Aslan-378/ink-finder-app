@@ -59,7 +59,9 @@ h1 {
   //text-decoration: underline;
   font-family: Nunito;
 }
-
+h2 {
+  font-family: 'Montserrat', sans-serif;
+}
 p {
   font-size: 15px;
   color: white;
@@ -73,7 +75,7 @@ p {
 h3 {
   font-size: 20px;
   color: white;
-  font-family: Nunito;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .pic {
@@ -145,11 +147,13 @@ img:nth-child(5) {
   height: 200px;
   font-family: Nunito;
   display: flex;
+  text-align: justify;
 }
 
 
 .footer-width {
   width: 33.33%;
+  padding-left: 50px;
 }
 
 .home-about {
@@ -161,6 +165,10 @@ img:nth-child(5) {
   font-size: 32px;
   padding: 24px;
 
+}
+
+.no-pad {
+  padding-left: 0px;
 }
 
 
@@ -176,7 +184,12 @@ img:nth-child(5) {
 
 .list-link{
   color: white;
+  padding-right: 15px;
 
+}
+
+.list-link-padding-left {
+  padding-left: 15px;
 }
 
 .form-center {
@@ -194,6 +207,27 @@ img:nth-child(5) {
   float: center;
 }
 
+.style-list {
+  list-style-type: none;
+}
+
+.list-inline {
+    list-style: none;
+    padding: 0;
+}
+
+.list-inline > li {
+    display: inline;
+}
+
+.list-middot > li:not(:last-child)::after {
+    content: "\00b7";
+}
+
+.footer-social {
+  padding-left: 0px;
+}
+
  .footer-bottom {
   color: white;
   height: 20px;
@@ -206,16 +240,28 @@ img:nth-child(5) {
 }
 
 .home-text {
-  padding: 40px 100px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 90px;
+  padding-right: 44px;
   font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  max-width: 1100px;
+  text-align: justify;
+  max-width: 1050px;
 }
 
 .home-text p {
   font-family: 'Montserrat', sans-serif;
   font-size: 25px;
   letter-spacing: 0.1rem;
+}
+
+.contact-button {
+  padding: 5px;
+}
+
+.home-send-button {
+  margin-top: 19px;
+  margin-bottom: 28px;
 }
 
 
