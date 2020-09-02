@@ -30,3 +30,57 @@
   height: 70px;
   width: 70px;
 }
+
+
+.bookings-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 24px;
+
+}
+
+h3 {
+  margin-left: 8px;
+  margin-top:8px;
+  font-size:18px;
+}
+
+.upcoming-bookings-container {
+  background-color: blue;
+  width: 45%;
+  height: 300px;
+  border-radius: 3%;
+
+}
+
+.pending-bookings-container {
+  background-color: blue;
+  width: 45%;
+  height: 300px;
+  border-radius: 3%;
+}
+
+.contacts-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 35px;
+}
+
+.requests-container {
+  background-color: blue;
+  width: 55%;
+  height: 300px;
+  border-radius: 3%;
+
+}
+
+.messages-container {
+  background-color: blue;
+  width: 35%;
+  height: 300px;
+  border-radius: 3%;
+}
+
+
