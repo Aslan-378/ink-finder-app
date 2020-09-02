@@ -3,6 +3,7 @@ class Request < ApplicationRecord
   belongs_to :quiz, optional: true
   belongs_to :user
   belongs_to :client, class_name: 'User'
+  has_one :chatroom, dependent: :destroy
   has_one :booking, dependent: :destroy
   validates :user, :name, :body_part, :size, :description, presence: true
   validates :description, length: { maximum: 300, tokenizer: lambda { |str| str.scan(/\w+/) } }

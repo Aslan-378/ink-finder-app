@@ -19,6 +19,11 @@ Rails.application.routes.draw do
     member do
       patch '/accept', to: 'requests#accept'
     end
+    resources :chatrooms, only: [:show, :create]
+  end
+
+  resources :chatrooms, only: [] do
+    resources :messages, only: :create
   end
 
   resources :bookings, only: [:destroy] do
@@ -31,6 +36,9 @@ Rails.application.routes.draw do
   resources :galleries do
     resources :comments, only: [:create]
   end
+
+  
+
 end
 
 
