@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_01_094735) do
+ActiveRecord::Schema.define(version: 2020_09_02_105610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,14 @@ ActiveRecord::Schema.define(version: 2020_09_01_094735) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "request_id", null: false
+    t.index ["request_id"], name: "index_chatrooms_on_request_id"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.bigint "gallery_id", null: false
     t.bigint "user_id", null: false
@@ -78,6 +86,16 @@ ActiveRecord::Schema.define(version: 2020_09_01_094735) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_galleries_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "quizzes", force: :cascade do |t|
@@ -164,9 +182,12 @@ ActiveRecord::Schema.define(version: 2020_09_01_094735) do
   add_foreign_key "bookings", "requests"
   add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "users", column: "client_id"
+  add_foreign_key "chatrooms", "requests"
   add_foreign_key "comments", "galleries"
   add_foreign_key "comments", "users"
   add_foreign_key "galleries", "users"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "quizzes", "users"
   add_foreign_key "requests", "quizzes"
   add_foreign_key "requests", "users"

@@ -17,13 +17,15 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 
 import { next } from '../components/quiz-card';
-import { tabs } from '../components/request-booking-tab'
+import { tabs } from '../components/request-booking-tab';
+import { initChatroomCable } from '../channels/chatroom_channel';
 
 import {gallery} from "../components/gallery";
 document.addEventListener('turbolinks:load', () => {
   initMapbox(); 
   tabs();
   gallery();
+  initChatroomCable();
 })
 
 // $(document).on('turbolinks:load', function(){
