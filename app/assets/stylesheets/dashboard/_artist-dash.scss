@@ -1,0 +1,32 @@
+.main-dashboard-container {
+  width: 1200px;
+  height: 1000px;
+  background-color: red;
+  margin-left: 72px;
+}
+
+.user-welcome {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.user-intro {
+  display: flex;
+  flex-direction: column;
+  margin-left: 6px;
+}
+
+.user-intro > h1 {
+  margin: 0px 8px 0px 8px;
+}
+
+.user-intro > p {
+  margin: 4px 8px 0px 8px;
+}
+
+.home-page__avatar {
+  height: 70px;
+  width: 70px;
+}

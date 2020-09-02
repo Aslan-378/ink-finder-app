@@ -1,81 +1,17 @@
 <%= render 'navbar-dashboard' %>
-<div class="home-page">
-    <div class="home-page__welcome">
-        <% if current_user != nil %>
-            <% if current_user.avatar.present? %>
-                <%= cl_image_tag current_user.avatar.key, class: "home-page__avatar"%>
-            <% end %>
-        <% else %>
-            <img src="https://res.cloudinary.com/dimly1skf/image/upload/v1598905968/White-and-Red-Modern-Technology-Gaming-Logo_gjja8o_jkuqil.png" class="home-page__avatar">
-        <% end %>
-    </div>
-    <div class="home-booking-messages-container">
-        <div class="home-booking-container">
-            <div class="home-booking-card__header">
-                <h2>Upcoming Bookings</h2>
-            </div>
-            <% current_user.bookings.confirmed.sort_bookings[0..2].each do |b| %>
-                <div class="home-booking-card">
-                    <div class="home-booking-card__booking-info">
-                        <span><%= b.date.strftime("%I:%M%p") %></span>
-                        <span><%= b.date.strftime("%d/%m/%y") %></span>
-                        <span><%= b.address %></span>
-                        <span>£<%= b.price %></span>
-                    </div>    
-                    <div class="home-booking-card__request">
-                        <div class="home-booking-card__request-image-container">                        
-                            <% if b.request.photos.attached? %>
-                                <%= cl_image_tag b.request.photos.first.key, class: "home-request-card__image" %>                    
-                            <% end %>
-                        </div>
-                        <div class="home-booking-card__request-details">
 
-                        </div>
-                        <div class="home-booking-card__request-info">
-
-                        </div>                      
-                    </div>
-                </div>
-            <% end %>
-        </div>
-        <div class="home-messages-container">
-            <div class="home-messages-card__header">
-                <h2>messages</h2>
-            </div>
-            <div class="home-messages-card">
-                <p>bare messages</p>
-            </div>
-        </div>
+<div class="main-dashboard-container">
+  <div class="user-welcome">
+    <div class="user-avatar">
+      <% if current_user.avatar.present? %>
+        <%= cl_image_tag current_user.avatar.key, class: "home-page__avatar"%>
+      <% else %>
+        <img src="https://res.cloudinary.com/dimly1skf/image/upload/v1598905968/White-and-Red-Modern-Technology-Gaming-Logo_gjja8o_jkuqil.png" class="home-page__avatar">
+      <% end %>
     </div>
-    <div class="home-request-container">
-        <div class="home-request-card__header">
-            <h2>Request</h2>
-        </div>
-        <% current_user.requests.pending.each do |r| %>
-            <% if r.created_at == current_user.requests.pending.earliest_date %>
-                <div class="home-request-card">
-                    <div class="home-request-card__info-container">
-                        <div class="home-request-card__image-container">
-                            <% if r.photos.attached? %>
-                                <%= cl_image_tag r.photos.first.key, class: "home-request-card__image" %>                    
-                            <% end %>
-                        </div>
-                        <div class="home-request-card__description-container">
-                            <span class="home-request-card__details-title">Client Name: <span class="home-request-card__details"><%= r.name %></span></span> 
-                            <div class="home-request-card__details-container">
-                                <span class="home-request-card__details-title-details">Position: <span class="home-request-card__details-in"><%= r.body_part %></span></span> 
-                                <span class="home-request-card__details-title-details">Size(inches): <span class="home-request-card__details-in"><%= r.size %></span></span>
-                                <span class="home-request-card__details-title-details">Style: <span class="home-request-card__details-in"><%= r.style %></span></span>
-                            </div>
-                            <span class="home-request-card__details-title">Description: <span class="home-request-card__details-descr"><%= r.description %></span></span>
-                        </div>
-                    </div>
-                    <div class="home-request-card__accept-container">                                    
-                            <%= link_to 'Accept', accept_request_path(r), method: :patch, class: "btn home-request-card__button--accept"%>                                                                                
-                            <%= link_to 'Decline', request_path(r), method: :delete, class: "btn home-request-card__button--decline" %>
-                    </div>
-                </div>
-            <% end %>
-        <% end %>
+    <div class="user-intro">
+      <h1>Hi, <strong><%= current_user.first_name %>!</strong></h1>
+      <p>Welcome back!</p>
     </div>
+  </div>
 </div>
