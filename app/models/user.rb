@@ -1,5 +1,12 @@
 class User < ApplicationRecord
   extend Enumerize
+  extend FriendlyId
+
+  BODY_PARTS = ['Arm', 'Leg', 'Chest', 'Back', 'Head', 'Thigh', 'Calf', 'Hand', 'Ribs', 'Neck', 'Shoulder', 'Upper Torso', 'Lower Torso']
+  
+  SIZES = (0..30).to_a.map(&:to_s)
+ 
+  STYLES = ["Blackwork", "American Traditional", "Surrealism", "Traditional Japanese", "Blackwork Japanese", "Realism", "illustration", "Tribal"]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -17,17 +24,17 @@ class User < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
-  extend FriendlyId
+  
   friendly_id :instagram, use: :slugged
   def should_generate_new_friendly_id?
     instagram_changed? || super
   end
 
-  enumerize :style, in: ["Blackwork", "American Traditional", "Surrealism", "Traditional Japanese", "Blackwork Japanese", "Realism", "illustration", "Tribal"]
+  enumerize :style, in: STYLES
 
-  enumerize :body_part, in: ['Arm', 'Leg', 'Chest', 'Back', 'Head', 'Thigh', 'Calf', 'Hand', 'Ribs', 'Neck', 'Shoulder', 'Upper Torso', 'Lower Torso']
+  enumerize :body_part, in: BODY_PARTS
 
-  enumerize :size, in: (0..30).to_a.map(&:to_s)
+  enumerize :size, in: SIZES
 
 
   def self.artist

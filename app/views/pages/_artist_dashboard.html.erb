@@ -108,7 +108,19 @@
       </div>
     </div>
     <div class="messages-container">
-      <h3><i class="fas fa-inbox"></i>  Inbox</h3>
+      <div class="messages-card__container">
+        <h3 class="messages-card__title"><i class="fas fa-inbox"></i>  Inbox</h3>
+        <div class="message-cards">
+          <% current_user.requests.accepted.each do |r| %>
+              <% if r.chatroom.present? %>
+                  <%= link_to request_chatroom_path(r, r.chatroom.id), class: "message-card" do %> 
+                      <span class="message-card__name"><%= r.chatroom.name %></span>
+                      <span class="message-card__content"><%= r.chatroom.messages.last.content %></span>
+                  <% end %>
+              <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

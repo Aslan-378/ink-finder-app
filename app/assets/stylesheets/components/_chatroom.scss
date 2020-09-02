@@ -1,0 +1,56 @@
+.messages-card {
+    $this: &;
+
+    &__title {
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+}
+
+.message-card {
+    $this: &;
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset 0px 0px 109px -28px rgba(255,255,255,.4);
+    border-radius: 5px;
+    margin-top: 6px;
+    height: 55px;
+
+    &__title {
+       
+    }
+
+    &__content {
+        padding-left: 12px;
+        padding-top: 3px;
+        font-size: 12px;
+        font-style: italic;
+        padding-bottom: 6px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+
+    &__name {
+        font-size: 14px;
+        padding-left: 8px;
+        padding-top: 8px;
+        font-weight: bold;
+    }
+}
+
+.chatroom-card {
+    $this: &;
+    display: flex;
+    flex-direction: column;
+
+    &__content {
+
+    }
+
+    &__name {
+
+    }
+}

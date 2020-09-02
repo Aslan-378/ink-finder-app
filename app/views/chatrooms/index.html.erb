@@ -1,14 +1,32 @@
-<div class="container">
-    <div class="user-chatrooms-container">
-        <% current_user.requests.each do |r| %>
-            <div class="chatroom-card">
-                <% if r.chatroom.present? %>
-                    <%= r.chatroom.name %>
-                    <span><%= r.chatroom.messages.last.content %></span>
-                <% else %>
-                <span>Sorry, No Messages currently active </span>
+
+<% if current_user.artist %>
+    <div class="container">
+        <div class="user-chatrooms-container">
+            <% if @chatrooms.any? %>
+                <% @chatrooms.each do |chatroom| %>
+                  <%= link_to request_chatroom_path(chatroom.request, chatroom), class: "chatroom-card" do %> 
+                      <span class="chatroom-card__name"><%= chatroom.name %></span>
+                      <span class="chatroom-card__content"><%= chatroom.messages.last.content %></span>
+                  <% end %>
+                <% end %>
+            <% else %>
+                <span>No Messages</span>
             <% end %>
-            </div>
-        <% end %>
+        </div>
     </div>
-</div>
+<% elsif current_user != true %>
+    <div class="container">
+        <div class="user-chatrooms-container">
+            <% if @chatrooms.any? %>
+                <% @chatrooms.each do |chatroom| %>
+                  <%= link_to request_chatroom_path(chatroom.request, chatroom), class: "chatroom-card" do %> 
+                      <span class="chatroom-card__name"><%= chatroom.name %></span>
+                      <span class="chatroom-card__content"><%= chatroom.messages.last.content %></span>
+                  <% end %>
+                <% end %>
+            <% else %>
+                <span>No Messages</span>
+            <% end %>
+        </div>
+    </div>
+<% end %>
