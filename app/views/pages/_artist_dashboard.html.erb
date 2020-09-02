@@ -23,8 +23,7 @@
                         <span>£<%= b.price %></span>
                     </div>    
                     <div class="home-booking-card__request">
-                        <div class="home-booking-card__request-image-container">
-                        <%= raise %>
+                        <div class="home-booking-card__request-image-container">                        
                             <% if b.request.photos.attached? %>
                                 <%= cl_image_tag b.request.photos.first.key, class: "home-request-card__image" %>                    
                             <% end %>
