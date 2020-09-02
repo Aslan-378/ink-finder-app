@@ -17,6 +17,27 @@
   <div class="bookings-container">
     <div class="upcoming-bookings-container">
       <h3><i class="far fa-check-square"></i> Upcoming Bookings</h3>
+      <div class="column-top">
+        <p>Client</p>
+        <p>Date</p>
+        <p>Price</p>
+        <p>Position</p>
+        <p>Size</p>
+        <p>More info</p>
+      </div>
+
+      <div class="upcoming-bookings-list">
+        <% if current_user.bookings.confirmed.count == 0 %>
+          <span class="booking-card__no">Currently no confirmed bookings</span>
+        <% else %>
+          <% current_user.bookings.confirmed.each do |b| %>
+            <div class="confirmed-booking-details">
+              <%= b.price %>
+              <%= link_to " ☞ See More", user_bookings_path(current_user) %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
     <div class="pending-bookings-container">
       <h3><i class="far fa-clock"></i>  Pending Bookings</h3>
