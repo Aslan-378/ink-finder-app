@@ -1,3 +1,4 @@
 <h2><%= @style.name %></h2>
 <p><%= @style.description %></p>
 <%= link_to "go back", styles_path, class: "btn btn-outline-light" %>
+<%= link_to "search", users_path(query: @style.name), class: "btn btn-outline-light" %>

@@ -51,7 +51,7 @@ surrealism.photo.attach(io: surrealism_photo, filename: 'surrealism.jpg', conten
 surrealism.save
 
 japanese_traditional_photo = URI.open('https://i.ibb.co/7ygcpYX/ym7gau78ega21.jpg')
-japanese_traditional = Style.new(name: 'Japanese Traditional', description: 'Dragons with snarling nostrils enveloped in flame, light pink cherry blossoms floating in the wind, Hannya’s leering and geisha’s smiling….these are the icons of Japanese tattooing, Irezumi. A tradition with ancient roots in human history, Japanese tattoos are some of the most revered artworks within the tattoo community. In this guide to Irezumi, we go into the chronicles of time to expound upon the history, imagery, legality, and artists who practice this incredibly important cultural art form.')
+japanese_traditional = Style.new(name: 'Japanese', description: 'Dragons with snarling nostrils enveloped in flame, light pink cherry blossoms floating in the wind, Hannya’s leering and geisha’s smiling….these are the icons of Japanese tattooing, Irezumi. A tradition with ancient roots in human history, Japanese tattoos are some of the most revered artworks within the tattoo community. In this guide to Irezumi, we go into the chronicles of time to expound upon the history, imagery, legality, and artists who practice this incredibly important cultural art form.')
 japanese_traditional.photo.attach(io: japanese_traditional_photo, filename: 'japanese_traditional.jpg', content_type: 'image/jpg')
 japanese_traditional.save
 
