@@ -1,7 +1,6 @@
 .main-dashboard-container {
   width: 1200px;
   height: 1000px;
-  background-color: red;
   margin-left: 72px;
 }
 
@@ -48,9 +47,10 @@ h3 {
 
 .column-top {
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 0px 10px;
+  justify-items: center;
   align-items: center;
   border-bottom: 1px solid lightgrey;
 }
@@ -62,7 +62,7 @@ h3 {
 
 
 .upcoming-bookings-container {
-  background-color: blue;
+  background-color: grey;
   width: 45%;
   height: 300px;
   border-radius: 3%;
@@ -72,19 +72,47 @@ h3 {
 .upcoming-bookings-list {
   width: 100%;
   display: grid;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
 }
 
 .confirmed-booking-details {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 0px 10px;
+  justify-items: center;
+  align-items: center;
+}
+
+.confirmed-booking-details:hover {
+  background-color: lightgrey;
+}
+
+.confirmed-booking-details > p {
+  margin-bottom: 0px;
+}
+
+.confirmed-booking-client {
   display: flex;
   flex-direction: row;
-  flex-direction: row;
-  justify-content: space-around;
+}
 
+.confirmed-booking-client > p {
+  margin-bottom: 0px;
+}
+
+.confirmed-booking-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.confirmed-booking-date > p {
+  margin-bottom: 0px;
+  font-size: 12px;
 }
 
 .pending-bookings-container {
-  background-color: blue;
+  background-color: grey;
   width: 45%;
   height: 300px;
   border-radius: 3%;
@@ -98,7 +126,7 @@ h3 {
 }
 
 .requests-container {
-  background-color: blue;
+  background-color: grey;
   width: 55%;
   height: 300px;
   border-radius: 3%;
@@ -106,10 +134,12 @@ h3 {
 }
 
 .messages-container {
-  background-color: blue;
+  background-color: grey;
   width: 35%;
   height: 300px;
   border-radius: 3%;
 }
 
-
+.far.fa-plus-square {
+  font-size: 20px;
+}

@@ -19,10 +19,10 @@ Rails.application.routes.draw do
     member do
       patch '/accept', to: 'requests#accept'
     end
-    resources :chatrooms, only: [:show, :create]
+    resources :chatrooms, only: [:show, :create, :index]
   end
 
-  resources :chatrooms, only: [] do
+  resources :chatrooms, only: [:index] do
     resources :messages, only: :create
   end
 
