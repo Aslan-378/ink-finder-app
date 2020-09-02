@@ -1,132 +1,134 @@
 <%= render 'navbar-dashboard' %>
+
 <div class="main-dashboard-container">
-
-    <div class="home-page__welcome">
-        <% if current_user != nil %>
-            <% if current_user.avatar.present? %>
-                <%= cl_image_tag current_user.avatar.key, class: "home-page__avatar"%>
-            <% end %>
-        <% else %>
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% end %>
+  <div class="user-welcome">
+    <div class="user-avatar">
+      <% if current_user.avatar.present? %>
+        <%= cl_image_tag current_user.avatar.key, class: "home-page__avatar"%>
+      <% else %>
+        <img src="https://res.cloudinary.com/dimly1skf/image/upload/v1598905968/White-and-Red-Modern-Technology-Gaming-Logo_gjja8o_jkuqil.png" class="home-page__avatar">
+      <% end %>
     </div>
-
-      <div class="home-request-container">
-        <div class="home-request-card__header">
-            <h2>Your Requests</h2>
-        </div>
-        <% if current_user.made_requests.count == 0 %>
-                <span>currently no requests made</span>
-        <% else %>
-            <% current_user.made_requests.each do |r| %>
-                <div class="request-card">
-                    <div class="request-card__info-container">
-                            <div id="carouselExampleControls" class="carousel slide request-card__image-container" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    <% if r.photos.attached? %>
-                                        <div class="carousel-item active">
-                                            <%= cl_image_tag r.photos.first.key, height: 250, width: 300, crop: :fit %>
-                                        </div>
-                                        <% r.photos.drop(1).each do |photo| %>
-                                            <div class="carousel-item">
-                                                <%= cl_image_tag photo.key, height: 250, width: 300, crop: :fit %>
-                                            </div>
-                                        <% end %>
-                                    <% else %>
-                                        <span class="request-card__no-photo">No Photo</span>
-                                    <% end %>
-                                </div>
-                                <a class="carousel-control-prev carousel-control-show-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next carousel-control-show-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="request-card__description-container">
-                            <span class="request-card__details-title">Client Name: <span class="request-card__details"><%= r.name %></span></span>
-                            <div class="request-card__details-container">
-                                <span class="request-card__details-title-details">Position: <span class="request-card__details-in"><%= r.body_part %></span></span>
-                                <span class="request-card__details-title-details">Size(inches): <span class="request-card__details-in"><%= r.size %></span></span>
-                                <span class="request-card__details-title-details">Style: <span class="request-card__details-in"><%= r.style %></span></span>
-                            </div>
-                            <span class="request-card__details-title">Description: <span class="request-card__details-descr"><%= r.description %></span></span>
-                        </div>
-                        <% if r.accepted %>
-                            <i class="far fa-check-circle home-request-card__accepted-tick"></i>
-                            <span class="home-request-card__accepted-text">Accepted</span>
-                            <span class="home-request-card__accepted-text">Booking pending</span>
-                        <% else %>
-                            <i class="far fa-clock home-request-card__accepted-clock"></i>
-                            <span class="home-request-card__accepted-text">Request Pending</span>
-                        <% end %>
-            <% end %>
-          </div>
-        <% end %>
-    <div class="home-booking-container">
-        <div class="home-booking-card__header">
-            <h2>Upcoming Bookings</h2>
-        </div>
+    <div class="user-intro">
+      <h1>Hi, <strong><%= current_user.first_name %>!</strong></h1>
+      <p>Welcome back!</p>
+    </div>
+  </div>
+  <div class="bookings-container">
+    <div class="upcoming-bookings-container">
+      <h3><i class="far fa-check-circle"></i></i> Upcoming Bookings</h3>
+      <div class="column-top">
+        <span class="upcoming-bookings-container__details">Artist</span>
+        <span class="upcoming-bookings-container__details">Date</span>
+        <span class="upcoming-bookings-container__details">Price</span>
+        <span class="upcoming-bookings-container__details">Body part</span>
+        <span class="upcoming-bookings-container__details">Size</span>
+        <span class="upcoming-bookings-container__details">More info</span>
+      </div>
+      <div class="upcoming-bookings-list">
         <% if current_user.my_bookings.confirmed.count == 0 %>
-            <span>No current Bookings</span>
+          <span class="booking-card__no">Currently no confirmed bookings</span>
         <% else %>
-            <% current_user.my_bookings.confirmed.sort_bookings[0...1].each do |b| %>
-                <div class="home-booking-card">
-                    <%= b.date %>
-                </div>
-            <% end %>
+          <% current_user.my_bookings.confirmed.each do |b| %>
+            <div class="confirmed-booking-details">
+                <span class="confirmed-booking-container__name"><%= b.request.name %></span>
+              <div class="confirmed-booking-date">
+                <span class="confirmed-booking-container__details"><%= b.date.strftime("%I:%M%p") %></span>
+                <span class="confirmed-booking-container__details"><%= b.date.strftime("%d/%m/%y") %></span>
+              </div>
+              <span class="confirmed-booking-container__details">£<%= b.price %></span>
+              <span class="confirmed-booking-container__details"><%= b.request.body_part %></span>
+              <span class="confirmed-booking-container__details"><%= b.request.size %>"</span>
+              <%= link_to user_bookings_path(current_user) do %>
+                <i class="far fa-plus-square"></i>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
+      </div>
     </div>
-
-     <div class="home-booking-container">
-        <div class="home-booking-card__header">
-            <h2>Pending Bookings</h2>
-        </div>
-        <% if current_user.my_bookings.unconfirmed.count == 0 %>
-            <span>No current pending Bookings</span>
+   <div class="pending-bookings-container">
+      <h3><i class="far fa-clock"></i>  Pending Requests</h3>
+      <div class="column-top">
+        <p>Artist</p>
+        <p>Date</p>
+        <p>Price</p>
+        <p>Body part</p>
+        <p>Size</p>
+        <p>More info</p>
+      </div>
+      <div class="upcoming-bookings-list">
+        <% if current_user.made_requests.pending.count == 0 %>
+          <span class="booking-card__no">Currently no Requests Made</span>
         <% else %>
-
-            <% current_user.my_bookings.unconfirmed.sort_bookings[0..2].each do |b| %>
-
-                <div class="home-booking-card">
-                    <div class="home-booking-card__card">
-                        <div class="home-booking-card__details">
-                            <span><%= b.date %></span>
-                            <span><%= b.address %></span>
-                            <div class="request-card__button--accept">
-                                <%= link_to 'Book', accept_booking_path(b), method: :patch %>
-                            </div>
-                            <div class="request-card__button--decline">
-                                 <%= link_to 'Decline', booking_path(b), method: :delete %>
-                            </div>
-                        <div class="home-booking-card__avatar-details">
-                            <% if current_user != nil %>
-                                <% if b.user.avatar.present? %>
-                                    <%= cl_image_tag b.user.avatar.key, class: "home-booking-card__avatar"%>
-                                <% else %>
-                                    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                                <% end %>
-                            <% end %>
-                            <span class="home-booking-card__avatar-name"><%= b.user.first_name %> <%= b.user.last_name%> </span>
-                        </div>
-                    </div>
-                </div>
-            <% end %>
+          <% current_user.made_requests.pending.each do |b| %>
+            <div class="confirmed-booking-details">
+              <span class="confirmed-booking-details__name"><%= b.name %></span>
+              <div class="confirmed-booking-details__image-container">
+                <% if b.photos.first.present? %>
+                  <%= cl_image_tag b.photos.first.key, class: "confirmed-booking-details__image"%>
+                <% else %>
+                  <img src="https://res.cloudinary.com/dimly1skf/image/upload/v1598905968/White-and-Red-Modern-Technology-Gaming-Logo_gjja8o_jkuqil.png" class="confirmed-booking-details__image">
+                <% end %>
+              </div>
+              <span class="confirmed-booking-details__detail"><%= b.body_part %></span>
+              <span class="confirmed-booking-details__detail"><%= b.size %>"</span>
+              <span class="confirmed-booking-details__descr"><%= b.description %> </span>
+              <%= link_to " ☞ See More", user_bookings_path(current_user) %>
+            </div>
+          <% end %>
         <% end %>
+      </div>
     </div>
-
-    <div class="home-messages-container">
-        <div class="home-messages-card__header">
-            <h2>messages</h2>
-        </div>
-        <div class="home-messages-card">
-            <p>bare messages</p>
-        </div>
-    </div>
-
 </div>
-
-
+<div class="contacts-container">
+    <div class="requests-container">
+      <h3><i class="fas fa-tasks"></i>  Requests</h3>
+      <div class="column-top">
+        <p>Artist</p>
+        <p>Picture</p>
+        <p>Body part</p>
+        <p>Size</p>
+        <p>description</p>
+        <p>More info</p>
+      </div>
+      <div class="upcoming-bookings-list">
+        <% if current_user.made_requests.accepted.count == 0 %>
+          <span class="booking-card__no">Currently no Requests Accepted</span>
+        <% else %>
+          <% current_user.made_requests.accepted.each do |b| %>
+            <div class="confirmed-booking-details">
+              <span class="confirmed-booking-details__name"><%= b.name %></span>
+              <div class="confirmed-booking-details__image-container">
+                <% if b.photos.first.present? %>
+                  <%= cl_image_tag b.photos.first.key, class: "confirmed-booking-details__image"%>
+                <% else %>
+                  <img src="https://res.cloudinary.com/dimly1skf/image/upload/v1598905968/White-and-Red-Modern-Technology-Gaming-Logo_gjja8o_jkuqil.png" class="confirmed-booking-details__image">
+                <% end %>
+              </div>
+              <span class="confirmed-booking-details__detail"><%= b.body_part %></span>
+              <span class="confirmed-booking-details__detail"><%= b.size %>"</span>
+              <span class="confirmed-booking-details__descr"><%= b.description %> </span>
+              <%= link_to " ☞ See More", user_bookings_path(current_user) %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="messages-container">
+      <div class="messages-card__container">
+        <h3 class="messages-card__title"><i class="fas fa-inbox"></i>  Inbox</h3>
+        <div class="message-cards">
+          <% @chatrooms.each do |chatroom| %>
+              <% if @chatrooms.present? %>
+                  <%= link_to request_chatroom_path(chatroom, chatroom.id), class: "message-card" do %> 
+                      <span class="message-card__name"><%= chatroom.name %></span>
+                      <span class="message-card__content"><%= chatroom.messages.last.content %></span>
+                  <% end %>
+              <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

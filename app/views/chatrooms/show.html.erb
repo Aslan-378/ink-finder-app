@@ -1,14 +1,25 @@
-<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-  <% @chatroom.messages.each do |message| %>
-    <div class="message-container" id="message-<%= message.id %>">
-      <i class="author">
-        <span><%= message.user.first_name %></span>
-        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-      </i>
-      <p><%= message.content %></p>
+<div class="messages-card-page-container">
+    <div class="messages-card-container" id="messages" data-chatroom-id="<%= @chatroom.id %>">
+        <% @chatroom.messages.each do |message| %>
+            <div class="messages-card" id="message-<%= message.id %>">
+                
+                <i class="messages-card__title">
+                    <span class="messages-card__name"><%= message.user.first_name %></span>
+                    <small> ~ <%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+                </i>
+            <span class="messages-card__content"><%= message.content %></span>
+            </div>
+        <% end %>
     </div>
-  <% end %>
+    <%= simple_form_for [ @chatroom, @message ], remote: true, :html=> {  class: "messages-card__form" } do |f| %>
+        <%= f.input :content, label: false, placeholder: "Message..", :input_html=> { class: "messages-card__input" } %>
+    <% end %>
 </div>
-<%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
-<% end %>
+<div class="messages-card__buttons">
+    <div class="messages-card__but">
+        <%= link_to 'Back', chatrooms_path, class: "messages-card__button" %>
+    </div>
+    <div class="messages-card__but">
+        <%= link_to 'Dashboard', dashboard_path, class: "messages-card__button" %>
+    </div>
+</div>

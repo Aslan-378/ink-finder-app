@@ -1,8 +1,7 @@
 .main-dashboard-container {
   width: 1200px;
   height: 1000px;
-  background-color: red;
-  margin-left: 220px;
+  margin-left: 115px;
 }
 
 .user-welcome {
@@ -10,6 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  padding-left: 45px;
 }
 
 .user-intro {
@@ -29,6 +29,7 @@
 .home-page__avatar {
   height: 70px;
   width: 70px;
+  object-fit: cover;
 }
 
 
@@ -61,11 +62,28 @@ h3 {
   margin-top: 4px;
 }
 
+.confirmed-booking-container {
+        $this: &;
+  
+        &__details {
+          margin-bottom: 0px;
+          display: flex;
+          justify-content: center;
+          width: 100%;
+        }
+
+        &__name {
+          display: flex;
+          width: 100%;
+          justify-content: left;
+        }
+}
+
 
 .upcoming-bookings-container {
-  background-color: grey;
+  box-shadow: inset 0px 0px 109px -28px rgba(255,255,255,.4);
   width: 45%;
-  height: 300px;
+  height: 328px;
   border-radius: 3%;
 
 }
@@ -77,19 +95,60 @@ h3 {
 }
 
 .confirmed-booking-details {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  padding: 0px 10px;
-  justify-items: center;
-  align-items: center;
+        $this: &;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        padding: 0px 10px;
+        justify-items: center;
+        align-items: center;
+
+        &__name {
+          display: flex;
+          width: 100%;
+          justify-content: left;
+        }
+
+        &__detail {
+          margin-bottom: 0px;
+          display: flex;
+          justify-content: center;
+          width: 100%;
+        }
+
+        &__descr {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+        }
+
+        &__image-container {
+          width: 100%;
+          height: 100%;
+        }
+
+        &__image {
+          width: 100%;
+          height: 100%;
+          crop: fit;
+        }
 }
 
 .confirmed-booking-details:hover {
-  background-color: lightgrey;
+  box-shadow: inset 0px 0px 109px -28px rgba(255,255,255,.8);
 }
 
-.confirmed-booking-details > p {
-  margin-bottom: 0px;
+.upcoming-bookings-container  {
+      $this: &;
+      
+      
+      &__details {
+          margin-bottom: 0px;
+          display: block;
+          justify-content: center;
+          width: fit-content;
+      }
 }
 
 .confirmed-booking-client {
@@ -113,10 +172,11 @@ h3 {
 }
 
 .pending-bookings-container {
-  background-color: grey;
+  box-shadow: inset 0px 0px 109px -28px rgba(255,255,255,.4);
   width: 45%;
-  height: 300px;
+  height: 328px;
   border-radius: 3%;
+  overflow: hidden;
 }
 
 .contacts-container {
@@ -127,17 +187,17 @@ h3 {
 }
 
 .requests-container {
-  background-color: grey;
+  box-shadow: inset 0px 0px 109px -28px rgba(255,255,255,.4);
   width: 55%;
-  height: 300px;
+  height: 386px;
   border-radius: 3%;
-
+  overflow: hidden;
 }
 
 .messages-container {
-  background-color: grey;
+  box-shadow: inset 0px 0px 109px -28px rgba(255,255,255,.4);
   width: 35%;
-  height: 300px;
+  height: 386px;
   border-radius: 3%;
   padding: 16px
 }

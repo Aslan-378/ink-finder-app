@@ -18,12 +18,12 @@
     <div class="upcoming-bookings-container">
       <h3><i class="far fa-check-circle"></i></i> Upcoming Bookings</h3>
       <div class="column-top">
-        <p>Client</p>
-        <p>Date</p>
-        <p>Price</p>
-        <p>Body part</p>
-        <p>Size</p>
-        <p>More info</p>
+        <span class="upcoming-bookings-container__details">Client</span>
+        <span class="upcoming-bookings-container__details">Date</span>
+        <span class="upcoming-bookings-container__details">Price</span>
+        <span class="upcoming-bookings-container__details">Body part</span>
+        <span class="upcoming-bookings-container__details">Size</span>
+        <span class="upcoming-bookings-container__details">More info</span>
       </div>
       <div class="upcoming-bookings-list">
         <% if current_user.bookings.confirmed.count == 0 %>
@@ -31,14 +31,14 @@
         <% else %>
           <% current_user.bookings.confirmed.each do |b| %>
             <div class="confirmed-booking-details">
-                <p><%= b.request.name %></p>
+                <span class="confirmed-booking-container__name"><%= b.request.name %></span>
               <div class="confirmed-booking-date">
-                <p><%= b.date.strftime("%I:%M%p") %></p>
-                <p><%= b.date.strftime("%d/%m/%y") %></p>
+                <span class="confirmed-booking-container__details"><%= b.date.strftime("%I:%M%p") %></span>
+                <span class="confirmed-booking-container__details"><%= b.date.strftime("%d/%m/%y") %></span>
               </div>
-              <p>£<%= b.price %></p>
-              <p><%= b.request.body_part %></p>
-              <p><%= b.request.size %>"</p>
+              <span class="confirmed-booking-container__details">£<%= b.price %></span>
+              <span class="confirmed-booking-container__details"><%= b.request.body_part %></span>
+              <span class="confirmed-booking-container__details"><%= b.request.size %>"</span>
               <%= link_to user_bookings_path(current_user) do %>
                 <i class="far fa-plus-square"></i>
               <% end %>
@@ -85,7 +85,7 @@
       <h3><i class="fas fa-tasks"></i>  Requests</h3>
       <div class="column-top">
         <p>Client</p>
-        <p>Pictures</p>
+        <p>Picture</p>
         <p>Body part</p>
         <p>Size</p>
         <p>description</p>
@@ -97,10 +97,17 @@
         <% else %>
           <% current_user.bookings.unconfirmed.each do |b| %>
             <div class="confirmed-booking-details">
-              <p><%= b.request.name %></p>
-              <p><%= b.request.body_part %></p>
-              <p><%= b.request.size %>"</p>
-              <p><%= b.request.description %> </p>
+              <span class="confirmed-booking-details__name"><%= b.request.name %></span>
+              <div class="confirmed-booking-details__image-container">
+                <% if b.request.photos.first.present? %>
+                  <%= cl_image_tag b.request.photos.first.key, class: "confirmed-booking-details__image"%>
+                <% else %>
+                  <img src="https://res.cloudinary.com/dimly1skf/image/upload/v1598905968/White-and-Red-Modern-Technology-Gaming-Logo_gjja8o_jkuqil.png" class="confirmed-booking-details__image">
+                <% end %>
+              </div>
+              <span class="confirmed-booking-details__detail"><%= b.request.body_part %></span>
+              <span class="confirmed-booking-details__detail"><%= b.request.size %>"</span>
+              <span class="confirmed-booking-details__descr"><%= b.request.description %> </span>
               <%= link_to " ☞ See More", user_bookings_path(current_user) %>
             </div>
           <% end %>
@@ -111,11 +118,11 @@
       <div class="messages-card__container">
         <h3 class="messages-card__title"><i class="fas fa-inbox"></i>  Inbox</h3>
         <div class="message-cards">
-          <% current_user.requests.accepted.each do |r| %>
-              <% if r.chatroom.present? %>
-                  <%= link_to request_chatroom_path(r, r.chatroom.id), class: "message-card" do %> 
-                      <span class="message-card__name"><%= r.chatroom.name %></span>
-                      <span class="message-card__content"><%= r.chatroom.messages.last.content %></span>
+          <% @chatrooms.each do |chatroom| %>
+              <% if @chatrooms.present? %>
+                  <%= link_to request_chatroom_path(chatroom, chatroom.id), class: "message-card" do %> 
+                      <span class="message-card__name"><%= chatroom.name %></span>
+                      <span class="message-card__content"><%= chatroom.messages.last.content %></span>
                   <% end %>
               <% end %>
           <% end %>

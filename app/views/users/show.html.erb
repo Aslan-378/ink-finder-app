@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="request-avatar">
-        <% if current_user.avatar.present? %>
+        <% if @user.avatar.present? %>
           <%= cl_image_tag @user.avatar.key, crop: :fill, class: "artist-avatar" %>
        <% else %>
           <img src="https://res.cloudinary.com/dimly1skf/image/upload/v1598905968/White-and-Red-Modern-Technology-Gaming-Logo_gjja8o_jkuqil.png" class="artist-avatar">
