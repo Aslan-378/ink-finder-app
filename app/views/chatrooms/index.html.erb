@@ -1,16 +1,26 @@
 
 <% if current_user.artist %>
     <div class="container">
+    
         <div class="user-chatrooms-container">
             <% if @chatrooms.any? %>
+                <span class="chatroom-card__title">Messages</span>
                 <% @chatrooms.each do |chatroom| %>
                   <%= link_to request_chatroom_path(chatroom.request, chatroom), class: "chatroom-card" do %> 
-                      <span class="chatroom-card__name"><%= chatroom.name %></span>
-                      <span class="chatroom-card__content"><%= chatroom.messages.last.content %></span>
+                        <% if chatroom.request.client.avatar.present? %>
+                            <%= cl_image_tag chatroom.request.client.avatar.key, class: "home-page__avatar"%>
+                        <% else %>
+                            <img src="https://res.cloudinary.com/dimly1skf/image/upload/v1598905968/White-and-Red-Modern-Technology-Gaming-Logo_gjja8o_jkuqil.png" class="home-page__avatar">
+                        <% end %>
+                        <div class="chatroom-card__content-container">
+                            <span class="chatroom-card__name"><%= chatroom.name %></span>
+                            <span class="chatroom-card__content"><%= chatroom.messages.last.content %></span>
+                        </div>
                   <% end %>
                 <% end %>
+                <%= link_to 'Dashboard', dashboard_path, class: "chatroom-card__button" %>
             <% else %>
-                <span>No Messages</span>
+                <span class="chatroom-card__title">No Messages</span>
             <% end %>
         </div>
     </div>
@@ -18,14 +28,23 @@
     <div class="container">
         <div class="user-chatrooms-container">
             <% if @chatrooms.any? %>
+                <span class="chatroom-card__title">Messages</span>
                 <% @chatrooms.each do |chatroom| %>
                   <%= link_to request_chatroom_path(chatroom.request, chatroom), class: "chatroom-card" do %> 
-                      <span class="chatroom-card__name"><%= chatroom.name %></span>
-                      <span class="chatroom-card__content"><%= chatroom.messages.last.content %></span>
+                        <% if chatroom.request.user.avatar.present? %>
+                            <%= cl_image_tag chatroom.request.user.avatar.key, class: "home-page__avatar"%>
+                        <% else %>
+                            <img src="https://res.cloudinary.com/dimly1skf/image/upload/v1598905968/White-and-Red-Modern-Technology-Gaming-Logo_gjja8o_jkuqil.png" class="home-page__avatar">
+                        <% end %>
+                        <div class="chatroom-card__content-container">
+                            <span class="chatroom-card__name"><%= chatroom.name %></span>
+                            <span class="chatroom-card__content"><%= chatroom.messages.last.content %></span>
+                        </div>
                   <% end %>
                 <% end %>
+                <%= link_to 'Dashboard', dashboard_path, class: "chatroom-card__button" %>
             <% else %>
-                <span>No Messages</span>
+                <span class="chatroom-card__title">No Messages</span>
             <% end %>
         </div>
     </div>

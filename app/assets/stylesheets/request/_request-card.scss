@@ -1,5 +1,6 @@
 .request-container {
     margin: 10px;
+    overflow: hidden;
 }
 
 .carousel-inner {
@@ -18,7 +19,7 @@
     box-shadow: inset 0px 0px 109px -28px rgba(255,255,255,.4);
     width: 1150px;
     height: 250px;
-    margin: 10px 0px;
+    margin: 10px auto;
 
     border-radius: 10px;
 

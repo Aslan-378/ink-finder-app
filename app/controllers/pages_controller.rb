@@ -12,6 +12,11 @@ class PagesController < ApplicationController
 
 
   def dashboard
+    if current_user.artist
+      @chatrooms = current_user.requests.map(&:chatroom).compact
+    else
+      @chatrooms = current_user.made_requests.map(&:chatroom).compact
+    end
   end
 
   def gallery
