@@ -16,7 +16,7 @@
   </div>
   <div class="bookings-container">
     <div class="upcoming-bookings-container">
-      <h3><i class="far fa-check-square"></i> Upcoming Bookings</h3>
+      <h3><i class="far fa-check-circle"></i></i> Upcoming Bookings</h3>
       <div class="column-top">
         <p>Client</p>
         <p>Date</p>
@@ -25,31 +25,87 @@
         <p>Size</p>
         <p>More info</p>
       </div>
-
       <div class="upcoming-bookings-list">
         <% if current_user.bookings.confirmed.count == 0 %>
           <span class="booking-card__no">Currently no confirmed bookings</span>
         <% else %>
           <% current_user.bookings.confirmed.each do |b| %>
             <div class="confirmed-booking-details">
-              <p><%= b.request.name %></p>
+                <p><%= b.request.name %></p>
+              <div class="confirmed-booking-date">
+                <p><%= b.date.strftime("%I:%M%p") %></p>
+                <p><%= b.date.strftime("%d/%m/%y") %></p>
+              </div>
               <p>£<%= b.price %></p>
-              <p><%= b.date %></p>
               <p><%= b.request.body_part %></p>
-              <p><%= b.request.size %></p>
-              <%= link_to " ☞ See More", user_bookings_path(current_user) %>
+              <p><%= b.request.size %>"</p>
+              <%= link_to user_bookings_path(current_user) do %>
+                <i class="far fa-plus-square"></i>
+              <% end %>
             </div>
           <% end %>
         <% end %>
       </div>
     </div>
     <div class="pending-bookings-container">
-      <h3><i class="far fa-clock"></i>  Pending Bookings</h3>
+      <h3><i class="far fa-clock"></i>  Pending Client Confirmation</h3>
+      <div class="column-top">
+        <p>Client</p>
+        <p>Date</p>
+        <p>Price</p>
+        <p>Body part</p>
+        <p>Size</p>
+        <p>More info</p>
+      </div>
+      <div class="upcoming-bookings-list">
+        <% if current_user.bookings.unconfirmed.count == 0 %>
+          <span class="booking-card__no">Currently no unconfirmed bookings</span>
+        <% else %>
+          <% current_user.bookings.unconfirmed.each do |b| %>
+            <div class="confirmed-booking-details">
+                <p><%= b.request.name %></p>
+              <div class="confirmed-booking-date">
+                <p><%= b.date.strftime("%I:%M%p") %></p>
+                <p><%= b.date.strftime("%d/%m/%y") %></p>
+              </div>
+              <p>£<%= b.price %></p>
+              <p><%= b.request.body_part %></p>
+              <p><%= b.request.size %>"</p>
+              <%= link_to user_bookings_path(current_user) do %>
+                <i class="far fa-plus-square"></i>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="contacts-container">
     <div class="requests-container">
       <h3><i class="fas fa-tasks"></i>  Requests</h3>
+      <div class="column-top">
+        <p>Client</p>
+        <p>Pictures</p>
+        <p>Body part</p>
+        <p>Size</p>
+        <p>description</p>
+        <p>More info</p>
+      </div>
+      <div class="upcoming-bookings-list">
+        <% if current_user.bookings.unconfirmed.count == 0 %>
+          <span class="booking-card__no">Currently no unconfirmed bookings</span>
+        <% else %>
+          <% current_user.bookings.unconfirmed.each do |b| %>
+            <div class="confirmed-booking-details">
+              <p><%= b.request.name %></p>
+              <p><%= b.request.body_part %></p>
+              <p><%= b.request.size %>"</p>
+              <p><%= b.request.description %> </p>
+              <%= link_to " ☞ See More", user_bookings_path(current_user) %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
     <div class="messages-container">
       <h3><i class="fas fa-inbox"></i>  Inbox</h3>
