@@ -12,7 +12,7 @@ $gray: #9b9b9b;
 
 .form__field {
   font-family: inherit;
-  width: 175%;
+  width: 100%;
   border: 0;
   border-bottom: 2px solid $gray;
   outline: 0;
@@ -23,7 +23,7 @@ $gray: #9b9b9b;
   transition: border-color 0.2s;
 
   &::placeholder {
-    color: transparent;
+    color: white;
   }
 
   &:placeholder-shown ~ .form__label {
