@@ -34,8 +34,9 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
     authorize @request
     @request.update(accepted: true)
+    @chatroom = Chatroom.create(request: @request)
 
-    redirect_to user_requests_path(current_user)
+      redirect_to request_chatroom_path(@request, @chatroom)
   end
 
   def destroy

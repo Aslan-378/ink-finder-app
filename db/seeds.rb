@@ -10,6 +10,8 @@ require "open-uri"
 puts "Cleaning DB!"
 Quiz.destroy_all
 Booking.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
 Request.destroy_all
 Style.destroy_all
 User.destroy_all
