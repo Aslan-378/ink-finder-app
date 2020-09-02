@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< Updated upstream
 ActiveRecord::Schema.define(version: 2020_09_02_105610) do
-=======
-ActiveRecord::Schema.define(version: 2020_08_27_114638) do
->>>>>>> Stashed changes
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,16 +45,12 @@ ActiveRecord::Schema.define(version: 2020_08_27_114638) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
-<<<<<<< Updated upstream
     t.bigint "client_id"
     t.index ["client_id"], name: "index_bookings_on_client_id"
-=======
->>>>>>> Stashed changes
     t.index ["request_id"], name: "index_bookings_on_request_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-<<<<<<< Updated upstream
   create_table "chatrooms", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -77,8 +69,6 @@ ActiveRecord::Schema.define(version: 2020_08_27_114638) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-=======
->>>>>>> Stashed changes
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -88,7 +78,6 @@ ActiveRecord::Schema.define(version: 2020_08_27_114638) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
-<<<<<<< Updated upstream
   end
 
   create_table "galleries", force: :cascade do |t|
@@ -107,8 +96,6 @@ ActiveRecord::Schema.define(version: 2020_08_27_114638) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
-=======
->>>>>>> Stashed changes
   end
 
   create_table "quizzes", force: :cascade do |t|
@@ -135,11 +122,8 @@ ActiveRecord::Schema.define(version: 2020_08_27_114638) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "quiz_id"
-<<<<<<< Updated upstream
     t.bigint "client_id"
     t.index ["client_id"], name: "index_requests_on_client_id"
-=======
->>>>>>> Stashed changes
     t.index ["quiz_id"], name: "index_requests_on_quiz_id"
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
@@ -150,7 +134,6 @@ ActiveRecord::Schema.define(version: 2020_08_27_114638) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-<<<<<<< Updated upstream
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
@@ -160,8 +143,6 @@ ActiveRecord::Schema.define(version: 2020_08_27_114638) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-=======
->>>>>>> Stashed changes
   end
 
   create_table "users", force: :cascade do |t|
@@ -188,13 +169,10 @@ ActiveRecord::Schema.define(version: 2020_08_27_114638) do
     t.string "website"
     t.string "instagram"
     t.string "slug"
-<<<<<<< Updated upstream
     t.float "latitude"
     t.float "longitude"
     t.string "nickname"
     t.string "city"
-=======
->>>>>>> Stashed changes
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true
@@ -203,7 +181,6 @@ ActiveRecord::Schema.define(version: 2020_08_27_114638) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "requests"
   add_foreign_key "bookings", "users"
-<<<<<<< Updated upstream
   add_foreign_key "bookings", "users", column: "client_id"
   add_foreign_key "chatrooms", "requests"
   add_foreign_key "comments", "galleries"
@@ -211,8 +188,6 @@ ActiveRecord::Schema.define(version: 2020_08_27_114638) do
   add_foreign_key "galleries", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
-=======
->>>>>>> Stashed changes
   add_foreign_key "quizzes", "users"
   add_foreign_key "requests", "quizzes"
   add_foreign_key "requests", "users"
