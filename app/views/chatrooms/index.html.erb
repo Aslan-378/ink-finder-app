@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="user-chatrooms-container">
+        <% current_user.requests.each do |r| %>
+            <div class="chatroom-card">
+                <% if r.chatroom.present? %>
+                    <%= r.chatroom.name %>
+                    <span><%= r.chatroom.messages.last.content %></span>
+                <% else %>
+                <span>Sorry, No Messages currently active </span>
+            <% end %>
+            </div>
+        <% end %>
+    </div>
+</div>
