@@ -21,7 +21,7 @@
         <p>Client</p>
         <p>Date</p>
         <p>Price</p>
-        <p>Position</p>
+        <p>Body part</p>
         <p>Size</p>
         <p>More info</p>
       </div>
@@ -32,7 +32,11 @@
         <% else %>
           <% current_user.bookings.confirmed.each do |b| %>
             <div class="confirmed-booking-details">
-              <%= b.price %>
+              <p><%= b.request.name %></p>
+              <p>£<%= b.price %></p>
+              <p><%= b.date %></p>
+              <p><%= b.request.body_part %></p>
+              <p><%= b.request.size %></p>
               <%= link_to " ☞ See More", user_bookings_path(current_user) %>
             </div>
           <% end %>
