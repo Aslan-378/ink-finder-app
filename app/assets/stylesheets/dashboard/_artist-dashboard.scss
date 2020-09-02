@@ -52,7 +52,6 @@
 }
 
 .request-container {
-
 }
 
 .home-booking-messages-container {
@@ -61,8 +60,15 @@
 }
 
 .home-booking-container {
-    margin-left: 80px;
+
+    margin-top: 10px;
 }
+
+.home-messages-container {
+
+    margin-top: 10px;
+}
+
 
 .home-request-card {
     $this: &;
@@ -125,11 +131,16 @@
     }
 }
 
+.home-page__welcome {
+  margin-bottom: 27px;
+}
+
 //navbar
 
 .nav-margin {
   margin-right: 50px;
   margin-left: 30px;
 }
+
 
 
