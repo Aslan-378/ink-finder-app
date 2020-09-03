@@ -61,3 +61,7 @@ $gray: #9b9b9b;
 .form__field{
   &:required,&:invalid { box-shadow:none; }
 }
+
+.form-control {
+  background-color: black;
+}
