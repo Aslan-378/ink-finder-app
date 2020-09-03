@@ -144,6 +144,8 @@ img:nth-child(5) {
 
 
 .home-footer {
+  display: flex;
+  flex-direction: row;
   color: white;
   height: 200px;
   font-family: Nunito;
@@ -241,8 +243,7 @@ img:nth-child(5) {
 }
 
 .home-text {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-bottom: 10px;
   padding-left: 90px;
   padding-right: 44px;
   font-family: 'Montserrat', sans-serif;
