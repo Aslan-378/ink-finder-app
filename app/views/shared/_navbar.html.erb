@@ -9,6 +9,11 @@
     <div class="item"><span>
         <%= link_to "Home", root_path, class: "nav-link" %>
     </span></div>
+    <% if user_signed_in? %>
+      <div class="item"><span>
+          <%= link_to 'Dashboard', dashboard_path, class: "nav-link" %>
+      </span></div>
+      <% end %>
     <div class="item"><span>
       <%= link_to "Artists", users_path, class: "nav-link" %>
     </span></div>
@@ -23,10 +28,7 @@
       <%= link_to "Login", new_user_session_path, class: "nav-link" %>
     </span></div>
     <% end %>
-    <% if user_signed_in? %>
-      <div class="item"><span>
-          <%= link_to 'Dashboard', dashboard_path, class: "nav-link" %>
-      </span></div>
+      <% if user_signed_in? %>
       <div class="item"><span>
         <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
       </span></div>
