@@ -3,19 +3,19 @@
     flex-direction: row;
     height: 230px;
     width: 100%;
-    background-color: herit;
+    background-color: inherit;
     justify-content: space-evenly;
     margin: 20px 0 50px 0;
+    align-items: center;
 }
 
 .above-footer-card {
   padding: 20px 25px;
   width: 20%;
   height: 100%;
-  border: 1px solid grey;
   text-align: center;
   border-radius: 5px;
-  background-color: #3A3B3C;
+  background-color: black;
 
 }
 
