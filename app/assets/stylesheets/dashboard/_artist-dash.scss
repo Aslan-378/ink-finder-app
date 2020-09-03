@@ -64,7 +64,7 @@ h3 {
 
 .confirmed-booking-container {
         $this: &;
-  
+
         &__details {
           margin-bottom: 0px;
           display: flex;
@@ -92,6 +92,7 @@ h3 {
   width: 100%;
   display: grid;
   grid-template-rows: repeat(6, 1fr);
+  overflow: scroll;
 }
 
 .confirmed-booking-details {
@@ -105,7 +106,7 @@ h3 {
         &__name {
           display: flex;
           width: 100%;
-          justify-content: left;
+          justify-content: center;
         }
 
         &__detail {
@@ -126,6 +127,8 @@ h3 {
         &__image-container {
           width: 100%;
           height: 100%;
+          display: flex;
+          justify-content: center;
         }
 
         &__image {
@@ -133,16 +136,31 @@ h3 {
           height: 100%;
           crop: fit;
         }
+
+        &__descr {
+          display: flex;
+          justify-content: center;
+          text-align: center;
+        }
 }
+
+.confirmed-booking-container__name {
+  justify-content: center;
+}
+
 
 .confirmed-booking-details:hover {
   box-shadow: inset 0px 0px 109px -28px rgba(255,255,255,.8);
 }
 
+.confirmed-booking-details > p {
+  margin: 0px;
+  }
+
 .upcoming-bookings-container  {
       $this: &;
-      
-      
+
+
       &__details {
           margin-bottom: 0px;
           display: block;
@@ -208,4 +226,9 @@ h3 {
 
 .far.fa-plus-square:hover {
   color: black;
+}
+
+.confirmed-booking-details__image {
+  width: 60px;
+  text-align: center;
 }
