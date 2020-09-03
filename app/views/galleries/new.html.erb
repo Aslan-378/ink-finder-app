@@ -1,6 +1,8 @@
+<div class="container">
 <%= simple_form_for @gallery do |f| %>
- <%= f.file_field :photo %>
- <%= f.input :description %>
- <%= f.button :submit, value: "Share Your Photo!", id: "btn btn-submit" %>
-  <% end %>
+  <%= f.file_field :photo %>
+  <%= f.input :description %>
+  <%= f.button :submit, value: "Upload", id: "btn btn-submit", class: "btn btn-outline-light" %>
+<% end %>
+</div>
 
