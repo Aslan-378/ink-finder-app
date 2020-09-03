@@ -1,5 +1,4 @@
 export const tabs = () => {
-    console.log( 'running?' )
     const ACTIVE_CLASS = 'active';
 
     const tabsContainer = document.querySelector('.js-tabs');
@@ -9,8 +8,8 @@ export const tabs = () => {
 
       console.log(tabsContent)
       if ( !tabsContainer || !tabs ) {
-          return;
-      }
+        return;
+    }
 
       const addListeners = () => {
 

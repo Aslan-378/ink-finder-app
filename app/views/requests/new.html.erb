@@ -4,7 +4,13 @@
           <%= f.input :body_part, :wrapper_html=> { class: "form__group field" }, :input_html=> { class: "form__field" }, :label_html=> { class: "form__label"}%>
           <%= f.input :size, label: 'Size(inches)', :wrapper_html=> { class: "form__group field" }, :input_html=> { class: "form__field" }, :label_html=> { class: "form__label"}%>
           <%= f.input :description, :wrapper_html=> { class: "form__group field" }, :input_html=> { class: "form__field" }, :label_html=> { class: "form__label"}%>
-          <%= f.input :photos, as: :file, :wrapper_html=> { class: "request-form__input-container" }, input_html: { multiple: true, class: "request-form__input" }, :label_html=> { class: "request-form__label"} %>
-          <%= f.button :submit, class: "request-form__button request-form__button--submit" %>
+          
+          <label class="btn btn-outline-light form-button">
+                Upload Images
+                <span style="display:none;">
+                     <%= f.input :photos, as: :file, :wrapper_html=> { class: "request-form__input-container" }, input_html: { multiple: true, class: "request-form__input"}, :label_html=> { class: "request-form__label"} %>
+                </span>
+           </label>
+          <%= f.button :submit, class: "btn btn-outline-light" %>
       <% end %>
 

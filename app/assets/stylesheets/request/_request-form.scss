@@ -1,3 +1,11 @@
+.form-button {
+    font-size: 14px;
+    letter-spacing: 1px;
+    width: 160px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+
 .request-form {
     $this: &;
     max-width: 960px;
@@ -18,7 +26,8 @@
     }
 
     &__input-container {
-
+        width: 50%;
+        margin: 15px 0px 30px 0px;
     }
 
     &__label {
