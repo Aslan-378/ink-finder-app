@@ -1,13 +1,44 @@
 .above-footer {
     display: flex;
     flex-direction: row;
-    height: 300px;
+    height: 230px;
     width: 100%;
     background-color: herit;
+    justify-content: space-evenly;
+    margin: 20px 0 50px 0;
 }
 
-.home-card {
-  width: 33%;
-  height: 100%
+.above-footer-card {
+  padding: 20px 25px;
+  width: 20%;
+  height: 100%;
+  border: 1px solid grey;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #3A3B3C;
+
 }
 
+.above-footer-card > i {
+  font-size: 60px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px black;
+
+}
+
+h4 {
+  font-family: "Roboto";
+  margin-bottom: 20px;
+  text-shadow: 2px 2px black;
+}
+
+.above-footer-card > p {
+  font-family: "Roboto";
+  font-size: 16px;
+  margin-bottom: 0px;
+  text-shadow: 2px 2px black;
+}
+
+i {
+  font-size: 60px;
+}
