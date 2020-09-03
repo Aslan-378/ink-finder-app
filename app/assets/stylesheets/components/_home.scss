@@ -4,19 +4,28 @@
     height: 230px;
     width: 100%;
     background-color: inherit;
-    justify-content: space-evenly;
+    justify-content: center;
     margin: 20px 0 50px 0;
     align-items: center;
 }
 
 .above-footer-card {
-  padding: 20px 25px;
+  padding: 20px 10px;
+  margin: 0px 35px;
   width: 20%;
   height: 100%;
   text-align: center;
   border-radius: 5px;
   background-color: black;
 
+}
+
+.home-image {
+  margin-bottom: 20px;
+}
+
+.no-margin {
+  margin-bottom: 17px;
 }
 
 .above-footer-card > i {
@@ -40,5 +49,6 @@ h4 {
 }
 
 .above-footer-card > i {
-  font-size: 60px;
+  font-size: 30px;
+
 }
