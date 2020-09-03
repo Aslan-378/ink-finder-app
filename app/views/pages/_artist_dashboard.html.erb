@@ -124,7 +124,11 @@
               <% if @chatrooms.present? %>
                   <%= link_to request_chatroom_path(chatroom, chatroom.id), class: "message-card" do %>
                       <span class="message-card__name"><%= chatroom.name %></span>
-                      <span class="message-card__content"><%= chatroom.messages.last %></span>
+                      <% if chatroom.messages.last.nil? %>
+                        <span class="message-card__content">No messages</span>
+                      <% else %>
+                        <span class="message-card__content"><%= chatroom.messages.last.content %></span>
+                      <% end %>
                   <% end %>
               <% end %>
           <% end %>
