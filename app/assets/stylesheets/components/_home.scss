@@ -1,5 +1,12 @@
-.empty-space {
+.above-footer {
+    display: flex;
+    flex-direction: row;
     height: 300px;
     width: 100%;
-    background-color: inherit;
+    background-color: herit;
+}
+
+.home-card {
+  width: 33%;
+  height: 100%
 }
