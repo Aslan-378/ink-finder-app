@@ -1,3 +1,7 @@
+.message_content {
+    margin-bottom: 0px;
+}
+
 .user-chatroom-container {
     display: flex;
     flex-direction: column;
@@ -31,7 +35,7 @@
     display: flex;
     flex-direction: column;
     box-shadow: inset 0px 0px 109px -28px rgba(255,255,255,.7);
-    border-radius: 5px;
+    border-radius: 2px;
     margin: 14px 0px; 
     text-decoration: none!important;
 
@@ -40,10 +44,48 @@
         margin-bottom: 10px;
     }
 
+    &__send-button {
+        padding: 9px 15px 10px 15px;
+        border: 1px solid white;
+        background-color: inherit;
+        display: flex;
+        font-size: 18px;
+        color: white;
+        align-items: center;
+        border-radius: 0px 2px 2px 0px;
+    }
+
     &__name {
         font-weight: bold;
         font-size: 18px;
         color: darkgrey;
+    }
+
+    &__send-cont {
+        width: 100%;
+        display: flex;
+    }
+
+    &__input {
+        display: flex;
+        align-items: center;
+        margin: 10px 0px;
+        width: 550px;
+        border-radius: 2px 0px 0px 2px;
+    }
+
+    &__send-text {
+        display: flex;
+        width: 550px;
+    }
+
+    &__send-submit {
+        display: flex;
+        align-items: center;
+    }
+
+    &__button-submit {
+        width: 25%;
     }
 
     &__content {
@@ -53,7 +95,7 @@
     }
 
     &__form {
-        width: 80%;
+        width: 90%;
     }
 
     &__buttons {
@@ -85,6 +127,11 @@
         display: flex;
         justify-content: center;
         width: 120px;
+    }
+
+    &__submit-button {
+        width: 100px;
+        font-size: 12px;
     }
 
 }

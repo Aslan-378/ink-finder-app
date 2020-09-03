@@ -12,7 +12,16 @@
         <% end %>
     </div>
     <%= simple_form_for [ @chatroom, @message ], remote: true, :html=> {  class: "messages-card__form" } do |f| %>
-        <%= f.input :content, label: false, placeholder: "Message..", :input_html=> { class: "messages-card__input" } %>
+        <div class="messages-card__send-cont">
+            <div class="messages-card__send-text">
+                <%= f.input :content, label: false, placeholder: "Message...", :input_html=> { class: "messages-card__input" } %>
+            </div>
+            <div class="messages-card__send-submit">
+                <%= button_tag type: "submit", class: "messages-card__send-button"  do %>
+                    <i class="fa fa-paper-plane"></i>
+                <% end %>
+            </div>
+        </div>
     <% end %>
 </div>
 <div class="messages-card__buttons">
