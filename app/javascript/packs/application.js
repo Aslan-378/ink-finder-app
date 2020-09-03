@@ -19,7 +19,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { next } from '../components/quiz-card';
 import { tabs } from '../components/request-booking-tab';
 import { initChatroomCable } from '../channels/chatroom_channel';
-
+import { messageScroll } from "../components/message-scroll";
 // import {gallery} from "../components/gallery";
 
 document.addEventListener('turbolinks:load', () => {
@@ -27,6 +27,7 @@ document.addEventListener('turbolinks:load', () => {
   tabs();
   // gallery();
   initChatroomCable();
+  messageScroll();
 
 })
 

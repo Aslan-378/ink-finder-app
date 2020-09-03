@@ -3,7 +3,12 @@
     <h1 class="user-form__title">Edit Profile</h1>
     <% if current_user.artist %>
       <%= simple_form_for @user, :html=> { class: "user-form__form" } do |f| %>
-          <%= f.input :avatar, as: :file, :wrapper_html=> { class: "user-form__input-container" }, input_html: { class: "user-form__input" }, :label_html=> { class: "user-form__label"} %>
+          <label class="btn btn-outline-light form-button">
+              Upload Avatar
+              <span style="display:none;">
+                  <%= f.input :avatar, as: :file, :wrapper_html=> { class: "user-form__input-container" }, input_html: { class: "user-form__input" }, :label_html=> { class: "user-form__label"} %>
+              </span>
+          </label>
           <%= f.input :instagram, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
           <%= f.input :nickname, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
           <%= f.input :first_name, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
@@ -20,7 +25,12 @@
           <%= f.input :facebook, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
           <%= f.input :shop, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
           <%= f.input :website, :wrapper_html=> { class: "user-form__input-container" }, :input_html=> { class: "user-form__input" }, :label_html=> { class: "user-form__label"}%>
-          <%= f.input :photos, as: :file, :wrapper_html=> { class: "user-form__input-container" }, input_html: { multiple: true, class: "user-form__input" }, :label_html=> { class: "user-form__label"} %>
+          <label class="btn btn-outline-light form-button">
+              Upload Images
+              <span style="display:none;">
+                  <%= f.input :photos, as: :file, :wrapper_html=> { class: "user-form__input-container" }, input_html: { multiple: true, class: "user-form__input" }, :label_html=> { class: "user-form__label"} %>
+              </span>
+          </label>          
           <%= f.button :submit, class: "user-form__button user-form__button--submit" %>
       <% end %>
     <% else %>
