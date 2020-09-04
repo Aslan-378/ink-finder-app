@@ -9,7 +9,7 @@ class GalleriesController < ApplicationController
     authorize @gallery
     @gallery.user = current_user
     if @gallery.save
-      redirect_to @gallery
+      redirect_to galleries_path
     else
       render :new
     end
