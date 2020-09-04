@@ -1,12 +1,12 @@
 
 <% if current_user.artist %>
     <div class="container">
-    
+
         <div class="user-chatrooms-container">
             <% if @chatrooms.any? %>
                 <span class="chatroom-card__title">Messages</span>
                 <% @chatrooms.each do |chatroom| %>
-                  <%= link_to request_chatroom_path(chatroom.request, chatroom), class: "chatroom-card" do %> 
+                  <%= link_to request_chatroom_path(chatroom.request, chatroom), class: "chatroom-card" do %>
                         <% if chatroom.request.client.avatar.present? %>
                             <%= cl_image_tag chatroom.request.client.avatar.key, class: "home-page__avatar"%>
                         <% else %>
@@ -14,7 +14,11 @@
                         <% end %>
                         <div class="chatroom-card__content-container">
                             <span class="chatroom-card__name"><%= chatroom.name %></span>
-                            <span class="chatroom-card__content"><%= chatroom.messages.last.content %></span>
+                            <% if chatroom.messages.last.nil? %>
+                              <span class="message-card__content">No messages</span>
+                            <% else %>
+                              <span class="message-card__content"><%= chatroom.messages.last.content %></span>
+                            <% end %>
                         </div>
                   <% end %>
                 <% end %>
@@ -30,7 +34,7 @@
             <% if @chatrooms.any? %>
                 <span class="chatroom-card__title">Messages</span>
                 <% @chatrooms.each do |chatroom| %>
-                  <%= link_to request_chatroom_path(chatroom.request, chatroom), class: "chatroom-card" do %> 
+                  <%= link_to request_chatroom_path(chatroom.request, chatroom), class: "chatroom-card" do %>
                         <% if chatroom.request.user.avatar.present? %>
                             <%= cl_image_tag chatroom.request.user.avatar.key, class: "home-page__avatar"%>
                         <% else %>
@@ -38,7 +42,11 @@
                         <% end %>
                         <div class="chatroom-card__content-container">
                             <span class="chatroom-card__name"><%= chatroom.name %></span>
-                            <span class="chatroom-card__content"><%= chatroom.messages.last.content %></span>
+                            <% if chatroom.messages.last.nil? %>
+                              <span class="message-card__content">No messages</span>
+                            <% else %>
+                              <span class="message-card__content"><%= chatroom.messages.last.content %></span>
+                            <% end %>
                         </div>
                   <% end %>
                 <% end %>
