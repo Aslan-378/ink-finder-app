@@ -15,6 +15,7 @@
 
 .artist-portfolio > img {
   height: 300px;
+  width: 300px;
   border-radius: 5px;
   border: 1px solid grey;
 }
@@ -42,6 +43,7 @@
 
 .artist-main > h2 {
   font-size: 50px;
+  text-align: center;
 }
 
 .artist-details {
@@ -63,10 +65,6 @@
   border-radius: 5px;
   overflow: hidden;
   position: relative;
-}
-
-.details:hover {
-  opacity: 0.7;
 }
 
 .details > p {
